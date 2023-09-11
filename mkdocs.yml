@@ -4,7 +4,7 @@ site_author: 老罗
 site_description: 【微信公众号：老罗投资 | 专注于股权投资 全网同名】/ 知行合一 日拱一卒 投资人生
 
 # Repository
-repo_name: laoluotouzi/laoluotouzi.github.io
+repo_name: laoluotouzi
 repo_url: https://github.com/laoluotouzi/laoluotouzi.github.io
 edit_uri: https://github.com/laoluotouzi/laoluotouzi.github.io/tree/main/docs/
 
@@ -14,6 +14,43 @@ copyright: Copyright &copy; 2023 LaoLuoTouZi
 # Theme
 theme:
   name: material
+  custom_dir: site/overrides
+  language: zh
+  features:
+    - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - content.tooltips
+    - navigation.indexes
+    - navigation.instant
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+  palette:
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    - scheme: slate
+      primary: grey
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+  font:
+    text: Noto Sans SC
+    code: Fira Code
+  favicon: assets/images/favicon.png
+  #logo: assets/images/logo.png
+  icon:
+    logo: logo
+    repo: fontawesome/brands/github
+    edit: material/file-edit-outline
 
 # Markdown扩展
 markdown_extensions:
