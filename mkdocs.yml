@@ -14,7 +14,7 @@ copyright: Copyright &copy; 2023 LaoLuoTouZi
 # Theme
 theme:
   name: material
-  #custom_dir: site/overrides
+  custom_dir: overrides
   language: zh
   features:
     - content.action.edit
