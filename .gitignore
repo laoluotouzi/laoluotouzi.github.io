@@ -131,3 +131,4 @@ dist
 
 # custom
 .idea/
+.DS_Store
