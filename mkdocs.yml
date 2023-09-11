@@ -25,7 +25,6 @@ theme:
     - navigation.indexes
     - navigation.instant
     - navigation.top
-    - navigation.footer
     - navigation.tracking
     - search.highlight
     - search.share
