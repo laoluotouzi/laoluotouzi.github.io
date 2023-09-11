@@ -4,7 +4,7 @@ site_author: 老罗
 site_description: 【微信公众号：老罗投资 | 专注于股权投资 全网同名】/ 知行合一 日拱一卒 投资人生
 
 # Repository
-repo_name: laoluotouzi
+repo_name: laoluotouzi/laoluotouzi.github.io
 repo_url: https://github.com/laoluotouzi/laoluotouzi.github.io
 edit_uri: https://github.com/laoluotouzi/laoluotouzi.github.io/tree/main/docs/
 
@@ -52,29 +52,45 @@ theme:
     repo: fontawesome/brands/github
     edit: material/file-edit-outline
 
+# Plugins
+plugins:
+  - search
+
 # Markdown扩展
 markdown_extensions:
+  - abbr
   - admonition
-  - codehilite:
-      guess_lang: false
-      linenums: false
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
   - toc:
       permalink: true
-  - footnotes
-  - meta
-  - def_list
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
-  - pymdownx.critic
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_png
+  - pymdownx.highlight:
+      anchor_linenums: true
   - pymdownx.inlinehilite
-  - pymdownx.magiclink
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
+
+# Page tree
+nav:
+  - 老罗实盘周记:
+      - weekly_record/2023/20230915.md
+      - weekly_record/2023/20230909.md
+  - 老罗基金估值:
+      - index_fund/2023/20230914.md
+      - index_fund/2023/20230911.md
