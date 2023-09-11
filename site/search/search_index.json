@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"\u8001\u7f57\u6295\u8d44","text":"<p>\u4eba\u751f\u8fd9\u4e48\u77ed\u6682\uff0c\u603b\u5f97\u505a\u70b9\u4ec0\u4e48\u5427\uff1f</p>"}]}
+{"config":{"lang":["en"],"separator":"[\\s\\u200b\\u3000\\-\u3001\u3002\uff0c\uff0e\uff1f\uff01\uff1b]+","pipeline":["stemmer"]},"docs":[{"location":"","title":"\u8001\u7f57\u6295\u8d44","text":"<p>\u4eba\u751f\u8fd9\u4e48\u77ed\u6682\uff0c\u603b\u5f97\u505a\u70b9\u4ec0\u4e48\u5427\uff1f</p>"}]}
