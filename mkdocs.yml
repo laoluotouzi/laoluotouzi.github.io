@@ -2,7 +2,7 @@ site_name: 老罗投资
 site_url: https://laoluotouzi.github.io/
 site_author: 老罗
 site_description: 【微信公众号：老罗投资 | 专注于股权投资 全网同名】/ 知行合一 日拱一卒 投资人生
-docs_dir: build
+docs_dir: site
 
 # Repository
 repo_name: laoluotouzi/laoluotouzi.github.io
