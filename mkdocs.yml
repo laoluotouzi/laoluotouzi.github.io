@@ -87,9 +87,9 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - 老罗实盘周记:
+  - 实盘周记:
       - weekly_record/2023/20230915.md
       - weekly_record/2023/20230909.md
-  - 老罗基金估值:
+  - 基金估值:
       - index_fund/2023/20230914.md
       - index_fund/2023/20230911.md
