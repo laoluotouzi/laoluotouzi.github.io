@@ -48,39 +48,39 @@
 
     {# description #}
     {% if page.meta and page.meta.description %}
-    <p class="page-description">
-        {{ page.meta.description }}
-    </p>
+        <p class="page-description">
+            {{ page.meta.description }}
+        </p>
     {% endif %}
 
     {% if page.markdown == '' and page.parent.children %}
-
+        
     {% else %}
-    <div class="page-extra row">
-        <div class="col">
+        <div class="page-extra row">
+            <div class="col">
             {% if page.meta and page.meta.tags %}
-            <p class="page-tags">
-                {% for tag in page.meta.tags %}
-                <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                <p class="page-tags">
+                    {% for tag in page.meta.tags %}
+                        <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
                             <span class="tag-name">
                                 #{{ tag }} &nbsp;
                             </span>
-                </a>
-                {% endfor %}
-            </p>
+                        </a>
+                    {% endfor %}
+                </p>
             {% endif %}
-
-        </div>
-        <div class="col">
-            <p class="page-date">
+            
+            </div>
+            <div class="col">
+                <p class="page-date">
                     <span>
                     {% if page.meta.git_revision_date_localized_raw_iso_date %}
                         {{ lang.t("source.file.date.updated") }}:
                         {{ page.meta.git_revision_date_localized_raw_iso_date }}
                     {% endif %}
                     </span>
-            </p>
+                </p>
+            </div>
         </div>
-    </div>
     {% endif %}
 </div>
