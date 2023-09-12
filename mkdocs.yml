@@ -17,39 +17,48 @@ theme:
   custom_dir: overrides
   language: zh
   features:
-    - content.action.edit
-    - content.code.annotate
-    - content.code.copy
-    - content.tabs.link
-    - content.tooltips
-    - navigation.indexes
-    - navigation.instant
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
-    - toc.follow
+    # Navigation
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    # - navigation.instant # some features may not work properly with XHR
+    - navigation.tracking # the URL changes with the active anchor
+    - navigation.tabs # first top-level folders are shown as tabs
+    # - navigation.tabs.sticky # tabs always show
+    # - navigation.sections # second-level folders are expanded
+    # - navigation.expand # all folders are expanded
+    - navigation.indexes # link an index page to its parent folder
+    - navigation.top # show the back-to-top button
+    # - toc.integrate # show the table of contents in the navigation panel
+
+    # Search
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search
+    - search.suggest # display the likeliest completion for the last word
+    - search.highlight # highlight all occurrences
+    - search.share # show a share button of the current search
+
+    # Header
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-the-header/
+    # - header.autohide # hide the post title when scroll down
+
+    # Content
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
+    - content.code.annotate # add comment to code blocks
+    - content.tabs.link # link tabs with the same label
   palette:
     - scheme: default
       primary: white
-      toggle:
-        icon: material/theme-light-dark
-        name: Switch to dark mode
-    - scheme: slate
-      primary: grey
-      toggle:
-        icon: material/theme-light-dark
-        name: Switch to light mode
   font:
     text: Noto Sans SC
     code: Fira Code
   favicon: assets/images/favicon.png
-  #logo: assets/images/logo.png
+  logo: assets/images/logo.png
   icon:
     logo: logo
     repo: fontawesome/brands/github
     edit: material/file-edit-outline
+  extra:
+    social:
+      - type: 'github'
+        link: 'https://github.com/laoluotouzi'
 
 # Plugins
 plugins:

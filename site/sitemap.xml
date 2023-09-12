@@ -6,17 +6,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://laoluotouzi.github.io/index_fund/</loc>
+         <lastmod>2023-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://laoluotouzi.github.io/index_fund/2023/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://laoluotouzi.github.io/index_fund/2023/20230911/</loc>
+         <loc>https://laoluotouzi.github.io/index_fund/2023/details/20230911/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://laoluotouzi.github.io/index_fund/2023/20230914/</loc>
+         <loc>https://laoluotouzi.github.io/index_fund/2023/details/20230914/</loc>
+         <lastmod>2023-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://laoluotouzi.github.io/weekly_record/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -31,12 +41,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://laoluotouzi.github.io/weekly_record/2023/20230909/</loc>
+         <loc>https://laoluotouzi.github.io/weekly_record/2023/details/20230909/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://laoluotouzi.github.io/weekly_record/2023/20230915/</loc>
+         <loc>https://laoluotouzi.github.io/weekly_record/2023/details/20230915/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
