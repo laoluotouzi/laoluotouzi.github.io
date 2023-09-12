@@ -1,11 +1,9 @@
 site_name: 老罗投资
-site_url: https://www.codeinsideout.com/ # must have the trailing slash
-site_author: Vũ Quang Trọng (vuquangtrong@gmail.com)
-site_description: Guides, notes and useful stuff for learning embedded systems.
+site_url: https://laoluotouzi.github.io/
+site_author: 老罗
+site_description: 描述还没写
 copyright: >
-  &copy; 2023 老罗投资<br>
-  <a href="https://github.com/vuquangtrong/mkdocs-material-blog">Blog Theme</a> /
-  <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a>
+  &copy; 2023 老罗投资
 
 theme:
   name: material
