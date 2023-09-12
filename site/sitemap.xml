@@ -11,6 +11,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://www.codeinsideout.com/blog/%E5%9F%BA%E9%87%91%E4%BC%B0%E5%80%BC/</loc>
+         <lastmod>2023-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://www.codeinsideout.com/blog/%E5%AE%9E%E7%9B%98%E5%91%A8%E8%AE%B0/</loc>
+         <lastmod>2023-09-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://www.codeinsideout.com/tags/</loc>
          <lastmod>2023-09-12</lastmod>
          <changefreq>daily</changefreq>
