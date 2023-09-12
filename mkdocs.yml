@@ -88,8 +88,9 @@ markdown_extensions:
 # Page tree
 nav:
   - 实盘周记:
-      - weekly_record/2023/20230915.md
-      - weekly_record/2023/20230909.md
+      - weekly_record/index.md
+      - weekly_record/2023/index.md
+      - weekly_record/2022/index.md
   - 基金估值:
-      - index_fund/2023/20230914.md
-      - index_fund/2023/20230911.md
+      - index_fund/index.md
+      - index_fund/2023/index.md
