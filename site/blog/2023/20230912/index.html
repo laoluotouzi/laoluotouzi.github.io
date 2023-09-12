@@ -319,6 +319,63 @@
         
       
     
+      
+        
+        
+        
+        
+          
+          
+        
+        
+        
+          
+        
+      
+    
+  
+
+  
+    
+    
+      
+        
+        
+        
+        
+          
+          
+            
+            
+            
+          
+        
+          
+          
+        
+        
+        
+      
+    
+      
+        
+        
+        
+        
+          
+          
+        
+          
+          
+            
+            
+            
+          
+        
+        
+        
+      
+    
   
 
   
@@ -349,10 +406,25 @@
                     
                         
                     
-                        font-size:0.55rem;
+                        font-size:0.6rem;
                     
                     color:DarkGoldenrod;
                 ">实盘周记&nbsp;
+                </span>
+            </a>
+        
+            
+            
+            
+            <a class="tag" href="https://www.codeinsideout.com/tags/#2023年">
+                <span class="tag-name" style="
+                    
+                        
+                    
+                        font-size:0.6rem;
+                    
+                    color:DarkGreen;
+                ">2023年&nbsp;
                 </span>
             </a>
         
@@ -430,6 +502,12 @@
                             </span>
                         </a>
                     
+                        <a class="tag" href="https://www.codeinsideout.com/tags/#2023年">
+                            <span class="tag-name">
+                                #2023年 &nbsp;
+                            </span>
+                        </a>
+                    
                 </p>
             
             
@@ -504,43 +582,37 @@
 
     
     <p>随便写写</p>
+<p>123123</p>
 
 
 
     
-    <!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+    
 
 
 
-<!-- Inject Disqus into current page -->
+<h2 id="__comments">Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = "https://www.codeinsideout.com/blog/2023/20230912/"
+        this.page.identifier =
+            "blog/2023/20230912/"
+    }
 
-    <h2 id="__comments">Comments</h2>
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = "https://www.codeinsideout.com/blog/2023/20230912/"
-            this.page.identifier =
-                "blog/2023/20230912/"
-        }
-
-        /* Set up for the first time */
-        if (typeof DISQUS === "undefined") {
-            var script = document.createElement("script")
-            script.async = true
-            script.src = "https://laoluotouzi-github-io.disqus.com/embed.js"
-            script.setAttribute("data-timestamp", Date.now())
-
-            /* Inject script tag */
-            document.body.appendChild(script)
-
-        /* Set up on navigation (instant loading) */
-        } else {
-            DISQUS.reset({
-                reload: true,
-                config: disqus_config
-            })
-        }
-    </script>
+    if (typeof DISQUS === "undefined") {
+        var script = document.createElement("script")
+        script.async = true
+        script.src = "https://laoluotouzi-github-io.disqus.com/embed.js"
+        script.setAttribute("data-timestamp", Date.now())
+        document.body.appendChild(script)
+    } else {
+        DISQUS.reset({
+            reload: true,
+            config: disqus_config
+        })
+    }
+</script>
 
 
 

@@ -1,9 +1,6 @@
 {% from "partials/colors.html" import color %}
 
-{# title #}
-{% if not "\x3ch1" in page.content %}
-<h1>{{ page.title | d(config.site_name, true) }}</h1>
-{% endif %}
+<h1>最新博文</h1>
 
 {# description #}
 {% if page.meta and page.meta.description %}
@@ -168,17 +165,17 @@ reverse=True
     }
 </style>
 
-<div class="center">
-    <div class="pagination" id="pagination-top">
-        {% for pg_group in blog_pages|slice(page_num) %}
-        <a class="page-number {% if loop.index==1 %}active{% endif%}" href="#page{{ loop.index }}">
-            {{ loop.index }}
-        </a>
-        {% endfor %}
-    </div>
-</div>
+<!--<div class="center">-->
+<!--    <div class="pagination" id="pagination-top">-->
+<!--        {% for pg_group in blog_pages|slice(page_num) %}-->
+<!--        <a class="page-number {% if loop.index==1 %}active{% endif%}" href="#page{{ loop.index }}">-->
+<!--            {{ loop.index }}-->
+<!--        </a>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+<!--</div>-->
 
-<hr>
+<!--<hr>-->
 
 {# pagination #}
 <div class="pages">
