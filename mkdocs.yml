@@ -93,13 +93,3 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-# Page tree
-nav:
-  - 实盘周记:
-      - weekly_record/index.md
-      - weekly_record/2023/index.md
-      - weekly_record/2022/index.md
-  - 基金估值:
-      - index_fund/index.md
-      - index_fund/2023/index.md
