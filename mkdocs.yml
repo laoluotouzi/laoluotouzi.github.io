@@ -105,7 +105,7 @@ extra:
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
       make our documentation better.
-  disqus: "vuquangtrong-github-io"
+  disqus: "laoluotouzi-github-io"
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/laoluotouzi
@@ -121,3 +121,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - assets/view-bigimg.js
   - assets/extra.js
+
+nav:
+  - index.md
+  - tags/index.md

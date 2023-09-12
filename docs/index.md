@@ -1,9 +1,8 @@
 ---
-title: 老罗投资
-description: ""
+title: 首页
+description: 
+template: blog.html
 disqus: ""
-hide:
-    - navigation
 ---
 
 <style>
