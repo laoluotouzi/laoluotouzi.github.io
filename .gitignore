@@ -132,3 +132,4 @@ dist
 # custom
 .idea/
 .DS_Store
+!/site/sitemap.xml.gz
