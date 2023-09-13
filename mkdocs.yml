@@ -1,4 +1,4 @@
-site_name: 老罗投资
+site_name: 老罗投资日记
 site_url: https://laoluotouzi.github.io/
 site_author: 老罗
 site_description: 描述还没写
@@ -17,6 +17,7 @@ theme:
   icon:
     logo: fontawesome/solid/code
   favicon: favicon.png
+  logo: favicon.png
   features:
     - navigation.tracking
     - navigation.tabs
