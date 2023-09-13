@@ -1,12 +1,10 @@
 {% from "partials/colors.html" import color %}
 
-<h1>最新博文</h1>
+<h1>最新文章</h1>
 
 {# description #}
 {% if page.meta and page.meta.description %}
-<p>
-    {{ page.meta.description }}
-</p>
+<p>{{ page.meta.description }}</p>
 {% endif %}
 
 <hr>
@@ -164,18 +162,6 @@ reverse=True
         background-color: #ddd;
     }
 </style>
-
-<!--<div class="center">-->
-<!--    <div class="pagination" id="pagination-top">-->
-<!--        {% for pg_group in blog_pages|slice(page_num) %}-->
-<!--        <a class="page-number {% if loop.index==1 %}active{% endif%}" href="#page{{ loop.index }}">-->
-<!--            {{ loop.index }}-->
-<!--        </a>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--<hr>-->
 
 {# pagination #}
 <div class="pages">

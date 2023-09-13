@@ -22,9 +22,9 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - navigation.top
-    #- search.suggest
-    #- search.highlight
-    #- search.share
+    # - search.suggest
+    # - search.highlight
+    # - search.share
     - content.code.annotate
     - content.tabs.link
 
