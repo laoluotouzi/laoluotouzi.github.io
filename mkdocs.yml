@@ -123,3 +123,4 @@ extra_javascript:
 nav:
   - index.md
   - tags/index.md
+  - about/index.md
