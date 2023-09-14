@@ -21,6 +21,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material markdown_captions mkdocs-awesome-pages-plugin
-      - run: mkdocs build -c
+      - run: pip install mkdocs-material markdown_captions mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin
       - run: mkdocs gh-deploy --force
