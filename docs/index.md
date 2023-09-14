@@ -18,15 +18,3 @@ hide:
         color: navy;
     }
 </style>
-
-::: row
-
-    ::: col
-
-        ## :material-book: Blog
-
-        人生这么短，总得做点什么。
-
-        [Read news](blog/){.md-button}
-
-    ::: col
