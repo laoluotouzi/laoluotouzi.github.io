@@ -1,6 +1,6 @@
 #!/bin/bash
 
-date_time=$(date -d now)
+date_time=$(date)
 
 mkdocs build -c
 
