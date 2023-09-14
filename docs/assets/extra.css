@@ -640,9 +640,21 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     display: none;
 }
 
+/* custom */
+.md-content .md-typeset {
+    font-size:18px;
+}
+
 .md-content figure img {
     border: 1px solid #d3d3d3;
     padding: 8px;
+}
+
+.md-content .smile_curve_notice {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
 @page {
