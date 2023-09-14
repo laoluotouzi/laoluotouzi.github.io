@@ -640,6 +640,11 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     display: none;
 }
 
+.md-content figure img {
+    border: 1px solid #d3d3d3;
+    padding: 8px;
+}
+
 @page {
     size: a4 portrait;
     margin: 20mm 20mm 15mm 20mm;
