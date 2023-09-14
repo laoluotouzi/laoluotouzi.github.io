@@ -45,16 +45,7 @@
 
     {# title #}
     <h1 class="page-title"> {{ page_title | d(config.site_name, true) }} </h1>
-
-    {# description #}
-    {% if page.meta and page.meta.description %}
-        <p class="page-description">
-            {{ page.meta.description }}
-        </p>
-    {% endif %}
-
     {% if page.markdown == '' and page.parent.children %}
-        
     {% else %}
         <div class="page-extra row">
             <div class="col">

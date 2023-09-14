@@ -28,6 +28,7 @@ theme:
     - content.tabs.link
 
 plugins:
+  - search:
   - awesome-pages:
   - git-revision-date-localized:
         enable_creation_date: true
