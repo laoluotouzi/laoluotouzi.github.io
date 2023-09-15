@@ -1,6 +1,6 @@
 ---
 title: 标签
-description: Tags and list of pages
+description: 标签列表
 template: tags.html
 hide:
     - navigation

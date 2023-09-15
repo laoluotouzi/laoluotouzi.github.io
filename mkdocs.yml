@@ -10,7 +10,7 @@ theme:
   custom_dir: overrides
   language: zh
   palette:
-    primary: white
+    # primary: white
     accent: deep orange
   font:
     text: Noto Serif
@@ -109,5 +109,5 @@ extra_javascript:
 
 nav:
   - index.md
-  - tags/index.md
+  - tags/cloud.md
   - about/index.md
