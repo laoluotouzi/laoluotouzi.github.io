@@ -5,4 +5,3 @@ template: tags.html
 hide:
     - navigation
 ---
-

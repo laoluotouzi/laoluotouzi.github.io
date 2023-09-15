@@ -656,54 +656,108 @@
 
 
 
+
+
+
+
+<style>
+    .md-typeset .tag summary::before {
+        height: 1rem;
+        width: 1rem;
+        margin-top: 0.25em;
+    }
+</style>
 <div class="tag-page-list">
     
     
-    <ol>
-        
-        <li>
-            <a href="https://laoluotouzi.github.io/about/">关于老罗</a>
-        </li>
-        
-    </ol>
+    <details class="tag" id=关于老罗>
+        <summary>关于老罗 (1)
+            <a class="headerlink" href="#关于老罗">⚓︎</a>
+        </summary>
+        <ol>
+            
+            <li>
+                <a href="https://laoluotouzi.github.io/about/">关于老罗</a>
+            </li>
+            
+        </ol>
+    </details>
     
     
-    <ol>
-        
-        <li>
-            <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
-        </li>
-        
-    </ol>
+    <details class="tag" id=基金估值>
+        <summary>基金估值 (1)
+            <a class="headerlink" href="#基金估值">⚓︎</a>
+        </summary>
+        <ol>
+            
+            <li>
+                <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
+            </li>
+            
+        </ol>
+    </details>
     
     
-    <ol>
-        
-        <li>
-            <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
-        </li>
-        
-    </ol>
+    <details class="tag" id=2023年9月>
+        <summary>2023年9月 (1)
+            <a class="headerlink" href="#2023年9月">⚓︎</a>
+        </summary>
+        <ol>
+            
+            <li>
+                <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
+            </li>
+            
+        </ol>
+    </details>
     
     
-    <ol>
-        
-        <li>
-            <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
-        </li>
-        
-    </ol>
+    <details class="tag" id=2023年>
+        <summary>2023年 (1)
+            <a class="headerlink" href="#2023年">⚓︎</a>
+        </summary>
+        <ol>
+            
+            <li>
+                <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
+            </li>
+            
+        </ol>
+    </details>
     
     
-    <ol>
-        
-        <li>
-            <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
-        </li>
-        
-    </ol>
+    <details class="tag" id=9月>
+        <summary>9月 (1)
+            <a class="headerlink" href="#9月">⚓︎</a>
+        </summary>
+        <ol>
+            
+            <li>
+                <a href="https://laoluotouzi.github.io/blog/2023/09/20230914/">老罗基金估值-20230914-今年第二次降准</a>
+            </li>
+            
+        </ol>
+    </details>
     
 </div>
+
+<!-- expand page list for only selected tag -->
+<script>
+    [...document.getElementsByTagName("details")].forEach((D, _, A) => {
+            D.open = false
+            D.addEventListener("toggle", E =>
+                D.open && A.forEach(d =>
+                d != E.target && (d.open = false)
+                )
+            )
+        }
+    )
+
+    var hash = window.location.hash.substr(1);
+    if (hash) {
+        document.getElementById(hash).open = true;
+    }
+</script>
     </div>
 
               </article>
