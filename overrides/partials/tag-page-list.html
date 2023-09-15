@@ -29,51 +29,21 @@
 {% endif %}
 {% endfor %}
 
-<style>
-    .md-typeset .tag summary::before {
-        height: 1rem;
-        width: 1rem;
-        margin-top: 0.25em;
-    }
-</style>
 <div class="tag-page-list">
     {% for item in tags %}
     {% set tag, ps = item %}
-    <details class="tag" id={{ tag }}>
-        <summary>
-            {{- tag }} ({{- ps|count -}})
-            <a class="headerlink" href="#{{ tag }}">⚓︎</a>
-        </summary>
-        <ol>
-            {% for p in ps %}
-            <li>
-                <a href="{{ p.canonical_url }}">
-                    {%- if p.meta and p.meta.title -%}
-                    {{- p.meta.title -}}
-                    {%- else -%}
-                    {{- p.title -}}
-                    {%- endif -%}
-                </a>
-            </li>
-            {% endfor %}
-        </ol>
-    </details>
+    <ol>
+        {% for p in ps %}
+        <li>
+            <a href="{{ p.canonical_url }}">
+                {%- if p.meta and p.meta.title -%}
+                {{- p.meta.title -}}
+                {%- else -%}
+                {{- p.title -}}
+                {%- endif -%}
+            </a>
+        </li>
+        {% endfor %}
+    </ol>
     {% endfor %}
 </div>
-
-<script>
-    [...document.getElementsByTagName("details")].forEach((D, _, A) => {
-            D.open = false
-            D.addEventListener("toggle", E =>
-                D.open && A.forEach(d =>
-                d != E.target && (d.open = false)
-                )
-            )
-        }
-    )
-
-    var hash = window.location.hash.substr(1);
-    if (hash) {
-        document.getElementById(hash).open = true;
-    }
-</script>

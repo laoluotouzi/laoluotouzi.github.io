@@ -657,6 +657,10 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     margin-bottom: 30px;
 }
 
+[dir=ltr] .md-header__title {
+    margin-left:2px;
+}
+
 @page {
     size: a4 portrait;
     margin: 20mm 20mm 15mm 20mm;

@@ -64,12 +64,7 @@
             </div>
             <div class="col">
                 <p class="page-date">
-                    <span>
-                    {% if page.meta.git_revision_date_localized_raw_iso_date %}
-                        {{ lang.t("source.file.date.updated") }}:
-                        {{ page.meta.git_revision_date_localized_raw_iso_date }}
-                    {% endif %}
-                    </span>
+                    <span>发布时间：{{ page.meta.date.strftime('%Y-%m-%d') }}</span>
                 </p>
             </div>
         </div>
