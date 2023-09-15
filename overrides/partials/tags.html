@@ -70,14 +70,14 @@ https://jinja.palletsprojects.com/en/2.11.x/templates/#assignments
             D.open = false
             D.addEventListener("toggle", E =>
                 D.open && A.forEach(d =>
-                d != E.target && (d.open = false)
+                    d !== E.target && (d.open = false)
                 )
             )
         }
     )
 
-    var hash = window.location.hash.substr(1);
+    const hash = window.location.hash.substr(1);
     if (hash) {
-        document.getElementById(hash).open = true;
+        document.getElementById(decodeURIComponent(hash)).open = true;
     }
 </script>

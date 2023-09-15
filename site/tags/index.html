@@ -1,7 +1,6 @@
 
 
 
-
     
 
 
@@ -325,7 +324,7 @@
         
     
 
-    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+    <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
         <div class="md-sidebar__scrollwrap">
             <div class="md-sidebar__inner">
                 
@@ -456,7 +455,7 @@
     }
 </style>
 
-<p class="md-nav tag-cloud">
+<p class="md-nav">
   <label class="md-nav__title">标签</label>
 </p>
 <div class="tag-cloud-content">
@@ -747,15 +746,15 @@
             D.open = false
             D.addEventListener("toggle", E =>
                 D.open && A.forEach(d =>
-                d != E.target && (d.open = false)
+                    d !== E.target && (d.open = false)
                 )
             )
         }
     )
 
-    var hash = window.location.hash.substr(1);
+    const hash = window.location.hash.substr(1);
     if (hash) {
-        document.getElementById(hash).open = true;
+        document.getElementById(decodeURIComponent(hash)).open = true;
     }
 </script>
     </div>

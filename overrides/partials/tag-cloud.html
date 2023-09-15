@@ -45,7 +45,7 @@
     }
 </style>
 
-<p class="md-nav tag-cloud">
+<p class="md-nav">
   <label class="md-nav__title">标签</label>
 </p>
 <div class="tag-cloud-content">
@@ -63,7 +63,7 @@
                     {% if page.url == 'tags/' %}
                         font-size:{{ 1+sz*0.05}}rem;
                     {% else %}
-                        font-size:{{ 0.5+sz*0.05}}rem;
+                        font-size:{{ 1+sz*0.05}}rem;
                     {% endif %}
                     color:{{ color( loop.index%12) }};
                 ">
