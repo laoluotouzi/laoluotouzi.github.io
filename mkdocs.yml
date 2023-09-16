@@ -104,7 +104,7 @@ extra_css:
 
 extra_javascript:
   - assets/mathjax.js
-  - assets/view-bigimg.js
+  # - assets/view-bigimg.js
   - assets/extra.js
 
 nav:
