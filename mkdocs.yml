@@ -99,7 +99,7 @@ extra:
   generator: false
 
 extra_css:
-  - assets/view-bigimg.css
+  # - assets/view-bigimg.css
   - assets/extra.css
 
 extra_javascript:
