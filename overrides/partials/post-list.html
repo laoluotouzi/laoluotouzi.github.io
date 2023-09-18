@@ -176,7 +176,7 @@ reverse=True
         {% endif %}
         <div class="post">
             <h4 class="post-title">
-                <a href="{{ pg.canonical_url }}" target="_blank">{{ pg.title }}</a>
+                <a href="{{ pg.canonical_url }}">{{ pg.title }}</a>
                 {% if pg.meta and pg.meta.category %}
                 <span class="post-category">
                             « {{ pg.meta.category }} »
@@ -205,10 +205,10 @@ reverse=True
                             {% if pg.meta and pg.meta.tags %}
                             <p class="post-tags">
                                 {% for tag in pg.meta.tags %}
-                                <a class="tag" href="{{ config.site_url }}tags/#{{tag}}" target="_blank">
-                                                <span class="tag-name" style="color:{{ color( loop.index%12) }};">
-                                                    &nbsp; #{{ tag }}
-                                                </span>
+                                <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                                    <span class="tag-name" style="color:{{ color( loop.index%12) }};">
+                                        &nbsp; #{{ tag }}
+                                    </span>
                                 </a>
                                 {% endfor %}
                             </p>
@@ -217,7 +217,7 @@ reverse=True
                     </div>
                 </div>
                 {% if pg_image %}
-                <a href="{{ pg.canonical_url }}" target="_blank">
+                <a href="{{ pg.canonical_url }}">
                     <img class="post-banner" src='{{ pg_image }}'/>
                 </a>
                 {% endif %}
