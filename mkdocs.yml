@@ -95,7 +95,10 @@ extra:
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/laoluotouzi
-      name: 老罗投资
+      name: 老罗投资-github
+    - icon: fontawesome/brands/slack
+      link: https://gitee.com/laoluotouzi
+      name: 老罗投资-gitee
   generator: false
 
 extra_css:
