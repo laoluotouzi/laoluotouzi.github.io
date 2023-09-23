@@ -661,22 +661,6 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     margin-left: 2px;
 }
 
-.social_links {
-    text-align: center;
-    padding-top: 30px;
-}
-
-.social_links a {
-    text-align: center;
-}
-
-.social_links img {
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
-    margin: 0 18px;
-}
-
 @page {
     size: a4 portrait;
     margin: 20mm 20mm 15mm 20mm;
