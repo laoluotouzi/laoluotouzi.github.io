@@ -661,23 +661,15 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     margin-left: 2px;
 }
 
-.social_links {
-    height: 90px;
-}
-
 .social_links a {
     text-align: center;
-    display: block;
-    float: left;
-    width: 80px;
-    height: 80px;
-    margin-right: 24px;
 }
 
 .social_links img {
     width: 80px;
     height: 80px;
     border-radius: 15px;
+    margin-right: 24px;
 }
 
 @page {
