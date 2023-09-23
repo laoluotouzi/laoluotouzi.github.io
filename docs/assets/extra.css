@@ -642,7 +642,7 @@ html .md-typeset :is(.admonition-title,summary):last-child {
 
 /* custom */
 .md-content .md-typeset {
-    font-size:18px;
+    font-size: 18px;
 }
 
 .md-content figure img {
@@ -658,7 +658,26 @@ html .md-typeset :is(.admonition-title,summary):last-child {
 }
 
 [dir=ltr] .md-header__title {
-    margin-left:2px;
+    margin-left: 2px;
+}
+
+.social_links {
+    height: 90px;
+}
+
+.social_links a {
+    text-align: center;
+    display: block;
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 24px;
+}
+
+.social_links img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
 }
 
 @page {
