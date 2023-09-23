@@ -19,7 +19,7 @@ tags:
 
 ----
 
-**相关链接：**
+**老罗的社交媒体：**
 
 <a href="https://space.bilibili.com/13200028">
     <img src="../assets/images/bilibili.png" alt="B站" style="width: 80px; height: 80px; margin-right: 24px; border-radius: 15px;" />
