@@ -32,23 +32,10 @@
   {% endif %}
 {% endfor %}
 
-<style>
-    .tag-cloud {
-        margin-top:0;
-        margin-bottom: 0.5em;
-    }
-    .tag-cloud-content {
-        padding: 0 0.6rem;
-        {% if page.url == 'tags/' %}
-        text-align: center;
-        {% endif %}
-    }
-</style>
 
-<p class="md-nav">
-  <label class="md-nav__title">标签</label>
-</p>
-<div class="tag-cloud-content">
+<div class="md-content" data-md-component="content">
+    <h1>标签</h1>
+    <hr />
     {% if tags|count %}
         {% for item in tags %}
             {% set tag, ps = item %}
