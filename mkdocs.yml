@@ -13,7 +13,7 @@ theme:
     # primary: white
     accent: deep orange
   font:
-    text: Noto Serif
+    text: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
     code: Roboto Mono
   icon:
     logo: fontawesome/solid/code
