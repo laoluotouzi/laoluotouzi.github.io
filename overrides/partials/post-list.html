@@ -176,7 +176,7 @@ reverse=True
         {% endif %}
         <div class="post">
             <h4 class="post-title">
-                <a href="{{ pg.canonical_url }}">{{ pg.title }}</a>
+                <a href="{{ pg.canonical_url }}" target="_blank">{{ pg.title }}</a>
                 {% if pg.meta and pg.meta.category %}
                 <span class="post-category">
                             « {{ pg.meta.category }} »
@@ -187,7 +187,7 @@ reverse=True
                 <div class="post-info">
                     <p class="post-description">
                         {% if pg.meta and pg.meta.description %}
-                        {{ pg.meta.description | truncate(200) }}
+                            {{ pg.meta.description | truncate(200) }}
                         {% endif %}
                     </p>
                     <div class="post-extra row">
@@ -217,7 +217,7 @@ reverse=True
                     </div>
                 </div>
                 {% if pg_image %}
-                <a href="{{ pg.canonical_url }}">
+                <a href="{{ pg.canonical_url }}" target="_blank">
                     <img class="post-banner" src='{{ pg_image }}'/>
                 </a>
                 {% endif %}
