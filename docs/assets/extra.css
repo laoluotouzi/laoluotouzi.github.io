@@ -656,6 +656,16 @@ html .md-typeset :is(.admonition-title,summary):last-child {
     margin-bottom: 30px;
 }
 
+.md-content span.red {
+    color: red;
+    font-weight: bold;
+}
+
+.md-content span.green {
+    color: green;
+    font-weight: bold;
+}
+
 [dir=ltr] .md-header__title {
     margin-left: 2px;
 }
