@@ -10,7 +10,6 @@ theme:
   custom_dir: overrides
   language: zh
   palette:
-    # primary: white
     accent: deep orange
   font:
     text: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
@@ -102,12 +101,10 @@ extra:
   generator: false
 
 extra_css:
-  # - assets/view-bigimg.css
   - assets/extra.css
 
 extra_javascript:
   - assets/mathjax.js
-  # - assets/view-bigimg.js
   - assets/extra.js
 
 nav:
