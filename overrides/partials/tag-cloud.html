@@ -44,13 +44,13 @@
             <a class="tag" href="{{ config.site_url }}tags/#{{ tag }}">
                 <span class="tag-name" style="
                     {% set sz = ps|count %}
-                        {% if sz > 10 %}
-                            {% set sz = 10 %}
+                        {% if sz > 5 %}
+                            {% set sz = 5 %}
                         {% endif %}
                     {% if page.url == 'tags/' %}
-                        font-size:{{ 1+sz*0.05}}rem;
+                        font-size:{{ 1+sz*0.01}}rem;
                     {% else %}
-                        font-size:{{ 1+sz*0.05}}rem;
+                        font-size:{{ 1+sz*0.01}}rem;
                     {% endif %}
                     color:{{ color( loop.index%12) }};
                 ">
