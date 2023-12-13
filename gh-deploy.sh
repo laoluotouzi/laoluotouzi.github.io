@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mkdocs build -c -q
-mkdocs gh-deploy
+mkdocs gh-deploy -q
