@@ -73,7 +73,7 @@ reverse=True
     }
 
     .md-typeset .post .post-title {
-        margin: 0.25rem 0;
+        margin: 0.25rem 0 0 0;
         text-decoration: none;
         font-size: 1.3em;
     }
@@ -183,6 +183,20 @@ reverse=True
                         </span>
                 {% endif %}
             </h4>
+
+            <div class="post-extra row" style="margin: 0 1rem 0.25rem 0">
+                <div class="col">
+                    <p class="post-date">
+                                <span class="twemoji">
+                                    {% include ".icons/material/calendar.svg" %}
+                                </span>
+                        <span class="icon-text">
+                                    {{ pg.date }}
+                                </span>
+                    </p>
+                </div>
+            </div>
+
             <div class="post-info-wrap">
                 <div class="post-info">
                     <p class="post-description">
@@ -190,31 +204,23 @@ reverse=True
                             {{ pg.meta.description | truncate(200) }}
                         {% endif %}
                     </p>
+
                     <div class="post-extra row">
-                        <div class="col">
-                            <p class="post-date">
-                                <span class="twemoji">
-                                    {% include ".icons/material/calendar.svg" %}
-                                </span>
-                                <span class="icon-text">
-                                    {{ pg.date }}
-                                </span>
-                            </p>
-                        </div>
                         <div class="col">
                             {% if pg.meta and pg.meta.tags %}
                             <p class="post-tags">
                                 {% for tag in pg.meta.tags %}
                                 <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
-                                    <span class="tag-name" style="color:{{ color( loop.index%12) }};">
-                                        &nbsp; #{{ tag }}
-                                    </span>
+                                        <span class="tag-name" style="color:{{ color( loop.index%12) }};">
+                                            &nbsp; #{{ tag }}
+                                        </span>
                                 </a>
                                 {% endfor %}
                             </p>
                             {% endif %}
                         </div>
                     </div>
+
                 </div>
                 {% if pg_image %}
                 <a href="{{ pg.canonical_url }}" target="_blank">
