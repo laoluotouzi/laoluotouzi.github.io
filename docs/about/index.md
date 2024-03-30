@@ -6,6 +6,7 @@ date: 2022-01-01
 comments: true
 hide:
     - navigation
+    - toc
 tags:
     - 关于老罗
 ---
