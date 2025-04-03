@@ -128,5 +128,6 @@ dist
 # custom
 .DS_Store
 .idea/
+.history/
 site/
 encryptcontent.cache
