@@ -29,4 +29,4 @@ fi
 
 echo "正在启动 mkdocs serve..."
 
-mkdocs serve -a 127.0.0.1:$PORT
+mkdocs serve -a 127.0.0.1:$PORT --dirty
