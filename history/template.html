@@ -113,7 +113,7 @@
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
                         0 8px 20px rgba(0, 0, 0, 0.15);
         }
@@ -170,36 +170,30 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 16px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
             border: none;
-            border-radius: 20px;
-            color: white;
+            border-radius: 25px;
+            color: #2d3436;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             z-index: 1;
             white-space: nowrap;
-            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
+            box-shadow: 0 4px 15px rgba(253, 203, 110, 0.5);
         }
 
         .blog-link-btn:hover {
-            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
+            background: linear-gradient(135deg, #fdcb6e 0%, #ffeaa7 100%);
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(253, 203, 110, 0.7);
         }
 
         .blog-link-btn:active {
-            transform: translateY(0) scale(1.02);
-        }
-
-        .blog-link-btn::before {
-            content: '📖';
-            margin-right: 6px;
-            font-size: 0.95rem;
+            transform: translateY(-1px) scale(1.05);
         }
 
         .item-label {
@@ -236,9 +230,8 @@
             transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .gallery-item:hover .image-wrapper img {
-            transform: scale(1.05);
-        }
+        /* 移除图片悬停放大效果 */
+
 
         /* Lightbox 样式 */
         .lightbox {
