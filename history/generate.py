@@ -285,12 +285,14 @@ def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], templat
     gallery_items = []
     years_set = set()
     years_seen = set()  # 跟踪已经出现过的年份
+    year_months_seen = {}  # 跟踪每年已经出现的月份 {year: set()}
 
     for date, date_label, image_url, metadata in images:
         blog_url = generate_blog_url(image_url)
 
-        # 提取年份信息
+        # 提取年份和月份信息
         year = date.strftime('%Y') if date != datetime.min else date_label[:4]
+        month = date.strftime('%m') if date != datetime.min else date_label[4:6]
 
         # 使用 metadata 中的标题，如果没有则使用日期标签
         title = metadata.get('title', date_label)
@@ -300,14 +302,23 @@ def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], templat
         if is_first_in_year:
             years_seen.add(year)
 
+        # 标记是否是该年该月的第一个项目
+        if year not in year_months_seen:
+            year_months_seen[year] = set()
+        is_first_in_month = month not in year_months_seen[year]
+        if is_first_in_month:
+            year_months_seen[year].add(month)
+
         gallery_items.append({
             'date': date_label,
             'image_url': image_url,
             'full_image_url': image_url,
             'blog_url': blog_url,
             'year': year,
+            'month': month,
             'title': title,
-            'is_first_in_year': is_first_in_year
+            'is_first_in_year': is_first_in_year,
+            'is_first_in_month': is_first_in_month
         })
 
         years_set.add(year)
@@ -315,12 +326,25 @@ def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], templat
     # 按年份排序（倒序）
     years = sorted(years_set, reverse=True)
 
+    # 创建按年月分组的导航数据
+    year_months = {}
+    for item in gallery_items:
+        year = item['year']
+        month = item['month']
+        if year not in year_months:
+            year_months[year] = []
+        if month not in year_months[year]:
+            year_months[year].append(month)
+    # 对每年的月份进行排序（倒序）
+    for year in year_months:
+        year_months[year].sort(reverse=True)
+
     # 读取模板
     with open(template_path, 'r', encoding='utf-8') as f:
         template_content = f.read()
 
     template = Template(template_content)
-    html_content = template.render(items=gallery_items, years=years)
+    html_content = template.render(items=gallery_items, years=years, year_months=year_months)
 
     # 写入输出文件
     output_path.parent.mkdir(parents=True, exist_ok=True)

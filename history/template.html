@@ -329,6 +329,65 @@
             height: 20px;
         }
 
+        /* 年份导航 */
+        .year-nav {
+            margin-bottom: 4px;
+        }
+
+        .year-link {
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .year-link::before {
+            content: '▼';
+            margin-right: 6px;
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .year-link.expanded::before {
+            transform: rotate(180deg);
+        }
+
+        /* 月份导航 */
+        .month-nav {
+            padding-left: 16px;
+            margin-top: 4px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .month-nav-item {
+            padding: 4px 0;
+        }
+
+        .month-link {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            color: #999999;
+        }
+
+        .month-link:hover {
+            color: #c0a060;
+        }
+
+        .month-link.active {
+            color: #c0a060;
+        }
+
         /* 移动端优化 */
         @media (max-width: 768px) {
             .back-to-top {
@@ -357,7 +416,7 @@
 
         <div class="gallery">
             {% for item in items %}
-            <div class="gallery-item" data-index="{{ loop.index0 }}" data-year="{{ item.year }}" {% if item.is_first_in_year %}id="year-{{ item.year }}"{% endif %}>
+            <div class="gallery-item" data-index="{{ loop.index0 }}" data-year="{{ item.year }}" data-month="{{ item.month }}" {% if item.is_first_in_year %}id="year-{{ item.year }}"{% endif %} {% if item.is_first_in_month %}id="month-{{ item.year }}-{{ item.month }}"{% endif %}>
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
                     <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -374,8 +433,15 @@
         <!-- 侧边栏导航 -->
         <nav class="sidebar-nav" id="sidebar-nav">
             {% for year in years %}
-            <div class="nav-item">
-                <a href="#year-{{ year }}" class="nav-link" data-year="{{ year }}">{{ year }}</a>
+            <div class="nav-item year-nav">
+                <a href="#year-{{ year }}" class="nav-link year-link" data-year="{{ year }}">{{ year }}</a>
+                <div class="month-nav" id="month-nav-{{ year }}" style="display: none;">
+                    {% for month in year_months[year] %}
+                    <div class="nav-item month-nav-item">
+                        <a href="#month-{{ year }}-{{ month }}" class="nav-link month-link" data-year="{{ year }}" data-month="{{ month }}">{{ month }}月</a>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
             {% endfor %}
         </nav>
@@ -478,25 +544,62 @@
                 const year = item.getAttribute('data-year');
                 if (year && !years.has(year)) {
                     years.add(year);
-                    item.id = 'year-' + year;
+                    // 不在这里设置ID，因为已经在模板中设置了
                 }
             });
 
             // 如果有多个年份，显示侧边栏
-            if (years.size > 1) {
+            if (years.size > 0) {
                 sidebarNav.classList.add('visible');
             }
 
-            // 绑定导航链接点击事件
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
+            // 绑定年份链接点击事件 - 展开/折叠月份
+            const yearLinks = document.querySelectorAll('.year-link');
+            yearLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const year = this.getAttribute('data-year');
+                    const monthNav = document.getElementById('month-nav-' + year);
+
+                    // 切换月份导航的显示
+                    if (monthNav.style.display === 'none' || !monthNav.style.display) {
+                        monthNav.style.display = 'block';
+                        this.classList.add('expanded');
+                    } else {
+                        monthNav.style.display = 'none';
+                        this.classList.remove('expanded');
+                    }
+                });
+            });
+
+            // 绑定月份链接点击事件 - 滚动到对应月份
+            const monthLinks = document.querySelectorAll('.month-link');
+            monthLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
-                        const offset = 100; // 顶部留白
+                        const offset = 100;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // 绑定年份链接（如果不是展开的）的滚动功能
+            document.querySelectorAll('.year-link').forEach(link => {
+                link.addEventListener('dblclick', function(e) {
+                    e.preventDefault();
+                    const year = this.getAttribute('data-year');
+                    const targetElement = document.getElementById('year-' + year);
+
+                    if (targetElement) {
+                        const offset = 100;
                         const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
                         window.scrollTo({
                             top: targetPosition,
@@ -509,22 +612,35 @@
 
         // 更新侧边栏高亮
         function updateSidebarNav() {
-            const navLinks = document.querySelectorAll('.nav-link');
+            const yearLinks = document.querySelectorAll('.year-link');
+            const monthLinks = document.querySelectorAll('.month-link');
             const galleryItems = document.querySelectorAll('.gallery-item');
 
             let currentYear = null;
+            let currentMonth = null;
             const scrollTop = window.pageYOffset + 200;
 
             for (let item of galleryItems) {
                 const itemTop = item.offsetTop;
                 if (scrollTop >= itemTop) {
                     currentYear = item.getAttribute('data-year');
+                    currentMonth = item.getAttribute('data-month');
                 }
             }
 
-            navLinks.forEach(link => {
+            // 更新年份链接高亮
+            yearLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-year') === currentYear) {
+                    link.classList.add('active');
+                }
+            });
+
+            // 更新月份链接高亮
+            monthLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-year') === currentYear &&
+                    link.getAttribute('data-month') === currentMonth) {
                     link.classList.add('active');
                 }
             });
