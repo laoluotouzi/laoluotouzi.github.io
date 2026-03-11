@@ -290,6 +290,62 @@
             letter-spacing: -2px;
         }
 
+        /* 侧边栏导航 */
+        .sidebar-nav {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: none;
+        }
+
+        .sidebar-nav.visible {
+            display: block;
+        }
+
+        .nav-item {
+            padding: 8px 0;
+            text-align: right;
+            position: relative;
+        }
+
+        .nav-link {
+            color: #8a8a8a;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            padding: 6px 12px;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: #c0a060;
+        }
+
+        .nav-link.active {
+            color: #c0a060;
+            font-weight: 400;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(135deg, #c0a060 0%, #a08050 100%);
+            transition: height 0.3s ease;
+        }
+
+        .nav-link.active::after {
+            height: 20px;
+        }
+
         /* 移动端优化 */
         @media (max-width: 768px) {
             .back-to-top {
@@ -301,6 +357,10 @@
 
             .back-to-top::before {
                 font-size: 20px;
+            }
+
+            .sidebar-nav {
+                display: none !important;
             }
         }
     </style>
@@ -314,7 +374,7 @@
 
         <div class="gallery">
             {% for item in items %}
-            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}">
+            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}" data-year-month="{{ item.year_month }}">
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
                     <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -327,6 +387,15 @@
             </div>
             {% endfor %}
         </div>
+
+        <!-- 侧边栏导航 -->
+        <nav class="sidebar-nav" id="sidebar-nav">
+            {% for year_month in year_months %}
+            <div class="nav-item">
+                <a href="#year-{{ year_month }}" class="nav-link" data-year-month="{{ year_month }}">{{ year_month }}</a>
+            </div>
+            {% endfor %}
+        </nav>
 
         <div class="loading-more" id="loading-more">加载更多记录...</div>
 
@@ -493,7 +562,79 @@
                     loadingMore.classList.remove('active');
                 }, 3000);
             }
+
+            // 初始化侧边栏导航
+            initSidebarNav();
         });
+
+        // 侧边栏导航功能
+        function initSidebarNav() {
+            const sidebarNav = document.getElementById('sidebar-nav');
+            const galleryItems = document.querySelectorAll('.gallery-item:not(.hidden)');
+            const yearMonths = new Set();
+
+            // 为每个月的第一条记录添加ID
+            galleryItems.forEach(item => {
+                const yearMonth = item.getAttribute('data-year-month');
+                if (yearMonth && !yearMonths.has(yearMonth)) {
+                    yearMonths.add(yearMonth);
+                    item.id = 'year-' + yearMonth;
+                }
+            });
+
+            // 如果有多个年月，显示侧边栏
+            if (yearMonths.size > 1) {
+                sidebarNav.classList.add('visible');
+            }
+
+            // 绑定导航链接点击事件
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const offset = 100; // 顶部留白
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // 更新侧边栏高亮
+        function updateSidebarNav() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const galleryItems = document.querySelectorAll('.gallery-item:not(.hidden)');
+
+            let currentYearMonth = null;
+            const scrollTop = window.pageYOffset + 200;
+
+            for (let item of galleryItems) {
+                const itemTop = item.offsetTop;
+                if (scrollTop >= itemTop) {
+                    currentYearMonth = item.getAttribute('data-year-month');
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-year-month') === currentYearMonth) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // 在checkScroll函数中添加更新侧边栏
+        const originalCheckScroll = checkScroll;
+        checkScroll = function() {
+            originalCheckScroll();
+            updateSidebarNav();
+        };
     </script>
 </body>
 </html>
