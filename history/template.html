@@ -311,6 +311,64 @@
             content: '⏳ ';
             margin-right: 8px;
         }
+
+        /* 回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .back-to-top.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .back-to-top::before {
+            content: '↑';
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .back-to-top::before {
+                font-size: 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -348,6 +406,9 @@
         <img class="lightbox-content" id="lightbox-image" src="" alt="">
         <div class="lightbox-info" id="lightbox-info"></div>
     </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" id="back-to-top" title="回到顶部"></div>
 
     <script>
         // 懒加载配置
@@ -445,7 +506,29 @@
             if (scrollTop + windowHeight >= documentHeight - 200) {
                 loadMoreItems();
             }
+
+            // 控制回到顶部按钮的显示/隐藏
+            const backToTop = document.getElementById('back-to-top');
+            if (scrollTop > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
+
+        // 回到顶部功能
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 绑定回到顶部按钮点击事件
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTop = document.getElementById('back-to-top');
+            backToTop.addEventListener('click', scrollToTop);
+        });
 
         // 添加滚动监听（使用节流优化性能）
         let scrollTimer = null;
