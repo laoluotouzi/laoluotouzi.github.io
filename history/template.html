@@ -595,13 +595,49 @@
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
+
                     if (targetElement) {
-                        const offset = 100; // 顶部留白
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                        // 如果目标是隐藏的，需要先显示它及其相邻的项目
+                        if (targetElement.classList.contains('hidden')) {
+                            // 找到所有隐藏的项目
+                            const allHiddenItems = Array.from(document.querySelectorAll('.gallery-item.hidden'));
+                            // 找到目标元素在所有项目中的索引
+                            const targetIndex = parseInt(targetElement.getAttribute('data-index'));
+
+                            // 显示从目标开始的前 ITEMS_PER_PAGE 个项目
+                            const itemsToShow = allHiddenItems.slice(0, targetIndex + ITEMS_PER_PAGE);
+                            itemsToShow.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.remove('hidden');
+                                }, index * 50); // 依次显示，带动画效果
+                            });
+
+                            // 更新计数显示
+                            const totalItems = {{ items|length }};
+                            const shownCount = Math.min(targetIndex + ITEMS_PER_PAGE, totalItems);
+                            const shownCountElement = document.getElementById('shown-count');
+                            if (shownCountElement) {
+                                shownCountElement.textContent = shownCount;
+                            }
+
+                            // 等待元素显示后再滚动
+                            setTimeout(() => {
+                                const offset = 100;
+                                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                                window.scrollTo({
+                                    top: targetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, itemsToShow.length * 50 + 100);
+                        } else {
+                            // 如果目标已经可见，直接滚动
+                            const offset = 100; // 顶部留白
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
