@@ -2,17 +2,26 @@
 """
 交易历史图片展示页面生成器
 
-扫描 docs/attachments/ 目录下的所有日期目录中的 1.png 文件，
+扫描 docs/blog/ 目录下的 Markdown 文件，
+从包含"老罗投资周记"的文章中提取图片引用，
 生成瀑布流布局的静态 HTML 页面。
 """
 
 import os
 import re
 import argparse
+import logging
 from pathlib import Path
 from datetime import datetime
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Dict
 from jinja2 import Template
+
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(message)s'
+)
+logger = logging.getLogger(__name__)
 
 
 def parse_date(date_str: str) -> Optional[datetime]:
@@ -42,97 +51,216 @@ def parse_date(date_str: str) -> Optional[datetime]:
     return None
 
 
-def scan_attachments_directory(attachments_dir: Path) -> List[Tuple[datetime, str, Path]]:
+def parse_date_from_path(file_path: Path) -> Optional[datetime]:
     """
-    扫描 attachments 目录，提取所有图片
+    从文件路径中解析日期
 
-    支持两种目录结构：
-    - docs/attachments/YYYY/MM/YYYYMMDD/1.png (年/月/日期/文件)
-    - docs/attachments/YYYY/YYYY-MM-DD/1.png (年/日期/文件)
+    支持的路径格式：
+    - docs/blog/YYYY/MM/YYYYMMDD.md
+    - docs/blog/YYYY/MM-DD.md
+    """
+    # 尝试从文件名中提取日期
+    filename = file_path.stem  # 去掉扩展名
 
-    返回: [(date, date_label, image_path), ...]
+    # 首先尝试直接解析文件名
+    parsed_date = parse_date(filename)
+    if parsed_date:
+        return parsed_date
+
+    # 尝试从路径结构中提取日期
+    parts = file_path.parts
+    if len(parts) >= 3:
+        # 查找年份和月份目录
+        for i, part in enumerate(parts):
+            if part.isdigit() and len(part) == 4:
+                year = part
+                # 检查下一部分是否是月份
+                if i + 1 < len(parts) and parts[i + 1].isdigit():
+                    month = parts[i + 1].zfill(2)
+                    # 尝试组合年月日
+                    if len(filename) >= 8:
+                        day = filename[-2:] if filename[-2:].isdigit() else "01"
+                        date_str = f"{year}{month}{day}"
+                        parsed_date = parse_date(date_str)
+                        if parsed_date:
+                            return parsed_date
+
+    return None
+
+
+def extract_image_reference(content: str) -> Optional[str]:
+    """
+    从 Markdown 内容中提取图片引用路径
+
+    匹配格式：![目前持仓](../../../attachments/YYYY/MM/YYYYMMDD/1.png)
+    """
+    # 正则表达式匹配图片引用
+    pattern = r'!\[目前持仓\]\(([^)]+)\)'
+    match = re.search(pattern, content)
+
+    if match:
+        return match.group(1)
+
+    return None
+
+
+def convert_to_public_url(relative_path: str) -> str:
+    """
+    将相对路径转换为公网可访问的 URL
+
+    输入：../../../attachments/2026/03/20260307/1.png
+    输出：https://invest.zdyi.com/attachments/2026/03/20260307/1.png
+    """
+    # 去除 ../ 前缀
+    clean_path = relative_path.replace('../', '')
+    # 确保路径以 attachments/ 开头
+    if not clean_path.startswith('attachments/'):
+        clean_path = 'attachments/' + clean_path
+    return f'https://invest.zdyi.com/{clean_path}'
+
+
+def extract_metadata(content: str, file_path: Path) -> Dict[str, str]:
+    """
+    从 Markdown 文件中提取元数据
+
+    返回字典，包含：
+    - title: 文章标题
+    - date: 日期字符串
+    """
+    metadata = {
+        'title': '',
+        'date': ''
+    }
+
+    # 提取标题
+    # 优先级 1: frontmatter 中的 title
+    title_match = re.search(r'^title:\s*(.+)$', content, re.MULTILINE)
+    if title_match:
+        metadata['title'] = title_match.group(1).strip()
+    else:
+        # 优先级 2: 第一个一级标题
+        h1_match = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+        if h1_match:
+            metadata['title'] = h1_match.group(1).strip()
+        else:
+            # 优先级 3: 使用文件名
+            metadata['title'] = file_path.stem
+
+    # 提取日期
+    # 优先级 1: frontmatter 中的 date
+    date_match = re.search(r'^date:\s*(.+)$', content, re.MULTILINE)
+    if date_match:
+        metadata['date'] = date_match.group(1).strip()
+    else:
+        # 优先级 2: 从文件路径解析
+        parsed_date = parse_date_from_path(file_path)
+        if parsed_date:
+            metadata['date'] = parsed_date.strftime('%Y-%m-%d')
+
+    return metadata
+
+
+def scan_blog_directory(blog_dir: Path) -> List[Tuple[datetime, str, str, Dict[str, str]]]:
+    """
+    扫描博客目录，从 Markdown 文件中提取图片信息
+
+    返回: [(date, date_label, image_url, metadata), ...]
     """
     images = []
+    stats = {
+        'total': 0,
+        'keyword_match': 0,
+        'has_image': 0,
+        'success': 0,
+        'skipped': 0,
+        'errors': 0
+    }
 
-    if not attachments_dir.exists():
-        print(f"警告: 附件目录不存在: {attachments_dir}")
+    if not blog_dir.exists():
+        logger.error(f"错误: 博客目录不存在: {blog_dir}")
         return images
 
-    # 递归扫描所有子目录
-    for year_dir in attachments_dir.iterdir():
-        if not year_dir.is_dir():
-            continue
+    # 递归扫描所有 Markdown 文件
+    logger.info(f"扫描目录: {blog_dir}")
+    for md_file in blog_dir.rglob("*.md"):
+        stats['total'] += 1
 
-        # 第一层：年目录下的内容可能是月目录或日期目录
-        for item in year_dir.iterdir():
-            if not item.is_dir():
+        try:
+            # 读取文件内容
+            with open(md_file, 'r', encoding='utf-8') as f:
+                content = f.read()
+
+            # 检查是否包含关键字
+            if "老罗投资周记" not in content:
+                stats['skipped'] += 1
                 continue
 
-            # 检查是否是月目录（01-12）
-            if item.name.isdigit() and 1 <= int(item.name) <= 12:
-                # 这是月目录，继续扫描下一层（日期目录）
-                for date_dir in item.iterdir():
-                    if not date_dir.is_dir():
-                        continue
+            stats['keyword_match'] += 1
 
-                    image_path = date_dir / "1.png"
-                    if not image_path.exists():
-                        continue
+            # 提取图片引用
+            image_path = extract_image_reference(content)
+            if not image_path:
+                logger.warning(f"警告: 未找到图片引用: {md_file}")
+                stats['skipped'] += 1
+                continue
 
-                    date_label = date_dir.name
-                    parsed_date = parse_date(date_label)
+            stats['has_image'] += 1
 
-                    if parsed_date is None:
-                        print(f"警告: 无法解析日期格式: {date_dir.name}，使用目录名作为标签")
-                        parsed_date = datetime.min
+            # 转换为公网 URL
+            image_url = convert_to_public_url(image_path)
 
-                    # 只显示周六的图片（周一=0, 周六=5, 周日=6）
-                    if parsed_date != datetime.min and parsed_date.weekday() != 5:
-                        continue
+            # 提取元数据
+            metadata = extract_metadata(content, md_file)
 
-                    images.append((parsed_date, date_label, image_path))
+            # 解析日期
+            parsed_date = parse_date(metadata['date']) if metadata['date'] else parse_date_from_path(md_file)
+
+            if parsed_date is None:
+                logger.warning(f"警告: 无法解析日期: {md_file}，使用文件名作为标签")
+                parsed_date = datetime.min
+                date_label = md_file.stem
             else:
-                # 这可能是直接在年目录下的日期目录
-                date_dir = item
-                image_path = date_dir / "1.png"
-                if not image_path.exists():
-                    continue
-
-                date_label = date_dir.name
-                parsed_date = parse_date(date_label)
-
-                if parsed_date is None:
-                    print(f"警告: 无法解析日期格式: {date_dir.name}，使用目录名作为标签")
-                    parsed_date = datetime.min
-
                 # 只显示周六的图片（周一=0, 周六=5, 周日=6）
                 if parsed_date != datetime.min and parsed_date.weekday() != 5:
+                    stats['skipped'] += 1
                     continue
+                date_label = parsed_date.strftime('%Y%m%d')
 
-                images.append((parsed_date, date_label, image_path))
+            images.append((parsed_date, date_label, image_url, metadata))
+            stats['success'] += 1
+
+        except FileNotFoundError:
+            logger.error(f"错误: 文件不存在: {md_file}")
+            stats['errors'] += 1
+        except PermissionError:
+            logger.error(f"错误: 无权限读取文件: {md_file}")
+            stats['errors'] += 1
+        except UnicodeDecodeError:
+            logger.error(f"错误: 文件编码问题: {md_file}")
+            stats['errors'] += 1
+        except Exception as e:
+            logger.error(f"错误: 处理文件时发生异常: {md_file} - {e}")
+            stats['errors'] += 1
+
+    # 输出统计信息
+    logger.info("=" * 50)
+    logger.info("扫描统计:")
+    logger.info(f"  总文件数: {stats['total']}")
+    logger.info(f"  包含关键字: {stats['keyword_match']}")
+    logger.info(f"  包含图片引用: {stats['has_image']}")
+    logger.info(f"  成功处理: {stats['success']}")
+    logger.info(f"  跳过: {stats['skipped']}")
+    logger.info(f"  错误: {stats['errors']}")
+    logger.info("=" * 50)
 
     return images
 
 
-def sort_images_by_date(images: List[Tuple[datetime, str, Path]]) -> List[Tuple[datetime, str, Path]]:
+def sort_images_by_date(images: List[Tuple[datetime, str, str, Dict[str, str]]]) -> List[Tuple[datetime, str, str, Dict[str, str]]]:
     """
     按日期倒序排列图片
     """
     return sorted(images, key=lambda x: x[0], reverse=True)
-
-
-def generate_relative_path(image_path: Path, attachments_dir: Path) -> str:
-    """
-    生成图片的完整 URL 路径
-
-    生成公网可访问的完整 URL，格式：https://invest.zdyi.com/attachments/YYYY/MM/YYYYMMDD/1.png
-    """
-    # 从完整路径中去掉 'docs/' 前缀，得到 attachments/... 格式
-    # 例如：docs/attachments/2022/11/20221127/1.png -> attachments/2022/11/20221127/1.png
-    path_str = str(image_path)
-    if path_str.startswith('docs/'):
-        path_str = path_str[5:]  # 去掉 'docs/' 前缀
-    return f"https://invest.zdyi.com/{path_str}"
 
 
 def generate_blog_url(image_url: str) -> str:
@@ -149,7 +277,7 @@ def generate_blog_url(image_url: str) -> str:
     return blog_url + '/'  # 确保以 / 结尾
 
 
-def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, output_path: Path, attachments_dir: Path):
+def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], template_path: Path, output_path: Path):
     """
     使用 Jinja2 模板生成 HTML
     """
@@ -157,19 +285,22 @@ def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, o
     gallery_items = []
     years_set = set()
 
-    for date, date_label, image_path in images:
-        image_url = generate_relative_path(image_path, attachments_dir)
+    for date, date_label, image_url, metadata in images:
         blog_url = generate_blog_url(image_url)
 
         # 提取年份信息
         year = date.strftime('%Y') if date != datetime.min else date_label[:4]
+
+        # 使用 metadata 中的标题，如果没有则使用日期标签
+        title = metadata.get('title', date_label)
 
         gallery_items.append({
             'date': date_label,
             'image_url': image_url,
             'full_image_url': image_url,
             'blog_url': blog_url,
-            'year': year
+            'year': year,
+            'title': title
         })
 
         years_set.add(year)
@@ -192,13 +323,13 @@ def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, o
 
 def main():
     parser = argparse.ArgumentParser(
-        description='生成交易历史图片展示页面'
+        description='生成交易历史图片展示页面（从博客 Markdown 文件中提取图片）'
     )
     parser.add_argument(
-        '--input',
+        '--blog-dir',
         type=Path,
-        default=Path('docs/attachments'),
-        help='附件目录路径 (默认: docs/attachments)'
+        default=Path('docs/blog'),
+        help='博客目录路径 (默认: docs/blog)'
     )
     parser.add_argument(
         '--output',
@@ -218,14 +349,14 @@ def main():
     print("📸 交易历史图片展示页面生成器")
     print("=" * 50)
 
-    # 扫描目录
-    print(f"🔍 扫描目录: {args.input}")
-    images = scan_attachments_directory(args.input)
-    print(f"✅ 找到 {len(images)} 张图片")
+    # 扫描博客目录
+    images = scan_blog_directory(args.blog_dir)
 
     if not images:
         print("❌ 没有找到任何图片，退出")
         return
+
+    print(f"✅ 找到 {len(images)} 张图片")
 
     # 排序
     print("📅 按日期排序...")
@@ -234,7 +365,7 @@ def main():
     # 生成 HTML
     print(f"📝 生成 HTML 页面: {args.output}")
     try:
-        render_html(sorted_images, args.template, args.output, args.input)
+        render_html(sorted_images, args.template, args.output)
         print("✅ 页面生成成功！")
     except Exception as e:
         print(f"❌ 生成失败: {e}")
