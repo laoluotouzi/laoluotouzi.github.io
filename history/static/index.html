@@ -343,18 +343,7 @@
         }
 
         .year-link::before {
-            content: '▼';
-            position: absolute;
-            right: 0;
-            font-size: 0.65rem;
-            transition: transform 0.3s ease;
-            display: inline-block;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .year-link.expanded::before {
-            transform: translateY(-50%) rotate(180deg);
+            display: none;
         }
 
         /* 月份导航 */
