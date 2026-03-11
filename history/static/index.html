@@ -288,7 +288,7 @@
         }
 
         .nav-item {
-            padding: 8px 0;
+            padding: 1px 0;
             text-align: right;
             position: relative;
         }
@@ -300,8 +300,9 @@
             font-weight: 300;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            padding: 6px 12px;
+            padding: 4px 10px;
             display: inline-block;
+            position: relative;
         }
 
         .nav-link:hover {
@@ -319,50 +320,54 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 3px;
+            width: 2px;
             height: 0;
             background: linear-gradient(135deg, #c0a060 0%, #a08050 100%);
             transition: height 0.3s ease;
         }
 
         .nav-link.active::after {
-            height: 20px;
+            height: 16px;
         }
 
         /* 年份导航 */
         .year-nav {
-            margin-bottom: 4px;
+            margin-bottom: 1px;
         }
 
         .year-link {
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 400;
+            padding-right: 14px;
         }
 
         .year-link::before {
             content: '▼';
-            margin-right: 6px;
-            font-size: 0.7rem;
+            position: absolute;
+            right: 0;
+            font-size: 0.65rem;
             transition: transform 0.3s ease;
             display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .year-link.expanded::before {
-            transform: rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
         }
 
         /* 月份导航 */
         .month-nav {
-            padding-left: 16px;
-            margin-top: 4px;
+            padding-left: 12px;
+            margin-top: 1px;
             animation: slideDown 0.3s ease;
         }
 
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
             to {
                 opacity: 1;
@@ -371,12 +376,12 @@
         }
 
         .month-nav-item {
-            padding: 4px 0;
+            padding: 1px 0;
         }
 
         .month-link {
             font-size: 0.8rem;
-            padding: 4px 8px;
+            padding: 3px 8px;
             color: #999999;
         }
 
@@ -416,7 +421,7 @@
 
         <div class="gallery">
             
-            <div class="gallery-item" data-index="0" data-year="2026" data-month="03" id="year-2026" id="month-2026-03">
+            <div class="gallery-item" data-index="0" data-year="2026" data-month="03" id="month-2026-03">
                 <div class="item-info">
                     <div class="item-date">20260307</div>
                     <a href="https://invest.zdyi.com/blog/2026/03/20260307/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -428,7 +433,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="1" data-year="2026" data-month="02"  id="month-2026-02">
+            <div class="gallery-item" data-index="1" data-year="2026" data-month="02" id="month-2026-02">
                 <div class="item-info">
                     <div class="item-date">20260228</div>
                     <a href="https://invest.zdyi.com/blog/2026/02/20260228/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -440,7 +445,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="2" data-year="2026" data-month="02"  >
+            <div class="gallery-item" data-index="2" data-year="2026" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20260214</div>
                     <a href="https://invest.zdyi.com/blog/2026/02/20260214/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -452,7 +457,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="3" data-year="2026" data-month="02"  >
+            <div class="gallery-item" data-index="3" data-year="2026" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20260207</div>
                     <a href="https://invest.zdyi.com/blog/2026/02/20260207/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -464,7 +469,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="4" data-year="2026" data-month="01"  id="month-2026-01">
+            <div class="gallery-item" data-index="4" data-year="2026" data-month="01" id="month-2026-01">
                 <div class="item-info">
                     <div class="item-date">20260131</div>
                     <a href="https://invest.zdyi.com/blog/2026/01/20260131/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -476,7 +481,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="5" data-year="2026" data-month="01"  >
+            <div class="gallery-item" data-index="5" data-year="2026" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20260124</div>
                     <a href="https://invest.zdyi.com/blog/2026/01/20260124/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -488,7 +493,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="6" data-year="2026" data-month="01"  >
+            <div class="gallery-item" data-index="6" data-year="2026" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20260117</div>
                     <a href="https://invest.zdyi.com/blog/2026/01/20260117/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -500,7 +505,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="7" data-year="2026" data-month="01"  >
+            <div class="gallery-item" data-index="7" data-year="2026" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20260110</div>
                     <a href="https://invest.zdyi.com/blog/2026/01/20260110/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -512,7 +517,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="8" data-year="2026" data-month="01"  >
+            <div class="gallery-item" data-index="8" data-year="2026" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20260103</div>
                     <a href="https://invest.zdyi.com/blog/2026/01/20260103/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -524,7 +529,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="9" data-year="2025" data-month="12" id="year-2025" id="month-2025-12">
+            <div class="gallery-item" data-index="9" data-year="2025" data-month="12" id="month-2025-12">
                 <div class="item-info">
                     <div class="item-date">20251227</div>
                     <a href="https://invest.zdyi.com/blog/2025/12/20251227/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -536,7 +541,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="10" data-year="2025" data-month="12"  >
+            <div class="gallery-item" data-index="10" data-year="2025" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20251220</div>
                     <a href="https://invest.zdyi.com/blog/2025/12/20251220/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -548,7 +553,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="11" data-year="2025" data-month="12"  >
+            <div class="gallery-item" data-index="11" data-year="2025" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20251213</div>
                     <a href="https://invest.zdyi.com/blog/2025/12/20251213/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -560,7 +565,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="12" data-year="2025" data-month="12"  >
+            <div class="gallery-item" data-index="12" data-year="2025" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20251206</div>
                     <a href="https://invest.zdyi.com/blog/2025/12/20251206/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -572,7 +577,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="13" data-year="2025" data-month="11"  id="month-2025-11">
+            <div class="gallery-item" data-index="13" data-year="2025" data-month="11" id="month-2025-11">
                 <div class="item-info">
                     <div class="item-date">20251129</div>
                     <a href="https://invest.zdyi.com/blog/2025/11/20251129/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -584,7 +589,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="14" data-year="2025" data-month="11"  >
+            <div class="gallery-item" data-index="14" data-year="2025" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20251122</div>
                     <a href="https://invest.zdyi.com/blog/2025/11/20251122/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -596,7 +601,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="15" data-year="2025" data-month="11"  >
+            <div class="gallery-item" data-index="15" data-year="2025" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20251115</div>
                     <a href="https://invest.zdyi.com/blog/2025/11/20251115/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -608,7 +613,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="16" data-year="2025" data-month="11"  >
+            <div class="gallery-item" data-index="16" data-year="2025" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20251108</div>
                     <a href="https://invest.zdyi.com/blog/2025/11/20251108/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -620,7 +625,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="17" data-year="2025" data-month="11"  >
+            <div class="gallery-item" data-index="17" data-year="2025" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20251101</div>
                     <a href="https://invest.zdyi.com/blog/2025/11/20251101/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -632,7 +637,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="18" data-year="2025" data-month="10"  id="month-2025-10">
+            <div class="gallery-item" data-index="18" data-year="2025" data-month="10" id="month-2025-10">
                 <div class="item-info">
                     <div class="item-date">20251025</div>
                     <a href="https://invest.zdyi.com/blog/2025/10/20251025/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -644,7 +649,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="19" data-year="2025" data-month="10"  >
+            <div class="gallery-item" data-index="19" data-year="2025" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20251018</div>
                     <a href="https://invest.zdyi.com/blog/2025/10/20251018/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -656,7 +661,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="20" data-year="2025" data-month="10"  >
+            <div class="gallery-item" data-index="20" data-year="2025" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20251011</div>
                     <a href="https://invest.zdyi.com/blog/2025/10/20251011/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -668,7 +673,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="21" data-year="2025" data-month="10"  >
+            <div class="gallery-item" data-index="21" data-year="2025" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20251004</div>
                     <a href="https://invest.zdyi.com/blog/2025/10/20251004/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -680,7 +685,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="22" data-year="2025" data-month="09"  id="month-2025-09">
+            <div class="gallery-item" data-index="22" data-year="2025" data-month="09" id="month-2025-09">
                 <div class="item-info">
                     <div class="item-date">20250927</div>
                     <a href="https://invest.zdyi.com/blog/2025/09/20250927/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -692,7 +697,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="23" data-year="2025" data-month="09"  >
+            <div class="gallery-item" data-index="23" data-year="2025" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20250920</div>
                     <a href="https://invest.zdyi.com/blog/2025/09/20250920/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -704,7 +709,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="24" data-year="2025" data-month="09"  >
+            <div class="gallery-item" data-index="24" data-year="2025" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20250913</div>
                     <a href="https://invest.zdyi.com/blog/2025/09/20250913/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -716,7 +721,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="25" data-year="2025" data-month="09"  >
+            <div class="gallery-item" data-index="25" data-year="2025" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20250906</div>
                     <a href="https://invest.zdyi.com/blog/2025/09/20250906/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -728,7 +733,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="26" data-year="2025" data-month="08"  id="month-2025-08">
+            <div class="gallery-item" data-index="26" data-year="2025" data-month="08" id="month-2025-08">
                 <div class="item-info">
                     <div class="item-date">20250830</div>
                     <a href="https://invest.zdyi.com/blog/2025/08/20250830/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -740,7 +745,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="27" data-year="2025" data-month="08"  >
+            <div class="gallery-item" data-index="27" data-year="2025" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20250823</div>
                     <a href="https://invest.zdyi.com/blog/2025/08/20250823/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -752,7 +757,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="28" data-year="2025" data-month="08"  >
+            <div class="gallery-item" data-index="28" data-year="2025" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20250816</div>
                     <a href="https://invest.zdyi.com/blog/2025/08/20250816/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -764,7 +769,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="29" data-year="2025" data-month="08"  >
+            <div class="gallery-item" data-index="29" data-year="2025" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20250809</div>
                     <a href="https://invest.zdyi.com/blog/2025/08/20250809/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -776,7 +781,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="30" data-year="2025" data-month="08"  >
+            <div class="gallery-item" data-index="30" data-year="2025" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20250802</div>
                     <a href="https://invest.zdyi.com/blog/2025/08/20250802/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -788,7 +793,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="31" data-year="2025" data-month="07"  id="month-2025-07">
+            <div class="gallery-item" data-index="31" data-year="2025" data-month="07" id="month-2025-07">
                 <div class="item-info">
                     <div class="item-date">20250726</div>
                     <a href="https://invest.zdyi.com/blog/2025/07/20250726/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -800,7 +805,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="32" data-year="2025" data-month="07"  >
+            <div class="gallery-item" data-index="32" data-year="2025" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20250719</div>
                     <a href="https://invest.zdyi.com/blog/2025/07/20250719/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -812,7 +817,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="33" data-year="2025" data-month="07"  >
+            <div class="gallery-item" data-index="33" data-year="2025" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20250712</div>
                     <a href="https://invest.zdyi.com/blog/2025/07/20250712/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -824,7 +829,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="34" data-year="2025" data-month="07"  >
+            <div class="gallery-item" data-index="34" data-year="2025" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20250705</div>
                     <a href="https://invest.zdyi.com/blog/2025/07/20250705/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -836,7 +841,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="35" data-year="2025" data-month="06"  id="month-2025-06">
+            <div class="gallery-item" data-index="35" data-year="2025" data-month="06" id="month-2025-06">
                 <div class="item-info">
                     <div class="item-date">20250628</div>
                     <a href="https://invest.zdyi.com/blog/2025/06/20250628/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -848,7 +853,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="36" data-year="2025" data-month="06"  >
+            <div class="gallery-item" data-index="36" data-year="2025" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20250621</div>
                     <a href="https://invest.zdyi.com/blog/2025/06/20250621/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -860,7 +865,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="37" data-year="2025" data-month="06"  >
+            <div class="gallery-item" data-index="37" data-year="2025" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20250614</div>
                     <a href="https://invest.zdyi.com/blog/2025/06/20250614/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -872,7 +877,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="38" data-year="2025" data-month="06"  >
+            <div class="gallery-item" data-index="38" data-year="2025" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20250607</div>
                     <a href="https://invest.zdyi.com/blog/2025/06/20250607/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -884,7 +889,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="39" data-year="2025" data-month="05"  id="month-2025-05">
+            <div class="gallery-item" data-index="39" data-year="2025" data-month="05" id="month-2025-05">
                 <div class="item-info">
                     <div class="item-date">20250531</div>
                     <a href="https://invest.zdyi.com/blog/2025/05/20250531/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -896,7 +901,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="40" data-year="2025" data-month="05"  >
+            <div class="gallery-item" data-index="40" data-year="2025" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20250524</div>
                     <a href="https://invest.zdyi.com/blog/2025/05/20250524/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -908,7 +913,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="41" data-year="2025" data-month="05"  >
+            <div class="gallery-item" data-index="41" data-year="2025" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20250517</div>
                     <a href="https://invest.zdyi.com/blog/2025/05/20250517/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -920,7 +925,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="42" data-year="2025" data-month="05"  >
+            <div class="gallery-item" data-index="42" data-year="2025" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20250510</div>
                     <a href="https://invest.zdyi.com/blog/2025/05/20250510/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -932,7 +937,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="43" data-year="2025" data-month="05"  >
+            <div class="gallery-item" data-index="43" data-year="2025" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20250503</div>
                     <a href="https://invest.zdyi.com/blog/2025/05/20250503/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -944,7 +949,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="44" data-year="2025" data-month="04"  id="month-2025-04">
+            <div class="gallery-item" data-index="44" data-year="2025" data-month="04" id="month-2025-04">
                 <div class="item-info">
                     <div class="item-date">20250426</div>
                     <a href="https://invest.zdyi.com/blog/2025/04/20250426/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -956,7 +961,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="45" data-year="2025" data-month="04"  >
+            <div class="gallery-item" data-index="45" data-year="2025" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20250419</div>
                     <a href="https://invest.zdyi.com/blog/2025/04/20250419/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -968,7 +973,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="46" data-year="2025" data-month="04"  >
+            <div class="gallery-item" data-index="46" data-year="2025" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20250412</div>
                     <a href="https://invest.zdyi.com/blog/2025/04/20250412/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -980,7 +985,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="47" data-year="2025" data-month="04"  >
+            <div class="gallery-item" data-index="47" data-year="2025" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20250405</div>
                     <a href="https://invest.zdyi.com/blog/2025/04/20250405/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -992,7 +997,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="48" data-year="2025" data-month="03"  id="month-2025-03">
+            <div class="gallery-item" data-index="48" data-year="2025" data-month="03" id="month-2025-03">
                 <div class="item-info">
                     <div class="item-date">20250329</div>
                     <a href="https://invest.zdyi.com/blog/2025/03/20250329/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1004,7 +1009,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="49" data-year="2025" data-month="03"  >
+            <div class="gallery-item" data-index="49" data-year="2025" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20250322</div>
                     <a href="https://invest.zdyi.com/blog/2025/03/20250322/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1016,7 +1021,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="50" data-year="2025" data-month="03"  >
+            <div class="gallery-item" data-index="50" data-year="2025" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20250315</div>
                     <a href="https://invest.zdyi.com/blog/2025/03/20250315/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1028,7 +1033,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="51" data-year="2025" data-month="03"  >
+            <div class="gallery-item" data-index="51" data-year="2025" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20250308</div>
                     <a href="https://invest.zdyi.com/blog/2025/03/20250308/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1040,7 +1045,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="52" data-year="2025" data-month="03"  >
+            <div class="gallery-item" data-index="52" data-year="2025" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20250301</div>
                     <a href="https://invest.zdyi.com/blog/2025/03/20250301/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1052,7 +1057,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="53" data-year="2025" data-month="02"  id="month-2025-02">
+            <div class="gallery-item" data-index="53" data-year="2025" data-month="02" id="month-2025-02">
                 <div class="item-info">
                     <div class="item-date">20250222</div>
                     <a href="https://invest.zdyi.com/blog/2025/02/20250222/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1064,7 +1069,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="54" data-year="2025" data-month="02"  >
+            <div class="gallery-item" data-index="54" data-year="2025" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20250215</div>
                     <a href="https://invest.zdyi.com/blog/2025/02/20250215/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1076,7 +1081,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="55" data-year="2025" data-month="02"  >
+            <div class="gallery-item" data-index="55" data-year="2025" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20250208</div>
                     <a href="https://invest.zdyi.com/blog/2025/02/20250208/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1088,7 +1093,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="56" data-year="2025" data-month="01"  id="month-2025-01">
+            <div class="gallery-item" data-index="56" data-year="2025" data-month="01" id="month-2025-01">
                 <div class="item-info">
                     <div class="item-date">20250125</div>
                     <a href="https://invest.zdyi.com/blog/2025/01/20250125/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1100,7 +1105,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="57" data-year="2025" data-month="01"  >
+            <div class="gallery-item" data-index="57" data-year="2025" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20250118</div>
                     <a href="https://invest.zdyi.com/blog/2025/01/20250118/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1112,7 +1117,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="58" data-year="2025" data-month="01"  >
+            <div class="gallery-item" data-index="58" data-year="2025" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20250111</div>
                     <a href="https://invest.zdyi.com/blog/2025/01/20250111/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1124,7 +1129,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="59" data-year="2025" data-month="01"  >
+            <div class="gallery-item" data-index="59" data-year="2025" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20250104</div>
                     <a href="https://invest.zdyi.com/blog/2025/01/20250104/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1136,7 +1141,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="60" data-year="2024" data-month="12" id="year-2024" id="month-2024-12">
+            <div class="gallery-item" data-index="60" data-year="2024" data-month="12" id="month-2024-12">
                 <div class="item-info">
                     <div class="item-date">20241228</div>
                     <a href="https://invest.zdyi.com/blog/2024/12/20241228/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1148,7 +1153,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="61" data-year="2024" data-month="12"  >
+            <div class="gallery-item" data-index="61" data-year="2024" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20241221</div>
                     <a href="https://invest.zdyi.com/blog/2024/12/20241221/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1160,7 +1165,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="62" data-year="2024" data-month="12"  >
+            <div class="gallery-item" data-index="62" data-year="2024" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20241214</div>
                     <a href="https://invest.zdyi.com/blog/2024/12/20241214/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1172,7 +1177,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="63" data-year="2024" data-month="12"  >
+            <div class="gallery-item" data-index="63" data-year="2024" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20241207</div>
                     <a href="https://invest.zdyi.com/blog/2024/12/20241207/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1184,7 +1189,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="64" data-year="2024" data-month="11"  id="month-2024-11">
+            <div class="gallery-item" data-index="64" data-year="2024" data-month="11" id="month-2024-11">
                 <div class="item-info">
                     <div class="item-date">20241130</div>
                     <a href="https://invest.zdyi.com/blog/2024/11/20241130/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1196,7 +1201,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="65" data-year="2024" data-month="11"  >
+            <div class="gallery-item" data-index="65" data-year="2024" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20241123</div>
                     <a href="https://invest.zdyi.com/blog/2024/11/20241123/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1208,7 +1213,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="66" data-year="2024" data-month="11"  >
+            <div class="gallery-item" data-index="66" data-year="2024" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20241116</div>
                     <a href="https://invest.zdyi.com/blog/2024/11/20241116/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1220,7 +1225,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="67" data-year="2024" data-month="11"  >
+            <div class="gallery-item" data-index="67" data-year="2024" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20241109</div>
                     <a href="https://invest.zdyi.com/blog/2024/11/20241109/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1232,7 +1237,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="68" data-year="2024" data-month="11"  >
+            <div class="gallery-item" data-index="68" data-year="2024" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20241102</div>
                     <a href="https://invest.zdyi.com/blog/2024/11/20241102/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1244,7 +1249,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="69" data-year="2024" data-month="10"  id="month-2024-10">
+            <div class="gallery-item" data-index="69" data-year="2024" data-month="10" id="month-2024-10">
                 <div class="item-info">
                     <div class="item-date">20241026</div>
                     <a href="https://invest.zdyi.com/blog/2024/10/20241026/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1256,7 +1261,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="70" data-year="2024" data-month="10"  >
+            <div class="gallery-item" data-index="70" data-year="2024" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20241019</div>
                     <a href="https://invest.zdyi.com/blog/2024/10/20241019/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1268,7 +1273,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="71" data-year="2024" data-month="10"  >
+            <div class="gallery-item" data-index="71" data-year="2024" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20241012</div>
                     <a href="https://invest.zdyi.com/blog/2024/10/20241012/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1280,7 +1285,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="72" data-year="2024" data-month="10"  >
+            <div class="gallery-item" data-index="72" data-year="2024" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20241005</div>
                     <a href="https://invest.zdyi.com/blog/2024/10/20241005/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1292,7 +1297,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="73" data-year="2024" data-month="09"  id="month-2024-09">
+            <div class="gallery-item" data-index="73" data-year="2024" data-month="09" id="month-2024-09">
                 <div class="item-info">
                     <div class="item-date">20240928</div>
                     <a href="https://invest.zdyi.com/blog/2024/09/20240928/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1304,7 +1309,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="74" data-year="2024" data-month="09"  >
+            <div class="gallery-item" data-index="74" data-year="2024" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20240921</div>
                     <a href="https://invest.zdyi.com/blog/2024/09/20240921/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1316,7 +1321,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="75" data-year="2024" data-month="09"  >
+            <div class="gallery-item" data-index="75" data-year="2024" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20240914</div>
                     <a href="https://invest.zdyi.com/blog/2024/09/20240914/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1328,7 +1333,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="76" data-year="2024" data-month="09"  >
+            <div class="gallery-item" data-index="76" data-year="2024" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20240907</div>
                     <a href="https://invest.zdyi.com/blog/2024/09/20240907/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1340,7 +1345,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="77" data-year="2024" data-month="08"  id="month-2024-08">
+            <div class="gallery-item" data-index="77" data-year="2024" data-month="08" id="month-2024-08">
                 <div class="item-info">
                     <div class="item-date">20240831</div>
                     <a href="https://invest.zdyi.com/blog/2024/08/20240831/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1352,7 +1357,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="78" data-year="2024" data-month="08"  >
+            <div class="gallery-item" data-index="78" data-year="2024" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20240824</div>
                     <a href="https://invest.zdyi.com/blog/2024/08/20240824/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1364,7 +1369,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="79" data-year="2024" data-month="08"  >
+            <div class="gallery-item" data-index="79" data-year="2024" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20240817</div>
                     <a href="https://invest.zdyi.com/blog/2024/08/20240817/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1376,7 +1381,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="80" data-year="2024" data-month="08"  >
+            <div class="gallery-item" data-index="80" data-year="2024" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20240810</div>
                     <a href="https://invest.zdyi.com/blog/2024/08/20240810/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1388,7 +1393,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="81" data-year="2024" data-month="08"  >
+            <div class="gallery-item" data-index="81" data-year="2024" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20240803</div>
                     <a href="https://invest.zdyi.com/blog/2024/08/20240803/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1400,7 +1405,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="82" data-year="2024" data-month="07"  id="month-2024-07">
+            <div class="gallery-item" data-index="82" data-year="2024" data-month="07" id="month-2024-07">
                 <div class="item-info">
                     <div class="item-date">20240727</div>
                     <a href="https://invest.zdyi.com/blog/2024/07/20240727/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1412,7 +1417,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="83" data-year="2024" data-month="07"  >
+            <div class="gallery-item" data-index="83" data-year="2024" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20240720</div>
                     <a href="https://invest.zdyi.com/blog/2024/07/20240720/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1424,7 +1429,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="84" data-year="2024" data-month="07"  >
+            <div class="gallery-item" data-index="84" data-year="2024" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20240713</div>
                     <a href="https://invest.zdyi.com/blog/2024/07/20240713/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1436,7 +1441,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="85" data-year="2024" data-month="07"  >
+            <div class="gallery-item" data-index="85" data-year="2024" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20240706</div>
                     <a href="https://invest.zdyi.com/blog/2024/07/20240706/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1448,7 +1453,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="86" data-year="2024" data-month="06"  id="month-2024-06">
+            <div class="gallery-item" data-index="86" data-year="2024" data-month="06" id="month-2024-06">
                 <div class="item-info">
                     <div class="item-date">20240629</div>
                     <a href="https://invest.zdyi.com/blog/2024/06/20240629/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1460,7 +1465,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="87" data-year="2024" data-month="06"  >
+            <div class="gallery-item" data-index="87" data-year="2024" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20240622</div>
                     <a href="https://invest.zdyi.com/blog/2024/06/20240622/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1472,7 +1477,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="88" data-year="2024" data-month="06"  >
+            <div class="gallery-item" data-index="88" data-year="2024" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20240615</div>
                     <a href="https://invest.zdyi.com/blog/2024/06/20240615/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1484,7 +1489,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="89" data-year="2024" data-month="06"  >
+            <div class="gallery-item" data-index="89" data-year="2024" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20240608</div>
                     <a href="https://invest.zdyi.com/blog/2024/06/20240608/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1496,7 +1501,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="90" data-year="2024" data-month="06"  >
+            <div class="gallery-item" data-index="90" data-year="2024" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20240601</div>
                     <a href="https://invest.zdyi.com/blog/2024/06/20240601/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1508,7 +1513,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="91" data-year="2024" data-month="05"  id="month-2024-05">
+            <div class="gallery-item" data-index="91" data-year="2024" data-month="05" id="month-2024-05">
                 <div class="item-info">
                     <div class="item-date">20240525</div>
                     <a href="https://invest.zdyi.com/blog/2024/05/20240525/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1520,7 +1525,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="92" data-year="2024" data-month="05"  >
+            <div class="gallery-item" data-index="92" data-year="2024" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20240518</div>
                     <a href="https://invest.zdyi.com/blog/2024/05/20240518/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1532,7 +1537,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="93" data-year="2024" data-month="05"  >
+            <div class="gallery-item" data-index="93" data-year="2024" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20240511</div>
                     <a href="https://invest.zdyi.com/blog/2024/05/20240511/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1544,7 +1549,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="94" data-year="2024" data-month="05"  >
+            <div class="gallery-item" data-index="94" data-year="2024" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20240504</div>
                     <a href="https://invest.zdyi.com/blog/2024/05/20240504/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1556,7 +1561,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="95" data-year="2024" data-month="04"  id="month-2024-04">
+            <div class="gallery-item" data-index="95" data-year="2024" data-month="04" id="month-2024-04">
                 <div class="item-info">
                     <div class="item-date">20240427</div>
                     <a href="https://invest.zdyi.com/blog/2024/04/20240427/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1568,7 +1573,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="96" data-year="2024" data-month="04"  >
+            <div class="gallery-item" data-index="96" data-year="2024" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20240420</div>
                     <a href="https://invest.zdyi.com/blog/2024/04/20240420/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1580,7 +1585,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="97" data-year="2024" data-month="04"  >
+            <div class="gallery-item" data-index="97" data-year="2024" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20240413</div>
                     <a href="https://invest.zdyi.com/blog/2024/04/20240413/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1592,7 +1597,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="98" data-year="2024" data-month="04"  >
+            <div class="gallery-item" data-index="98" data-year="2024" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20240406</div>
                     <a href="https://invest.zdyi.com/blog/2024/04/20240406/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1604,7 +1609,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="99" data-year="2024" data-month="03"  id="month-2024-03">
+            <div class="gallery-item" data-index="99" data-year="2024" data-month="03" id="month-2024-03">
                 <div class="item-info">
                     <div class="item-date">20240330</div>
                     <a href="https://invest.zdyi.com/blog/2024/03/20240330/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1616,7 +1621,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="100" data-year="2024" data-month="03"  >
+            <div class="gallery-item" data-index="100" data-year="2024" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20240323</div>
                     <a href="https://invest.zdyi.com/blog/2024/03/20240323/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1628,7 +1633,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="101" data-year="2024" data-month="03"  >
+            <div class="gallery-item" data-index="101" data-year="2024" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20240316</div>
                     <a href="https://invest.zdyi.com/blog/2024/03/20240316/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1640,7 +1645,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="102" data-year="2024" data-month="03"  >
+            <div class="gallery-item" data-index="102" data-year="2024" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20240309</div>
                     <a href="https://invest.zdyi.com/blog/2024/03/20240309/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1652,7 +1657,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="103" data-year="2024" data-month="03"  >
+            <div class="gallery-item" data-index="103" data-year="2024" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20240302</div>
                     <a href="https://invest.zdyi.com/blog/2024/03/20240302/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1664,7 +1669,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="104" data-year="2024" data-month="02"  id="month-2024-02">
+            <div class="gallery-item" data-index="104" data-year="2024" data-month="02" id="month-2024-02">
                 <div class="item-info">
                     <div class="item-date">20240224</div>
                     <a href="https://invest.zdyi.com/blog/2024/02/20240224/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1676,7 +1681,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="105" data-year="2024" data-month="02"  >
+            <div class="gallery-item" data-index="105" data-year="2024" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20240210</div>
                     <a href="https://invest.zdyi.com/blog/2024/02/20240210/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1688,7 +1693,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="106" data-year="2024" data-month="02"  >
+            <div class="gallery-item" data-index="106" data-year="2024" data-month="02" >
                 <div class="item-info">
                     <div class="item-date">20240203</div>
                     <a href="https://invest.zdyi.com/blog/2024/02/20240203/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1700,7 +1705,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="107" data-year="2024" data-month="01"  id="month-2024-01">
+            <div class="gallery-item" data-index="107" data-year="2024" data-month="01" id="month-2024-01">
                 <div class="item-info">
                     <div class="item-date">20240127</div>
                     <a href="https://invest.zdyi.com/blog/2024/01/20240127/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1712,7 +1717,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="108" data-year="2024" data-month="01"  >
+            <div class="gallery-item" data-index="108" data-year="2024" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20240120</div>
                     <a href="https://invest.zdyi.com/blog/2024/01/20240120/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1724,7 +1729,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="109" data-year="2024" data-month="01"  >
+            <div class="gallery-item" data-index="109" data-year="2024" data-month="01" >
                 <div class="item-info">
                     <div class="item-date">20240106</div>
                     <a href="https://invest.zdyi.com/blog/2024/01/20240106/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1736,7 +1741,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="110" data-year="2023" data-month="12" id="year-2023" id="month-2023-12">
+            <div class="gallery-item" data-index="110" data-year="2023" data-month="12" id="month-2023-12">
                 <div class="item-info">
                     <div class="item-date">20231230</div>
                     <a href="https://invest.zdyi.com/blog/2023/12/20231230/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1748,7 +1753,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="111" data-year="2023" data-month="12"  >
+            <div class="gallery-item" data-index="111" data-year="2023" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20231223</div>
                     <a href="https://invest.zdyi.com/blog/2023/12/20231223/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1760,7 +1765,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="112" data-year="2023" data-month="12"  >
+            <div class="gallery-item" data-index="112" data-year="2023" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20231216</div>
                     <a href="https://invest.zdyi.com/blog/2023/12/20231216/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1772,7 +1777,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="113" data-year="2023" data-month="12"  >
+            <div class="gallery-item" data-index="113" data-year="2023" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20231209</div>
                     <a href="https://invest.zdyi.com/blog/2023/12/20231209/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1784,7 +1789,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="114" data-year="2023" data-month="12"  >
+            <div class="gallery-item" data-index="114" data-year="2023" data-month="12" >
                 <div class="item-info">
                     <div class="item-date">20231202</div>
                     <a href="https://invest.zdyi.com/blog/2023/12/20231202/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1796,7 +1801,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="115" data-year="2023" data-month="11"  id="month-2023-11">
+            <div class="gallery-item" data-index="115" data-year="2023" data-month="11" id="month-2023-11">
                 <div class="item-info">
                     <div class="item-date">20231125</div>
                     <a href="https://invest.zdyi.com/blog/2023/11/20231125/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1808,7 +1813,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="116" data-year="2023" data-month="11"  >
+            <div class="gallery-item" data-index="116" data-year="2023" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20231118</div>
                     <a href="https://invest.zdyi.com/blog/2023/11/20231118/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1820,7 +1825,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="117" data-year="2023" data-month="11"  >
+            <div class="gallery-item" data-index="117" data-year="2023" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20231111</div>
                     <a href="https://invest.zdyi.com/blog/2023/11/20231111/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1832,7 +1837,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="118" data-year="2023" data-month="11"  >
+            <div class="gallery-item" data-index="118" data-year="2023" data-month="11" >
                 <div class="item-info">
                     <div class="item-date">20231104</div>
                     <a href="https://invest.zdyi.com/blog/2023/11/20231104/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1844,7 +1849,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="119" data-year="2023" data-month="10"  id="month-2023-10">
+            <div class="gallery-item" data-index="119" data-year="2023" data-month="10" id="month-2023-10">
                 <div class="item-info">
                     <div class="item-date">20231028</div>
                     <a href="https://invest.zdyi.com/blog/2023/10/20231028/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1856,7 +1861,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="120" data-year="2023" data-month="10"  >
+            <div class="gallery-item" data-index="120" data-year="2023" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20231021</div>
                     <a href="https://invest.zdyi.com/blog/2023/10/20231021/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1868,7 +1873,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="121" data-year="2023" data-month="10"  >
+            <div class="gallery-item" data-index="121" data-year="2023" data-month="10" >
                 <div class="item-info">
                     <div class="item-date">20231014</div>
                     <a href="https://invest.zdyi.com/blog/2023/10/20231014/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1880,7 +1885,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="122" data-year="2023" data-month="09"  id="month-2023-09">
+            <div class="gallery-item" data-index="122" data-year="2023" data-month="09" id="month-2023-09">
                 <div class="item-info">
                     <div class="item-date">20230930</div>
                     <a href="https://invest.zdyi.com/blog/2023/09/20230930/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1892,7 +1897,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="123" data-year="2023" data-month="09"  >
+            <div class="gallery-item" data-index="123" data-year="2023" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20230923</div>
                     <a href="https://invest.zdyi.com/blog/2023/09/20230923/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1904,7 +1909,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="124" data-year="2023" data-month="09"  >
+            <div class="gallery-item" data-index="124" data-year="2023" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20230916</div>
                     <a href="https://invest.zdyi.com/blog/2023/09/20230916/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1916,7 +1921,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="125" data-year="2023" data-month="09"  >
+            <div class="gallery-item" data-index="125" data-year="2023" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20230909</div>
                     <a href="https://invest.zdyi.com/blog/2023/09/20230909/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1928,7 +1933,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="126" data-year="2023" data-month="09"  >
+            <div class="gallery-item" data-index="126" data-year="2023" data-month="09" >
                 <div class="item-info">
                     <div class="item-date">20230902</div>
                     <a href="https://invest.zdyi.com/blog/2023/09/20230902/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1940,7 +1945,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="127" data-year="2023" data-month="08"  id="month-2023-08">
+            <div class="gallery-item" data-index="127" data-year="2023" data-month="08" id="month-2023-08">
                 <div class="item-info">
                     <div class="item-date">20230826</div>
                     <a href="https://invest.zdyi.com/blog/2023/08/20230826/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1952,7 +1957,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="128" data-year="2023" data-month="08"  >
+            <div class="gallery-item" data-index="128" data-year="2023" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20230819</div>
                     <a href="https://invest.zdyi.com/blog/2023/08/20230819/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1964,7 +1969,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="129" data-year="2023" data-month="08"  >
+            <div class="gallery-item" data-index="129" data-year="2023" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20230812</div>
                     <a href="https://invest.zdyi.com/blog/2023/08/20230812/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1976,7 +1981,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="130" data-year="2023" data-month="08"  >
+            <div class="gallery-item" data-index="130" data-year="2023" data-month="08" >
                 <div class="item-info">
                     <div class="item-date">20230805</div>
                     <a href="https://invest.zdyi.com/blog/2023/08/20230805/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -1988,7 +1993,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="131" data-year="2023" data-month="07"  id="month-2023-07">
+            <div class="gallery-item" data-index="131" data-year="2023" data-month="07" id="month-2023-07">
                 <div class="item-info">
                     <div class="item-date">20230729</div>
                     <a href="https://invest.zdyi.com/blog/2023/07/20230729/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2000,7 +2005,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="132" data-year="2023" data-month="07"  >
+            <div class="gallery-item" data-index="132" data-year="2023" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20230722</div>
                     <a href="https://invest.zdyi.com/blog/2023/07/20230722/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2012,7 +2017,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="133" data-year="2023" data-month="07"  >
+            <div class="gallery-item" data-index="133" data-year="2023" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20230715</div>
                     <a href="https://invest.zdyi.com/blog/2023/07/20230715/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2024,7 +2029,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="134" data-year="2023" data-month="07"  >
+            <div class="gallery-item" data-index="134" data-year="2023" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20230708</div>
                     <a href="https://invest.zdyi.com/blog/2023/07/20230708/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2036,7 +2041,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="135" data-year="2023" data-month="07"  >
+            <div class="gallery-item" data-index="135" data-year="2023" data-month="07" >
                 <div class="item-info">
                     <div class="item-date">20230701</div>
                     <a href="https://invest.zdyi.com/blog/2023/07/20230701/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2048,7 +2053,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="136" data-year="2023" data-month="06"  id="month-2023-06">
+            <div class="gallery-item" data-index="136" data-year="2023" data-month="06" id="month-2023-06">
                 <div class="item-info">
                     <div class="item-date">20230624</div>
                     <a href="https://invest.zdyi.com/blog/2023/06/20230624/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2060,7 +2065,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="137" data-year="2023" data-month="06"  >
+            <div class="gallery-item" data-index="137" data-year="2023" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20230617</div>
                     <a href="https://invest.zdyi.com/blog/2023/06/20230617/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2072,7 +2077,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="138" data-year="2023" data-month="06"  >
+            <div class="gallery-item" data-index="138" data-year="2023" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20230610</div>
                     <a href="https://invest.zdyi.com/blog/2023/06/20230610/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2084,7 +2089,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="139" data-year="2023" data-month="06"  >
+            <div class="gallery-item" data-index="139" data-year="2023" data-month="06" >
                 <div class="item-info">
                     <div class="item-date">20230603</div>
                     <a href="https://invest.zdyi.com/blog/2023/06/20230603/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2096,7 +2101,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="140" data-year="2023" data-month="05"  id="month-2023-05">
+            <div class="gallery-item" data-index="140" data-year="2023" data-month="05" id="month-2023-05">
                 <div class="item-info">
                     <div class="item-date">20230527</div>
                     <a href="https://invest.zdyi.com/blog/2023/05/20230527/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2108,7 +2113,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="141" data-year="2023" data-month="05"  >
+            <div class="gallery-item" data-index="141" data-year="2023" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20230520</div>
                     <a href="https://invest.zdyi.com/blog/2023/05/20230520/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2120,7 +2125,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="142" data-year="2023" data-month="05"  >
+            <div class="gallery-item" data-index="142" data-year="2023" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20230513</div>
                     <a href="https://invest.zdyi.com/blog/2023/05/20230513/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2132,7 +2137,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="143" data-year="2023" data-month="05"  >
+            <div class="gallery-item" data-index="143" data-year="2023" data-month="05" >
                 <div class="item-info">
                     <div class="item-date">20230506</div>
                     <a href="https://invest.zdyi.com/blog/2023/05/20230506/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2144,7 +2149,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="144" data-year="2023" data-month="04"  id="month-2023-04">
+            <div class="gallery-item" data-index="144" data-year="2023" data-month="04" id="month-2023-04">
                 <div class="item-info">
                     <div class="item-date">20230429</div>
                     <a href="https://invest.zdyi.com/blog/2023/04/20230429/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2156,7 +2161,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="145" data-year="2023" data-month="04"  >
+            <div class="gallery-item" data-index="145" data-year="2023" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20230422</div>
                     <a href="https://invest.zdyi.com/blog/2023/04/20230422/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2168,7 +2173,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="146" data-year="2023" data-month="04"  >
+            <div class="gallery-item" data-index="146" data-year="2023" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20230415</div>
                     <a href="https://invest.zdyi.com/blog/2023/04/20230415/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2180,7 +2185,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="147" data-year="2023" data-month="04"  >
+            <div class="gallery-item" data-index="147" data-year="2023" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20230408</div>
                     <a href="https://invest.zdyi.com/blog/2023/04/20230408/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2192,7 +2197,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="148" data-year="2023" data-month="04"  >
+            <div class="gallery-item" data-index="148" data-year="2023" data-month="04" >
                 <div class="item-info">
                     <div class="item-date">20230401</div>
                     <a href="https://invest.zdyi.com/blog/2023/04/20230401/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2204,7 +2209,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="149" data-year="2023" data-month="03"  id="month-2023-03">
+            <div class="gallery-item" data-index="149" data-year="2023" data-month="03" id="month-2023-03">
                 <div class="item-info">
                     <div class="item-date">20230325</div>
                     <a href="https://invest.zdyi.com/blog/2023/03/20230325/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2216,7 +2221,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item" data-index="150" data-year="2023" data-month="03"  >
+            <div class="gallery-item" data-index="150" data-year="2023" data-month="03" >
                 <div class="item-info">
                     <div class="item-date">20230318</div>
                     <a href="https://invest.zdyi.com/blog/2023/03/20230318/" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -2518,11 +2523,12 @@
                 sidebarNav.classList.add('visible');
             }
 
-            // 绑定年份链接点击事件 - 展开/折叠月份
+            // 绑定年份链接点击事件 - 展开/折叠月份并滚动到该年份
             const yearLinks = document.querySelectorAll('.year-link');
             yearLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     const year = this.getAttribute('data-year');
                     const monthNav = document.getElementById('month-nav-' + year);
                     const isExpanded = this.classList.contains('expanded');
@@ -2547,6 +2553,21 @@
                         monthNav.style.display = 'none';
                         this.classList.remove('expanded');
                     }
+
+                    // 滚动到该年份的第一个item
+                    const firstMonthInYear = monthNav.querySelector('.month-link');
+                    if (firstMonthInYear) {
+                        const targetId = firstMonthInYear.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
                 });
             });
 
@@ -2555,26 +2576,9 @@
             monthLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        const offset = 100;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // 绑定年份链接（如果不是展开的）的滚动功能
-            document.querySelectorAll('.year-link').forEach(link => {
-                link.addEventListener('dblclick', function(e) {
-                    e.preventDefault();
-                    const year = this.getAttribute('data-year');
-                    const targetElement = document.getElementById('year-' + year);
 
                     if (targetElement) {
                         const offset = 100;

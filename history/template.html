@@ -288,7 +288,7 @@
         }
 
         .nav-item {
-            padding: 2px 0;
+            padding: 1px 0;
             text-align: right;
             position: relative;
         }
@@ -332,7 +332,7 @@
 
         /* 年份导航 */
         .year-nav {
-            margin-bottom: 2px;
+            margin-bottom: 1px;
         }
 
         .year-link {
@@ -360,7 +360,7 @@
         /* 月份导航 */
         .month-nav {
             padding-left: 12px;
-            margin-top: 2px;
+            margin-top: 1px;
             animation: slideDown 0.3s ease;
         }
 
@@ -376,7 +376,7 @@
         }
 
         .month-nav-item {
-            padding: 2px 0;
+            padding: 1px 0;
         }
 
         .month-link {
@@ -421,7 +421,7 @@
 
         <div class="gallery">
             {% for item in items %}
-            <div class="gallery-item" data-index="{{ loop.index0 }}" data-year="{{ item.year }}" data-month="{{ item.month }}" {% if item.is_first_in_year %}id="year-{{ item.year }}"{% endif %} {% if item.is_first_in_month %}id="month-{{ item.year }}-{{ item.month }}"{% endif %}>
+            <div class="gallery-item" data-index="{{ loop.index0 }}" data-year="{{ item.year }}" data-month="{{ item.month }}" {% if item.is_first_in_month %}id="month-{{ item.year }}-{{ item.month }}"{% elif item.is_first_in_year %}id="year-{{ item.year }}"{% endif %}>
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
                     <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -558,7 +558,7 @@
                 sidebarNav.classList.add('visible');
             }
 
-            // 绑定年份链接点击事件 - 展开/折叠月份
+            // 绑定年份链接点击事件 - 展开/折叠月份并滚动到该年份
             const yearLinks = document.querySelectorAll('.year-link');
             yearLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -587,6 +587,21 @@
                     } else {
                         monthNav.style.display = 'none';
                         this.classList.remove('expanded');
+                    }
+
+                    // 滚动到该年份的第一个item
+                    const firstMonthInYear = monthNav.querySelector('.month-link');
+                    if (firstMonthInYear) {
+                        const targetId = firstMonthInYear.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
                     }
                 });
             });
