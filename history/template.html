@@ -170,37 +170,36 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 12px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            border-radius: 20px;
             color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             z-index: 1;
             white-space: nowrap;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
         }
 
         .blog-link-btn:hover {
-            background: rgba(255, 255, 255, 0.35);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
         }
 
         .blog-link-btn:active {
-            transform: translateY(0);
+            transform: translateY(0) scale(1.02);
         }
 
         .blog-link-btn::before {
-            content: '📝';
-            margin-right: 8px;
-            font-size: 1rem;
+            content: '📖';
+            margin-right: 6px;
+            font-size: 0.95rem;
         }
 
         .item-label {
@@ -424,7 +423,7 @@
             <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}">
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
-                    <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="{{ item.full_image_url }}" target="_blank" onclick="openLightbox(event, '{{ item.full_image_url }}', '{{ item.date }}')">
                     <div class="image-wrapper">

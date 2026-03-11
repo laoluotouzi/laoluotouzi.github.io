@@ -170,37 +170,36 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 12px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            border-radius: 20px;
             color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
+            letter-spacing: 0.5px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             z-index: 1;
             white-space: nowrap;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 15px rgba(240, 147, 251, 0.4);
         }
 
         .blog-link-btn:hover {
-            background: rgba(255, 255, 255, 0.35);
-            border-color: rgba(255, 255, 255, 0.6);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(240, 147, 251, 0.6);
         }
 
         .blog-link-btn:active {
-            transform: translateY(0);
+            transform: translateY(0) scale(1.02);
         }
 
         .blog-link-btn::before {
-            content: '📝';
-            margin-right: 8px;
-            font-size: 1rem;
+            content: '📖';
+            margin-right: 6px;
+            font-size: 0.95rem;
         }
 
         .item-label {
@@ -424,7 +423,7 @@
             <div class="gallery-item " data-index="0">
                 <div class="item-info">
                     <div class="item-date">20260307</div>
-                    <a href="https://invest.zdyi.com/blog/2026/03/20260307/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/03/20260307/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/03/20260307/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/03/20260307/1.png', '20260307')">
                     <div class="image-wrapper">
@@ -436,7 +435,7 @@
             <div class="gallery-item " data-index="1">
                 <div class="item-info">
                     <div class="item-date">20260228</div>
-                    <a href="https://invest.zdyi.com/blog/2026/02/20260228/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/02/20260228/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260228/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260228/1.png', '20260228')">
                     <div class="image-wrapper">
@@ -448,7 +447,7 @@
             <div class="gallery-item " data-index="2">
                 <div class="item-info">
                     <div class="item-date">20260214</div>
-                    <a href="https://invest.zdyi.com/blog/2026/02/20260214/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/02/20260214/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260214/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260214/1.png', '20260214')">
                     <div class="image-wrapper">
@@ -460,7 +459,7 @@
             <div class="gallery-item " data-index="3">
                 <div class="item-info">
                     <div class="item-date">20260207</div>
-                    <a href="https://invest.zdyi.com/blog/2026/02/20260207/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/02/20260207/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260207/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260207/1.png', '20260207')">
                     <div class="image-wrapper">
@@ -472,7 +471,7 @@
             <div class="gallery-item " data-index="4">
                 <div class="item-info">
                     <div class="item-date">20260131</div>
-                    <a href="https://invest.zdyi.com/blog/2026/01/20260131/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/01/20260131/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260131/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260131/1.png', '20260131')">
                     <div class="image-wrapper">
@@ -484,7 +483,7 @@
             <div class="gallery-item " data-index="5">
                 <div class="item-info">
                     <div class="item-date">20260124</div>
-                    <a href="https://invest.zdyi.com/blog/2026/01/20260124/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/01/20260124/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260124/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260124/1.png', '20260124')">
                     <div class="image-wrapper">
@@ -496,7 +495,7 @@
             <div class="gallery-item " data-index="6">
                 <div class="item-info">
                     <div class="item-date">20260117</div>
-                    <a href="https://invest.zdyi.com/blog/2026/01/20260117/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/01/20260117/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260117/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260117/1.png', '20260117')">
                     <div class="image-wrapper">
@@ -508,7 +507,7 @@
             <div class="gallery-item " data-index="7">
                 <div class="item-info">
                     <div class="item-date">20260110</div>
-                    <a href="https://invest.zdyi.com/blog/2026/01/20260110/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/01/20260110/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260110/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260110/1.png', '20260110')">
                     <div class="image-wrapper">
@@ -520,7 +519,7 @@
             <div class="gallery-item " data-index="8">
                 <div class="item-info">
                     <div class="item-date">20260103</div>
-                    <a href="https://invest.zdyi.com/blog/2026/01/20260103/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2026/01/20260103/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260103/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260103/1.png', '20260103')">
                     <div class="image-wrapper">
@@ -532,7 +531,7 @@
             <div class="gallery-item " data-index="9">
                 <div class="item-info">
                     <div class="item-date">20251227</div>
-                    <a href="https://invest.zdyi.com/blog/2025/12/20251227/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/12/20251227/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251227/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251227/1.png', '20251227')">
                     <div class="image-wrapper">
@@ -544,7 +543,7 @@
             <div class="gallery-item hidden" data-index="10">
                 <div class="item-info">
                     <div class="item-date">20251220</div>
-                    <a href="https://invest.zdyi.com/blog/2025/12/20251220/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/12/20251220/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251220/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251220/1.png', '20251220')">
                     <div class="image-wrapper">
@@ -556,7 +555,7 @@
             <div class="gallery-item hidden" data-index="11">
                 <div class="item-info">
                     <div class="item-date">20251213</div>
-                    <a href="https://invest.zdyi.com/blog/2025/12/20251213/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/12/20251213/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251213/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251213/1.png', '20251213')">
                     <div class="image-wrapper">
@@ -568,7 +567,7 @@
             <div class="gallery-item hidden" data-index="12">
                 <div class="item-info">
                     <div class="item-date">20251206</div>
-                    <a href="https://invest.zdyi.com/blog/2025/12/20251206/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/12/20251206/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251206/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251206/1.png', '20251206')">
                     <div class="image-wrapper">
@@ -580,7 +579,7 @@
             <div class="gallery-item hidden" data-index="13">
                 <div class="item-info">
                     <div class="item-date">20251129</div>
-                    <a href="https://invest.zdyi.com/blog/2025/11/20251129/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/11/20251129/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251129/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251129/1.png', '20251129')">
                     <div class="image-wrapper">
@@ -592,7 +591,7 @@
             <div class="gallery-item hidden" data-index="14">
                 <div class="item-info">
                     <div class="item-date">20251122</div>
-                    <a href="https://invest.zdyi.com/blog/2025/11/20251122/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/11/20251122/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251122/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251122/1.png', '20251122')">
                     <div class="image-wrapper">
@@ -604,7 +603,7 @@
             <div class="gallery-item hidden" data-index="15">
                 <div class="item-info">
                     <div class="item-date">20251115</div>
-                    <a href="https://invest.zdyi.com/blog/2025/11/20251115/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/11/20251115/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251115/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251115/1.png', '20251115')">
                     <div class="image-wrapper">
@@ -616,7 +615,7 @@
             <div class="gallery-item hidden" data-index="16">
                 <div class="item-info">
                     <div class="item-date">20251108</div>
-                    <a href="https://invest.zdyi.com/blog/2025/11/20251108/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/11/20251108/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251108/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251108/1.png', '20251108')">
                     <div class="image-wrapper">
@@ -628,7 +627,7 @@
             <div class="gallery-item hidden" data-index="17">
                 <div class="item-info">
                     <div class="item-date">20251101</div>
-                    <a href="https://invest.zdyi.com/blog/2025/11/20251101/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/11/20251101/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251101/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251101/1.png', '20251101')">
                     <div class="image-wrapper">
@@ -640,7 +639,7 @@
             <div class="gallery-item hidden" data-index="18">
                 <div class="item-info">
                     <div class="item-date">20251025</div>
-                    <a href="https://invest.zdyi.com/blog/2025/10/20251025/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/10/20251025/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251025/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251025/1.png', '20251025')">
                     <div class="image-wrapper">
@@ -652,7 +651,7 @@
             <div class="gallery-item hidden" data-index="19">
                 <div class="item-info">
                     <div class="item-date">20251018</div>
-                    <a href="https://invest.zdyi.com/blog/2025/10/20251018/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/10/20251018/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251018/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251018/1.png', '20251018')">
                     <div class="image-wrapper">
@@ -664,7 +663,7 @@
             <div class="gallery-item hidden" data-index="20">
                 <div class="item-info">
                     <div class="item-date">20251011</div>
-                    <a href="https://invest.zdyi.com/blog/2025/10/20251011/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/10/20251011/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251011/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251011/1.png', '20251011')">
                     <div class="image-wrapper">
@@ -676,7 +675,7 @@
             <div class="gallery-item hidden" data-index="21">
                 <div class="item-info">
                     <div class="item-date">20251004</div>
-                    <a href="https://invest.zdyi.com/blog/2025/10/20251004/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/10/20251004/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251004/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251004/1.png', '20251004')">
                     <div class="image-wrapper">
@@ -688,7 +687,7 @@
             <div class="gallery-item hidden" data-index="22">
                 <div class="item-info">
                     <div class="item-date">20250927</div>
-                    <a href="https://invest.zdyi.com/blog/2025/09/20250927/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/09/20250927/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250927/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250927/1.png', '20250927')">
                     <div class="image-wrapper">
@@ -700,7 +699,7 @@
             <div class="gallery-item hidden" data-index="23">
                 <div class="item-info">
                     <div class="item-date">20250920</div>
-                    <a href="https://invest.zdyi.com/blog/2025/09/20250920/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/09/20250920/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250920/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250920/1.png', '20250920')">
                     <div class="image-wrapper">
@@ -712,7 +711,7 @@
             <div class="gallery-item hidden" data-index="24">
                 <div class="item-info">
                     <div class="item-date">20250913</div>
-                    <a href="https://invest.zdyi.com/blog/2025/09/20250913/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/09/20250913/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250913/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250913/1.png', '20250913')">
                     <div class="image-wrapper">
@@ -724,7 +723,7 @@
             <div class="gallery-item hidden" data-index="25">
                 <div class="item-info">
                     <div class="item-date">20250906</div>
-                    <a href="https://invest.zdyi.com/blog/2025/09/20250906/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/09/20250906/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250906/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250906/1.png', '20250906')">
                     <div class="image-wrapper">
@@ -736,7 +735,7 @@
             <div class="gallery-item hidden" data-index="26">
                 <div class="item-info">
                     <div class="item-date">20250830</div>
-                    <a href="https://invest.zdyi.com/blog/2025/08/20250830/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/08/20250830/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250830/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250830/1.png', '20250830')">
                     <div class="image-wrapper">
@@ -748,7 +747,7 @@
             <div class="gallery-item hidden" data-index="27">
                 <div class="item-info">
                     <div class="item-date">20250823</div>
-                    <a href="https://invest.zdyi.com/blog/2025/08/20250823/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/08/20250823/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250823/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250823/1.png', '20250823')">
                     <div class="image-wrapper">
@@ -760,7 +759,7 @@
             <div class="gallery-item hidden" data-index="28">
                 <div class="item-info">
                     <div class="item-date">20250816</div>
-                    <a href="https://invest.zdyi.com/blog/2025/08/20250816/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2025/08/20250816/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250816/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250816/1.png', '20250816')">
                     <div class="image-wrapper">
@@ -772,7 +771,7 @@
             <div class="gallery-item hidden" data-index="29">
                 <div class="item-info">
                     <div class="item-date">20231202</div>
-                    <a href="https://invest.zdyi.com/blog/2023/12/20231202/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/12/20231202/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/12/20231202/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/12/20231202/1.png', '20231202')">
                     <div class="image-wrapper">
@@ -784,7 +783,7 @@
             <div class="gallery-item hidden" data-index="30">
                 <div class="item-info">
                     <div class="item-date">20231125</div>
-                    <a href="https://invest.zdyi.com/blog/2023/11/20231125/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/11/20231125/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231125/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231125/1.png', '20231125')">
                     <div class="image-wrapper">
@@ -796,7 +795,7 @@
             <div class="gallery-item hidden" data-index="31">
                 <div class="item-info">
                     <div class="item-date">20231118</div>
-                    <a href="https://invest.zdyi.com/blog/2023/11/20231118/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/11/20231118/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231118/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231118/1.png', '20231118')">
                     <div class="image-wrapper">
@@ -808,7 +807,7 @@
             <div class="gallery-item hidden" data-index="32">
                 <div class="item-info">
                     <div class="item-date">20231104</div>
-                    <a href="https://invest.zdyi.com/blog/2023/11/20231104/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/11/20231104/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231104/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231104/1.png', '20231104')">
                     <div class="image-wrapper">
@@ -820,7 +819,7 @@
             <div class="gallery-item hidden" data-index="33">
                 <div class="item-info">
                     <div class="item-date">20231028</div>
-                    <a href="https://invest.zdyi.com/blog/2023/10/20231028/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/10/20231028/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231028/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231028/1.png', '20231028')">
                     <div class="image-wrapper">
@@ -832,7 +831,7 @@
             <div class="gallery-item hidden" data-index="34">
                 <div class="item-info">
                     <div class="item-date">20231021</div>
-                    <a href="https://invest.zdyi.com/blog/2023/10/20231021/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/10/20231021/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231021/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231021/1.png', '20231021')">
                     <div class="image-wrapper">
@@ -844,7 +843,7 @@
             <div class="gallery-item hidden" data-index="35">
                 <div class="item-info">
                     <div class="item-date">20231014</div>
-                    <a href="https://invest.zdyi.com/blog/2023/10/20231014/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/10/20231014/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231014/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231014/1.png', '20231014')">
                     <div class="image-wrapper">
@@ -856,7 +855,7 @@
             <div class="gallery-item hidden" data-index="36">
                 <div class="item-info">
                     <div class="item-date">20230930</div>
-                    <a href="https://invest.zdyi.com/blog/2023/09/20230930/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/09/20230930/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230930/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230930/1.png', '20230930')">
                     <div class="image-wrapper">
@@ -868,7 +867,7 @@
             <div class="gallery-item hidden" data-index="37">
                 <div class="item-info">
                     <div class="item-date">20230923</div>
-                    <a href="https://invest.zdyi.com/blog/2023/09/20230923/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/09/20230923/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230923/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230923/1.png', '20230923')">
                     <div class="image-wrapper">
@@ -880,7 +879,7 @@
             <div class="gallery-item hidden" data-index="38">
                 <div class="item-info">
                     <div class="item-date">20230916</div>
-                    <a href="https://invest.zdyi.com/blog/2023/09/20230916/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/09/20230916/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230916/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230916/1.png', '20230916')">
                     <div class="image-wrapper">
@@ -892,7 +891,7 @@
             <div class="gallery-item hidden" data-index="39">
                 <div class="item-info">
                     <div class="item-date">20230909</div>
-                    <a href="https://invest.zdyi.com/blog/2023/09/20230909/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/09/20230909/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230909/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230909/1.png', '20230909')">
                     <div class="image-wrapper">
@@ -904,7 +903,7 @@
             <div class="gallery-item hidden" data-index="40">
                 <div class="item-info">
                     <div class="item-date">20230902</div>
-                    <a href="https://invest.zdyi.com/blog/2023/09/20230902/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/09/20230902/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230902/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230902/1.png', '20230902')">
                     <div class="image-wrapper">
@@ -916,7 +915,7 @@
             <div class="gallery-item hidden" data-index="41">
                 <div class="item-info">
                     <div class="item-date">20230826</div>
-                    <a href="https://invest.zdyi.com/blog/2023/08/20230826/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/08/20230826/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230826/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230826/1.png', '20230826')">
                     <div class="image-wrapper">
@@ -928,7 +927,7 @@
             <div class="gallery-item hidden" data-index="42">
                 <div class="item-info">
                     <div class="item-date">20230819</div>
-                    <a href="https://invest.zdyi.com/blog/2023/08/20230819/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/08/20230819/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230819/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230819/1.png', '20230819')">
                     <div class="image-wrapper">
@@ -940,7 +939,7 @@
             <div class="gallery-item hidden" data-index="43">
                 <div class="item-info">
                     <div class="item-date">20230812</div>
-                    <a href="https://invest.zdyi.com/blog/2023/08/20230812/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/08/20230812/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230812/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230812/1.png', '20230812')">
                     <div class="image-wrapper">
@@ -952,7 +951,7 @@
             <div class="gallery-item hidden" data-index="44">
                 <div class="item-info">
                     <div class="item-date">20230805</div>
-                    <a href="https://invest.zdyi.com/blog/2023/08/20230805/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/08/20230805/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230805/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230805/1.png', '20230805')">
                     <div class="image-wrapper">
@@ -964,7 +963,7 @@
             <div class="gallery-item hidden" data-index="45">
                 <div class="item-info">
                     <div class="item-date">20230729</div>
-                    <a href="https://invest.zdyi.com/blog/2023/07/20230729/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/07/20230729/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230729/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230729/1.png', '20230729')">
                     <div class="image-wrapper">
@@ -976,7 +975,7 @@
             <div class="gallery-item hidden" data-index="46">
                 <div class="item-info">
                     <div class="item-date">20230722</div>
-                    <a href="https://invest.zdyi.com/blog/2023/07/20230722/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/07/20230722/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230722/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230722/1.png', '20230722')">
                     <div class="image-wrapper">
@@ -988,7 +987,7 @@
             <div class="gallery-item hidden" data-index="47">
                 <div class="item-info">
                     <div class="item-date">20230715</div>
-                    <a href="https://invest.zdyi.com/blog/2023/07/20230715/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/07/20230715/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230715/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230715/1.png', '20230715')">
                     <div class="image-wrapper">
@@ -1000,7 +999,7 @@
             <div class="gallery-item hidden" data-index="48">
                 <div class="item-info">
                     <div class="item-date">20230708</div>
-                    <a href="https://invest.zdyi.com/blog/2023/07/20230708/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/07/20230708/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230708/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230708/1.png', '20230708')">
                     <div class="image-wrapper">
@@ -1012,7 +1011,7 @@
             <div class="gallery-item hidden" data-index="49">
                 <div class="item-info">
                     <div class="item-date">20230701</div>
-                    <a href="https://invest.zdyi.com/blog/2023/07/20230701/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/07/20230701/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230701/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230701/1.png', '20230701')">
                     <div class="image-wrapper">
@@ -1024,7 +1023,7 @@
             <div class="gallery-item hidden" data-index="50">
                 <div class="item-info">
                     <div class="item-date">20230624</div>
-                    <a href="https://invest.zdyi.com/blog/2023/06/20230624/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/06/20230624/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230624/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230624/1.png', '20230624')">
                     <div class="image-wrapper">
@@ -1036,7 +1035,7 @@
             <div class="gallery-item hidden" data-index="51">
                 <div class="item-info">
                     <div class="item-date">20230617</div>
-                    <a href="https://invest.zdyi.com/blog/2023/06/20230617/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/06/20230617/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230617/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230617/1.png', '20230617')">
                     <div class="image-wrapper">
@@ -1048,7 +1047,7 @@
             <div class="gallery-item hidden" data-index="52">
                 <div class="item-info">
                     <div class="item-date">20230610</div>
-                    <a href="https://invest.zdyi.com/blog/2023/06/20230610/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/06/20230610/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230610/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230610/1.png', '20230610')">
                     <div class="image-wrapper">
@@ -1060,7 +1059,7 @@
             <div class="gallery-item hidden" data-index="53">
                 <div class="item-info">
                     <div class="item-date">20230603</div>
-                    <a href="https://invest.zdyi.com/blog/2023/06/20230603/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/06/20230603/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230603/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230603/1.png', '20230603')">
                     <div class="image-wrapper">
@@ -1072,7 +1071,7 @@
             <div class="gallery-item hidden" data-index="54">
                 <div class="item-info">
                     <div class="item-date">20230527</div>
-                    <a href="https://invest.zdyi.com/blog/2023/05/20230527/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/05/20230527/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230527/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230527/1.png', '20230527')">
                     <div class="image-wrapper">
@@ -1084,7 +1083,7 @@
             <div class="gallery-item hidden" data-index="55">
                 <div class="item-info">
                     <div class="item-date">20230520</div>
-                    <a href="https://invest.zdyi.com/blog/2023/05/20230520/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/05/20230520/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230520/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230520/1.png', '20230520')">
                     <div class="image-wrapper">
@@ -1096,7 +1095,7 @@
             <div class="gallery-item hidden" data-index="56">
                 <div class="item-info">
                     <div class="item-date">20230513</div>
-                    <a href="https://invest.zdyi.com/blog/2023/05/20230513/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/05/20230513/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230513/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230513/1.png', '20230513')">
                     <div class="image-wrapper">
@@ -1108,7 +1107,7 @@
             <div class="gallery-item hidden" data-index="57">
                 <div class="item-info">
                     <div class="item-date">20230506</div>
-                    <a href="https://invest.zdyi.com/blog/2023/05/20230506/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/05/20230506/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230506/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230506/1.png', '20230506')">
                     <div class="image-wrapper">
@@ -1120,7 +1119,7 @@
             <div class="gallery-item hidden" data-index="58">
                 <div class="item-info">
                     <div class="item-date">20230429</div>
-                    <a href="https://invest.zdyi.com/blog/2023/04/20230429/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/04/20230429/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230429/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230429/1.png', '20230429')">
                     <div class="image-wrapper">
@@ -1132,7 +1131,7 @@
             <div class="gallery-item hidden" data-index="59">
                 <div class="item-info">
                     <div class="item-date">20230422</div>
-                    <a href="https://invest.zdyi.com/blog/2023/04/20230422/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/04/20230422/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230422/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230422/1.png', '20230422')">
                     <div class="image-wrapper">
@@ -1144,7 +1143,7 @@
             <div class="gallery-item hidden" data-index="60">
                 <div class="item-info">
                     <div class="item-date">20230415</div>
-                    <a href="https://invest.zdyi.com/blog/2023/04/20230415/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/04/20230415/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230415/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230415/1.png', '20230415')">
                     <div class="image-wrapper">
@@ -1156,7 +1155,7 @@
             <div class="gallery-item hidden" data-index="61">
                 <div class="item-info">
                     <div class="item-date">20230408</div>
-                    <a href="https://invest.zdyi.com/blog/2023/04/20230408/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/04/20230408/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230408/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230408/1.png', '20230408')">
                     <div class="image-wrapper">
@@ -1168,7 +1167,7 @@
             <div class="gallery-item hidden" data-index="62">
                 <div class="item-info">
                     <div class="item-date">20230401</div>
-                    <a href="https://invest.zdyi.com/blog/2023/04/20230401/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/04/20230401/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230401/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230401/1.png', '20230401')">
                     <div class="image-wrapper">
@@ -1180,7 +1179,7 @@
             <div class="gallery-item hidden" data-index="63">
                 <div class="item-info">
                     <div class="item-date">20230325</div>
-                    <a href="https://invest.zdyi.com/blog/2023/03/20230325/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/03/20230325/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230325/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230325/1.png', '20230325')">
                     <div class="image-wrapper">
@@ -1192,7 +1191,7 @@
             <div class="gallery-item hidden" data-index="64">
                 <div class="item-info">
                     <div class="item-date">20230318</div>
-                    <a href="https://invest.zdyi.com/blog/2023/03/20230318/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/03/20230318/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230318/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230318/1.png', '20230318')">
                     <div class="image-wrapper">
@@ -1204,7 +1203,7 @@
             <div class="gallery-item hidden" data-index="65">
                 <div class="item-info">
                     <div class="item-date">20230311</div>
-                    <a href="https://invest.zdyi.com/blog/2023/03/20230311/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/03/20230311/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230311/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230311/1.png', '20230311')">
                     <div class="image-wrapper">
@@ -1216,7 +1215,7 @@
             <div class="gallery-item hidden" data-index="66">
                 <div class="item-info">
                     <div class="item-date">20230304</div>
-                    <a href="https://invest.zdyi.com/blog/2023/03/20230304/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/03/20230304/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230304/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230304/1.png', '20230304')">
                     <div class="image-wrapper">
@@ -1228,7 +1227,7 @@
             <div class="gallery-item hidden" data-index="67">
                 <div class="item-info">
                     <div class="item-date">20230225</div>
-                    <a href="https://invest.zdyi.com/blog/2023/02/20230225/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/02/20230225/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230225/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230225/1.png', '20230225')">
                     <div class="image-wrapper">
@@ -1240,7 +1239,7 @@
             <div class="gallery-item hidden" data-index="68">
                 <div class="item-info">
                     <div class="item-date">20230218</div>
-                    <a href="https://invest.zdyi.com/blog/2023/02/20230218/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/02/20230218/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230218/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230218/1.png', '20230218')">
                     <div class="image-wrapper">
@@ -1252,7 +1251,7 @@
             <div class="gallery-item hidden" data-index="69">
                 <div class="item-info">
                     <div class="item-date">20230211</div>
-                    <a href="https://invest.zdyi.com/blog/2023/02/20230211/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/02/20230211/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230211/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230211/1.png', '20230211')">
                     <div class="image-wrapper">
@@ -1264,7 +1263,7 @@
             <div class="gallery-item hidden" data-index="70">
                 <div class="item-info">
                     <div class="item-date">20230204</div>
-                    <a href="https://invest.zdyi.com/blog/2023/02/20230204/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/02/20230204/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230204/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230204/1.png', '20230204')">
                     <div class="image-wrapper">
@@ -1276,7 +1275,7 @@
             <div class="gallery-item hidden" data-index="71">
                 <div class="item-info">
                     <div class="item-date">20230128</div>
-                    <a href="https://invest.zdyi.com/blog/2023/01/20230128/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/01/20230128/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230128/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230128/1.png', '20230128')">
                     <div class="image-wrapper">
@@ -1288,7 +1287,7 @@
             <div class="gallery-item hidden" data-index="72">
                 <div class="item-info">
                     <div class="item-date">20230121</div>
-                    <a href="https://invest.zdyi.com/blog/2023/01/20230121/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/01/20230121/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230121/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230121/1.png', '20230121')">
                     <div class="image-wrapper">
@@ -1300,7 +1299,7 @@
             <div class="gallery-item hidden" data-index="73">
                 <div class="item-info">
                     <div class="item-date">20230114</div>
-                    <a href="https://invest.zdyi.com/blog/2023/01/20230114/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/01/20230114/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230114/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230114/1.png', '20230114')">
                     <div class="image-wrapper">
@@ -1312,7 +1311,7 @@
             <div class="gallery-item hidden" data-index="74">
                 <div class="item-info">
                     <div class="item-date">20230107</div>
-                    <a href="https://invest.zdyi.com/blog/2023/01/20230107/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2023/01/20230107/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230107/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230107/1.png', '20230107')">
                     <div class="image-wrapper">
@@ -1324,7 +1323,7 @@
             <div class="gallery-item hidden" data-index="75">
                 <div class="item-info">
                     <div class="item-date">20221231</div>
-                    <a href="https://invest.zdyi.com/blog/2022/12/20221231/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/12/20221231/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221231/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221231/1.png', '20221231')">
                     <div class="image-wrapper">
@@ -1336,7 +1335,7 @@
             <div class="gallery-item hidden" data-index="76">
                 <div class="item-info">
                     <div class="item-date">20221217</div>
-                    <a href="https://invest.zdyi.com/blog/2022/12/20221217/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/12/20221217/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221217/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221217/1.png', '20221217')">
                     <div class="image-wrapper">
@@ -1348,7 +1347,7 @@
             <div class="gallery-item hidden" data-index="77">
                 <div class="item-info">
                     <div class="item-date">20221210</div>
-                    <a href="https://invest.zdyi.com/blog/2022/12/20221210/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/12/20221210/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221210/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221210/1.png', '20221210')">
                     <div class="image-wrapper">
@@ -1360,7 +1359,7 @@
             <div class="gallery-item hidden" data-index="78">
                 <div class="item-info">
                     <div class="item-date">20221203</div>
-                    <a href="https://invest.zdyi.com/blog/2022/12/20221203/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/12/20221203/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221203/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221203/1.png', '20221203')">
                     <div class="image-wrapper">
@@ -1372,7 +1371,7 @@
             <div class="gallery-item hidden" data-index="79">
                 <div class="item-info">
                     <div class="item-date">20221001</div>
-                    <a href="https://invest.zdyi.com/blog/2022/10/20221001/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/10/20221001/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/10/20221001/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/10/20221001/1.png', '20221001')">
                     <div class="image-wrapper">
@@ -1384,7 +1383,7 @@
             <div class="gallery-item hidden" data-index="80">
                 <div class="item-info">
                     <div class="item-date">20220924</div>
-                    <a href="https://invest.zdyi.com/blog/2022/09/20220924/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/09/20220924/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220924/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220924/1.png', '20220924')">
                     <div class="image-wrapper">
@@ -1396,7 +1395,7 @@
             <div class="gallery-item hidden" data-index="81">
                 <div class="item-info">
                     <div class="item-date">20220917</div>
-                    <a href="https://invest.zdyi.com/blog/2022/09/20220917/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/09/20220917/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220917/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220917/1.png', '20220917')">
                     <div class="image-wrapper">
@@ -1408,7 +1407,7 @@
             <div class="gallery-item hidden" data-index="82">
                 <div class="item-info">
                     <div class="item-date">20220903</div>
-                    <a href="https://invest.zdyi.com/blog/2022/09/20220903/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/09/20220903/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220903/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220903/1.png', '20220903')">
                     <div class="image-wrapper">
@@ -1420,7 +1419,7 @@
             <div class="gallery-item hidden" data-index="83">
                 <div class="item-info">
                     <div class="item-date">20220827</div>
-                    <a href="https://invest.zdyi.com/blog/2022/08/20220827/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/08/20220827/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220827/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220827/1.png', '20220827')">
                     <div class="image-wrapper">
@@ -1432,7 +1431,7 @@
             <div class="gallery-item hidden" data-index="84">
                 <div class="item-info">
                     <div class="item-date">20220820</div>
-                    <a href="https://invest.zdyi.com/blog/2022/08/20220820/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/08/20220820/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220820/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220820/1.png', '20220820')">
                     <div class="image-wrapper">
@@ -1444,7 +1443,7 @@
             <div class="gallery-item hidden" data-index="85">
                 <div class="item-info">
                     <div class="item-date">20220813</div>
-                    <a href="https://invest.zdyi.com/blog/2022/08/20220813/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/08/20220813/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220813/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220813/1.png', '20220813')">
                     <div class="image-wrapper">
@@ -1456,7 +1455,7 @@
             <div class="gallery-item hidden" data-index="86">
                 <div class="item-info">
                     <div class="item-date">20220806</div>
-                    <a href="https://invest.zdyi.com/blog/2022/08/20220806/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/08/20220806/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220806/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220806/1.png', '20220806')">
                     <div class="image-wrapper">
@@ -1468,7 +1467,7 @@
             <div class="gallery-item hidden" data-index="87">
                 <div class="item-info">
                     <div class="item-date">20220730</div>
-                    <a href="https://invest.zdyi.com/blog/2022/07/20220730/" target="_blank" class="blog-link-btn" title="查看详细分析">查看详情</a>
+                    <a href="https://invest.zdyi.com/blog/2022/07/20220730/" target="_blank" class="blog-link-btn" title="查看详细分析">查看</a>
                 </div>
                 <a href="https://invest.zdyi.com/attachments/2022/07/20220730/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/07/20220730/1.png', '20220730')">
                     <div class="image-wrapper">
