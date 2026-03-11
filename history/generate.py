@@ -135,6 +135,20 @@ def generate_relative_path(image_path: Path, attachments_dir: Path) -> str:
     return f"https://invest.zdyi.com/{path_str}"
 
 
+def generate_blog_url(image_url: str) -> str:
+    """
+    生成对应的博客页面 URL
+
+    从图片 URL 生成博客页面 URL：
+    https://invest.zdyi.com/attachments/YYYY/MM/YYYYMMDD/1.png
+    -> https://invest.zdyi.com/blog/YYYY/MM/YYYYMMDD/
+    """
+    # 将 attachments 替换为 blog，并去掉文件名
+    blog_url = image_url.replace('attachments/', 'blog/')
+    blog_url = blog_url.rsplit('/', 1)[0]  # 去掉最后的 /1.png
+    return blog_url + '/'  # 确保以 / 结尾
+
+
 def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, output_path: Path, attachments_dir: Path):
     """
     使用 Jinja2 模板生成 HTML
@@ -142,11 +156,13 @@ def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, o
     # 准备模板数据
     gallery_items = []
     for date, date_label, image_path in images:
-        rel_path = generate_relative_path(image_path, attachments_dir)
+        image_url = generate_relative_path(image_path, attachments_dir)
+        blog_url = generate_blog_url(image_url)
         gallery_items.append({
             'date': date_label,
-            'image_url': rel_path,
-            'full_image_url': rel_path
+            'image_url': image_url,
+            'full_image_url': image_url,
+            'blog_url': blog_url
         })
 
     # 读取模板
