@@ -288,7 +288,7 @@
         }
 
         .nav-item {
-            padding: 8px 0;
+            padding: 2px 0;
             text-align: right;
             position: relative;
         }
@@ -300,8 +300,9 @@
             font-weight: 300;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            padding: 6px 12px;
+            padding: 4px 10px;
             display: inline-block;
+            position: relative;
         }
 
         .nav-link:hover {
@@ -319,50 +320,54 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 3px;
+            width: 2px;
             height: 0;
             background: linear-gradient(135deg, #c0a060 0%, #a08050 100%);
             transition: height 0.3s ease;
         }
 
         .nav-link.active::after {
-            height: 20px;
+            height: 16px;
         }
 
         /* 年份导航 */
         .year-nav {
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .year-link {
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 400;
+            padding-right: 14px;
         }
 
         .year-link::before {
             content: '▼';
-            margin-right: 6px;
-            font-size: 0.7rem;
+            position: absolute;
+            right: 0;
+            font-size: 0.65rem;
             transition: transform 0.3s ease;
             display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .year-link.expanded::before {
-            transform: rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
         }
 
         /* 月份导航 */
         .month-nav {
-            padding-left: 16px;
-            margin-top: 4px;
+            padding-left: 12px;
+            margin-top: 2px;
             animation: slideDown 0.3s ease;
         }
 
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
             to {
                 opacity: 1;
@@ -371,12 +376,12 @@
         }
 
         .month-nav-item {
-            padding: 4px 0;
+            padding: 2px 0;
         }
 
         .month-link {
             font-size: 0.8rem;
-            padding: 4px 8px;
+            padding: 3px 8px;
             color: #999999;
         }
 
@@ -558,6 +563,7 @@
             yearLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     const year = this.getAttribute('data-year');
                     const monthNav = document.getElementById('month-nav-' + year);
                     const isExpanded = this.classList.contains('expanded');
@@ -590,26 +596,9 @@
             monthLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
+                    e.stopPropagation();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        const offset = 100;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // 绑定年份链接（如果不是展开的）的滚动功能
-            document.querySelectorAll('.year-link').forEach(link => {
-                link.addEventListener('dblclick', function(e) {
-                    e.preventDefault();
-                    const year = this.getAttribute('data-year');
-                    const targetElement = document.getElementById('year-' + year);
 
                     if (targetElement) {
                         const offset = 100;
