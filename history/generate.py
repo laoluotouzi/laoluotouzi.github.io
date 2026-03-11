@@ -155,34 +155,34 @@ def render_html(images: List[Tuple[datetime, str, Path]], template_path: Path, o
     """
     # 准备模板数据
     gallery_items = []
-    year_months_set = set()
+    years_set = set()
 
     for date, date_label, image_path in images:
         image_url = generate_relative_path(image_path, attachments_dir)
         blog_url = generate_blog_url(image_url)
 
-        # 提取年月信息（YYYY-MM格式）
-        year_month = date.strftime('%Y-%m') if date != datetime.min else date_label[:7]
+        # 提取年份信息
+        year = date.strftime('%Y') if date != datetime.min else date_label[:4]
 
         gallery_items.append({
             'date': date_label,
             'image_url': image_url,
             'full_image_url': image_url,
             'blog_url': blog_url,
-            'year_month': year_month
+            'year': year
         })
 
-        year_months_set.add(year_month)
+        years_set.add(year)
 
-    # 按年月排序（倒序）
-    year_months = sorted(year_months_set, reverse=True)
+    # 按年份排序（倒序）
+    years = sorted(years_set, reverse=True)
 
     # 读取模板
     with open(template_path, 'r', encoding='utf-8') as f:
         template_content = f.read()
 
     template = Template(template_content)
-    html_content = template.render(items=gallery_items, year_months=year_months)
+    html_content = template.render(items=gallery_items, years=years)
 
     # 写入输出文件
     output_path.parent.mkdir(parents=True, exist_ok=True)

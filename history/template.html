@@ -374,7 +374,7 @@
 
         <div class="gallery">
             {% for item in items %}
-            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}" data-year-month="{{ item.year_month }}">
+            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}" data-year="{{ item.year }}">
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
                     <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -390,9 +390,9 @@
 
         <!-- 侧边栏导航 -->
         <nav class="sidebar-nav" id="sidebar-nav">
-            {% for year_month in year_months %}
+            {% for year in years %}
             <div class="nav-item">
-                <a href="#year-{{ year_month }}" class="nav-link" data-year-month="{{ year_month }}">{{ year_month }}</a>
+                <a href="#year-{{ year }}" class="nav-link" data-year="{{ year }}">{{ year }}</a>
             </div>
             {% endfor %}
         </nav>
@@ -571,19 +571,19 @@
         function initSidebarNav() {
             const sidebarNav = document.getElementById('sidebar-nav');
             const galleryItems = document.querySelectorAll('.gallery-item:not(.hidden)');
-            const yearMonths = new Set();
+            const years = new Set();
 
-            // 为每个月的第一条记录添加ID
+            // 为每年的第一条记录添加ID
             galleryItems.forEach(item => {
-                const yearMonth = item.getAttribute('data-year-month');
-                if (yearMonth && !yearMonths.has(yearMonth)) {
-                    yearMonths.add(yearMonth);
-                    item.id = 'year-' + yearMonth;
+                const year = item.getAttribute('data-year');
+                if (year && !years.has(year)) {
+                    years.add(year);
+                    item.id = 'year-' + year;
                 }
             });
 
-            // 如果有多个年月，显示侧边栏
-            if (yearMonths.size > 1) {
+            // 如果有多个年份，显示侧边栏
+            if (years.size > 1) {
                 sidebarNav.classList.add('visible');
             }
 
@@ -611,19 +611,19 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const galleryItems = document.querySelectorAll('.gallery-item:not(.hidden)');
 
-            let currentYearMonth = null;
+            let currentYear = null;
             const scrollTop = window.pageYOffset + 200;
 
             for (let item of galleryItems) {
                 const itemTop = item.offsetTop;
                 if (scrollTop >= itemTop) {
-                    currentYearMonth = item.getAttribute('data-year-month');
+                    currentYear = item.getAttribute('data-year');
                 }
             }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('data-year-month') === currentYearMonth) {
+                if (link.getAttribute('data-year') === currentYear) {
                     link.classList.add('active');
                 }
             });
