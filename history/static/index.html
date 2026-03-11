@@ -279,6 +279,38 @@
         footer p::after {
             content: ' ✨';
         }
+
+        /* 懒加载相关样式 */
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .loading-more {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        .loading-more.active {
+            display: block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .loading-more::before {
+            content: '⏳ ';
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -290,7 +322,7 @@
 
         <div class="gallery">
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="0">
                 <a href="https://invest.zdyi.com/attachments/2026/03/20260307/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/03/20260307/1.png', '20260307')">
                     <div class="item-info">
                         <div class="item-date">20260307</div>
@@ -301,7 +333,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="1">
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260228/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260228/1.png', '20260228')">
                     <div class="item-info">
                         <div class="item-date">20260228</div>
@@ -312,7 +344,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="2">
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260214/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260214/1.png', '20260214')">
                     <div class="item-info">
                         <div class="item-date">20260214</div>
@@ -323,7 +355,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="3">
                 <a href="https://invest.zdyi.com/attachments/2026/02/20260207/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/02/20260207/1.png', '20260207')">
                     <div class="item-info">
                         <div class="item-date">20260207</div>
@@ -334,7 +366,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="4">
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260131/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260131/1.png', '20260131')">
                     <div class="item-info">
                         <div class="item-date">20260131</div>
@@ -345,7 +377,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="5">
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260124/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260124/1.png', '20260124')">
                     <div class="item-info">
                         <div class="item-date">20260124</div>
@@ -356,7 +388,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="6">
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260117/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260117/1.png', '20260117')">
                     <div class="item-info">
                         <div class="item-date">20260117</div>
@@ -367,7 +399,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="7">
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260110/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260110/1.png', '20260110')">
                     <div class="item-info">
                         <div class="item-date">20260110</div>
@@ -378,7 +410,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="8">
                 <a href="https://invest.zdyi.com/attachments/2026/01/20260103/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2026/01/20260103/1.png', '20260103')">
                     <div class="item-info">
                         <div class="item-date">20260103</div>
@@ -389,7 +421,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item " data-index="9">
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251227/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251227/1.png', '20251227')">
                     <div class="item-info">
                         <div class="item-date">20251227</div>
@@ -400,7 +432,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="10">
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251220/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251220/1.png', '20251220')">
                     <div class="item-info">
                         <div class="item-date">20251220</div>
@@ -411,7 +443,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="11">
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251213/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251213/1.png', '20251213')">
                     <div class="item-info">
                         <div class="item-date">20251213</div>
@@ -422,7 +454,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="12">
                 <a href="https://invest.zdyi.com/attachments/2025/12/20251206/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/12/20251206/1.png', '20251206')">
                     <div class="item-info">
                         <div class="item-date">20251206</div>
@@ -433,7 +465,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="13">
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251129/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251129/1.png', '20251129')">
                     <div class="item-info">
                         <div class="item-date">20251129</div>
@@ -444,7 +476,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="14">
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251122/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251122/1.png', '20251122')">
                     <div class="item-info">
                         <div class="item-date">20251122</div>
@@ -455,7 +487,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="15">
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251115/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251115/1.png', '20251115')">
                     <div class="item-info">
                         <div class="item-date">20251115</div>
@@ -466,7 +498,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="16">
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251108/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251108/1.png', '20251108')">
                     <div class="item-info">
                         <div class="item-date">20251108</div>
@@ -477,7 +509,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="17">
                 <a href="https://invest.zdyi.com/attachments/2025/11/20251101/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/11/20251101/1.png', '20251101')">
                     <div class="item-info">
                         <div class="item-date">20251101</div>
@@ -488,7 +520,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="18">
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251025/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251025/1.png', '20251025')">
                     <div class="item-info">
                         <div class="item-date">20251025</div>
@@ -499,7 +531,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="19">
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251018/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251018/1.png', '20251018')">
                     <div class="item-info">
                         <div class="item-date">20251018</div>
@@ -510,7 +542,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="20">
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251011/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251011/1.png', '20251011')">
                     <div class="item-info">
                         <div class="item-date">20251011</div>
@@ -521,7 +553,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="21">
                 <a href="https://invest.zdyi.com/attachments/2025/10/20251004/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/10/20251004/1.png', '20251004')">
                     <div class="item-info">
                         <div class="item-date">20251004</div>
@@ -532,7 +564,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="22">
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250927/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250927/1.png', '20250927')">
                     <div class="item-info">
                         <div class="item-date">20250927</div>
@@ -543,7 +575,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="23">
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250920/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250920/1.png', '20250920')">
                     <div class="item-info">
                         <div class="item-date">20250920</div>
@@ -554,7 +586,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="24">
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250913/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250913/1.png', '20250913')">
                     <div class="item-info">
                         <div class="item-date">20250913</div>
@@ -565,7 +597,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="25">
                 <a href="https://invest.zdyi.com/attachments/2025/09/20250906/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/09/20250906/1.png', '20250906')">
                     <div class="item-info">
                         <div class="item-date">20250906</div>
@@ -576,7 +608,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="26">
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250830/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250830/1.png', '20250830')">
                     <div class="item-info">
                         <div class="item-date">20250830</div>
@@ -587,7 +619,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="27">
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250823/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250823/1.png', '20250823')">
                     <div class="item-info">
                         <div class="item-date">20250823</div>
@@ -598,7 +630,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="28">
                 <a href="https://invest.zdyi.com/attachments/2025/08/20250816/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2025/08/20250816/1.png', '20250816')">
                     <div class="item-info">
                         <div class="item-date">20250816</div>
@@ -609,7 +641,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="29">
                 <a href="https://invest.zdyi.com/attachments/2023/12/20231202/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/12/20231202/1.png', '20231202')">
                     <div class="item-info">
                         <div class="item-date">20231202</div>
@@ -620,7 +652,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="30">
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231125/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231125/1.png', '20231125')">
                     <div class="item-info">
                         <div class="item-date">20231125</div>
@@ -631,7 +663,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="31">
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231118/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231118/1.png', '20231118')">
                     <div class="item-info">
                         <div class="item-date">20231118</div>
@@ -642,7 +674,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="32">
                 <a href="https://invest.zdyi.com/attachments/2023/11/20231104/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/11/20231104/1.png', '20231104')">
                     <div class="item-info">
                         <div class="item-date">20231104</div>
@@ -653,7 +685,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="33">
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231028/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231028/1.png', '20231028')">
                     <div class="item-info">
                         <div class="item-date">20231028</div>
@@ -664,7 +696,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="34">
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231021/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231021/1.png', '20231021')">
                     <div class="item-info">
                         <div class="item-date">20231021</div>
@@ -675,7 +707,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="35">
                 <a href="https://invest.zdyi.com/attachments/2023/10/20231014/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/10/20231014/1.png', '20231014')">
                     <div class="item-info">
                         <div class="item-date">20231014</div>
@@ -686,7 +718,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="36">
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230930/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230930/1.png', '20230930')">
                     <div class="item-info">
                         <div class="item-date">20230930</div>
@@ -697,7 +729,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="37">
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230923/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230923/1.png', '20230923')">
                     <div class="item-info">
                         <div class="item-date">20230923</div>
@@ -708,7 +740,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="38">
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230916/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230916/1.png', '20230916')">
                     <div class="item-info">
                         <div class="item-date">20230916</div>
@@ -719,7 +751,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="39">
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230909/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230909/1.png', '20230909')">
                     <div class="item-info">
                         <div class="item-date">20230909</div>
@@ -730,7 +762,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="40">
                 <a href="https://invest.zdyi.com/attachments/2023/09/20230902/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/09/20230902/1.png', '20230902')">
                     <div class="item-info">
                         <div class="item-date">20230902</div>
@@ -741,7 +773,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="41">
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230826/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230826/1.png', '20230826')">
                     <div class="item-info">
                         <div class="item-date">20230826</div>
@@ -752,7 +784,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="42">
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230819/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230819/1.png', '20230819')">
                     <div class="item-info">
                         <div class="item-date">20230819</div>
@@ -763,7 +795,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="43">
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230812/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230812/1.png', '20230812')">
                     <div class="item-info">
                         <div class="item-date">20230812</div>
@@ -774,7 +806,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="44">
                 <a href="https://invest.zdyi.com/attachments/2023/08/20230805/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/08/20230805/1.png', '20230805')">
                     <div class="item-info">
                         <div class="item-date">20230805</div>
@@ -785,7 +817,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="45">
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230729/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230729/1.png', '20230729')">
                     <div class="item-info">
                         <div class="item-date">20230729</div>
@@ -796,7 +828,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="46">
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230722/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230722/1.png', '20230722')">
                     <div class="item-info">
                         <div class="item-date">20230722</div>
@@ -807,7 +839,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="47">
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230715/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230715/1.png', '20230715')">
                     <div class="item-info">
                         <div class="item-date">20230715</div>
@@ -818,7 +850,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="48">
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230708/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230708/1.png', '20230708')">
                     <div class="item-info">
                         <div class="item-date">20230708</div>
@@ -829,7 +861,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="49">
                 <a href="https://invest.zdyi.com/attachments/2023/07/20230701/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/07/20230701/1.png', '20230701')">
                     <div class="item-info">
                         <div class="item-date">20230701</div>
@@ -840,7 +872,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="50">
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230624/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230624/1.png', '20230624')">
                     <div class="item-info">
                         <div class="item-date">20230624</div>
@@ -851,7 +883,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="51">
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230617/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230617/1.png', '20230617')">
                     <div class="item-info">
                         <div class="item-date">20230617</div>
@@ -862,7 +894,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="52">
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230610/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230610/1.png', '20230610')">
                     <div class="item-info">
                         <div class="item-date">20230610</div>
@@ -873,7 +905,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="53">
                 <a href="https://invest.zdyi.com/attachments/2023/06/20230603/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/06/20230603/1.png', '20230603')">
                     <div class="item-info">
                         <div class="item-date">20230603</div>
@@ -884,7 +916,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="54">
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230527/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230527/1.png', '20230527')">
                     <div class="item-info">
                         <div class="item-date">20230527</div>
@@ -895,7 +927,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="55">
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230520/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230520/1.png', '20230520')">
                     <div class="item-info">
                         <div class="item-date">20230520</div>
@@ -906,7 +938,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="56">
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230513/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230513/1.png', '20230513')">
                     <div class="item-info">
                         <div class="item-date">20230513</div>
@@ -917,7 +949,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="57">
                 <a href="https://invest.zdyi.com/attachments/2023/05/20230506/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/05/20230506/1.png', '20230506')">
                     <div class="item-info">
                         <div class="item-date">20230506</div>
@@ -928,7 +960,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="58">
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230429/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230429/1.png', '20230429')">
                     <div class="item-info">
                         <div class="item-date">20230429</div>
@@ -939,7 +971,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="59">
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230422/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230422/1.png', '20230422')">
                     <div class="item-info">
                         <div class="item-date">20230422</div>
@@ -950,7 +982,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="60">
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230415/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230415/1.png', '20230415')">
                     <div class="item-info">
                         <div class="item-date">20230415</div>
@@ -961,7 +993,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="61">
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230408/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230408/1.png', '20230408')">
                     <div class="item-info">
                         <div class="item-date">20230408</div>
@@ -972,7 +1004,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="62">
                 <a href="https://invest.zdyi.com/attachments/2023/04/20230401/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/04/20230401/1.png', '20230401')">
                     <div class="item-info">
                         <div class="item-date">20230401</div>
@@ -983,7 +1015,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="63">
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230325/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230325/1.png', '20230325')">
                     <div class="item-info">
                         <div class="item-date">20230325</div>
@@ -994,7 +1026,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="64">
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230318/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230318/1.png', '20230318')">
                     <div class="item-info">
                         <div class="item-date">20230318</div>
@@ -1005,7 +1037,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="65">
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230311/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230311/1.png', '20230311')">
                     <div class="item-info">
                         <div class="item-date">20230311</div>
@@ -1016,7 +1048,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="66">
                 <a href="https://invest.zdyi.com/attachments/2023/03/20230304/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/03/20230304/1.png', '20230304')">
                     <div class="item-info">
                         <div class="item-date">20230304</div>
@@ -1027,7 +1059,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="67">
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230225/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230225/1.png', '20230225')">
                     <div class="item-info">
                         <div class="item-date">20230225</div>
@@ -1038,7 +1070,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="68">
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230218/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230218/1.png', '20230218')">
                     <div class="item-info">
                         <div class="item-date">20230218</div>
@@ -1049,7 +1081,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="69">
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230211/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230211/1.png', '20230211')">
                     <div class="item-info">
                         <div class="item-date">20230211</div>
@@ -1060,7 +1092,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="70">
                 <a href="https://invest.zdyi.com/attachments/2023/02/20230204/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/02/20230204/1.png', '20230204')">
                     <div class="item-info">
                         <div class="item-date">20230204</div>
@@ -1071,7 +1103,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="71">
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230128/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230128/1.png', '20230128')">
                     <div class="item-info">
                         <div class="item-date">20230128</div>
@@ -1082,7 +1114,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="72">
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230121/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230121/1.png', '20230121')">
                     <div class="item-info">
                         <div class="item-date">20230121</div>
@@ -1093,7 +1125,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="73">
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230114/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230114/1.png', '20230114')">
                     <div class="item-info">
                         <div class="item-date">20230114</div>
@@ -1104,7 +1136,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="74">
                 <a href="https://invest.zdyi.com/attachments/2023/01/20230107/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2023/01/20230107/1.png', '20230107')">
                     <div class="item-info">
                         <div class="item-date">20230107</div>
@@ -1115,7 +1147,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="75">
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221231/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221231/1.png', '20221231')">
                     <div class="item-info">
                         <div class="item-date">20221231</div>
@@ -1126,7 +1158,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="76">
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221217/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221217/1.png', '20221217')">
                     <div class="item-info">
                         <div class="item-date">20221217</div>
@@ -1137,7 +1169,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="77">
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221210/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221210/1.png', '20221210')">
                     <div class="item-info">
                         <div class="item-date">20221210</div>
@@ -1148,7 +1180,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="78">
                 <a href="https://invest.zdyi.com/attachments/2022/12/20221203/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/12/20221203/1.png', '20221203')">
                     <div class="item-info">
                         <div class="item-date">20221203</div>
@@ -1159,7 +1191,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="79">
                 <a href="https://invest.zdyi.com/attachments/2022/10/20221001/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/10/20221001/1.png', '20221001')">
                     <div class="item-info">
                         <div class="item-date">20221001</div>
@@ -1170,7 +1202,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="80">
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220924/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220924/1.png', '20220924')">
                     <div class="item-info">
                         <div class="item-date">20220924</div>
@@ -1181,7 +1213,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="81">
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220917/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220917/1.png', '20220917')">
                     <div class="item-info">
                         <div class="item-date">20220917</div>
@@ -1192,7 +1224,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="82">
                 <a href="https://invest.zdyi.com/attachments/2022/09/20220903/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/09/20220903/1.png', '20220903')">
                     <div class="item-info">
                         <div class="item-date">20220903</div>
@@ -1203,7 +1235,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="83">
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220827/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220827/1.png', '20220827')">
                     <div class="item-info">
                         <div class="item-date">20220827</div>
@@ -1214,7 +1246,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="84">
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220820/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220820/1.png', '20220820')">
                     <div class="item-info">
                         <div class="item-date">20220820</div>
@@ -1225,7 +1257,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="85">
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220813/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220813/1.png', '20220813')">
                     <div class="item-info">
                         <div class="item-date">20220813</div>
@@ -1236,7 +1268,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="86">
                 <a href="https://invest.zdyi.com/attachments/2022/08/20220806/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/08/20220806/1.png', '20220806')">
                     <div class="item-info">
                         <div class="item-date">20220806</div>
@@ -1247,7 +1279,7 @@
                 </a>
             </div>
             
-            <div class="gallery-item">
+            <div class="gallery-item hidden" data-index="87">
                 <a href="https://invest.zdyi.com/attachments/2022/07/20220730/1.png" target="_blank" onclick="openLightbox(event, 'https://invest.zdyi.com/attachments/2022/07/20220730/1.png', '20220730')">
                     <div class="item-info">
                         <div class="item-date">20220730</div>
@@ -1260,8 +1292,10 @@
             
         </div>
 
+        <div class="loading-more" id="loading-more">加载更多记录...</div>
+
         <footer>
-            <p>共 88 条记录</p>
+            <p>共 88 条记录，已显示 <span id="shown-count">10</span> 条</p>
         </footer>
     </div>
 
@@ -1273,6 +1307,13 @@
     </div>
 
     <script>
+        // 懒加载配置
+        const ITEMS_PER_PAGE = 10;
+        let currentPage = 1;
+        let isLoading = false;
+        let hasMoreItems = true;
+
+        // 打开 Lightbox
         function openLightbox(event, imageUrl, date) {
             event.preventDefault();
             const lightbox = document.getElementById('lightbox');
@@ -1285,6 +1326,7 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // 关闭 Lightbox
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
@@ -1295,6 +1337,100 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeLightbox();
+            }
+        });
+
+        // 加载更多项目
+        function loadMoreItems() {
+            if (isLoading || !hasMoreItems) {
+                return;
+            }
+
+            isLoading = true;
+            const loadingMore = document.getElementById('loading-more');
+            loadingMore.classList.add('active');
+
+            // 模拟加载延迟（可选，提升用户体验）
+            setTimeout(() => {
+                const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+                const itemsToShow = Array.from(hiddenItems).slice(0, ITEMS_PER_PAGE);
+
+                if (itemsToShow.length === 0) {
+                    hasMoreItems = false;
+                    loadingMore.textContent = '已加载全部记录';
+                    setTimeout(() => {
+                        loadingMore.classList.remove('active');
+                    }, 2000);
+                    isLoading = false;
+                    return;
+                }
+
+                // 显示新项目
+                itemsToShow.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.remove('hidden');
+                    }, index * 100); // 依次显示，带动画效果
+                });
+
+                currentPage++;
+                const shownCount = Math.min(currentPage * ITEMS_PER_PAGE, 88);
+                document.getElementById('shown-count').textContent = shownCount;
+
+                // 检查是否还有更多
+                const remainingHidden = document.querySelectorAll('.gallery-item.hidden').length;
+                if (remainingHidden === 0) {
+                    hasMoreItems = false;
+                    loadingMore.textContent = '已加载全部记录';
+                    setTimeout(() => {
+                        loadingMore.classList.remove('active');
+                    }, 2000);
+                } else {
+                    loadingMore.classList.remove('active');
+                }
+
+                isLoading = false;
+            }, 500);
+        }
+
+        // 检测滚动到底部
+        function checkScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+
+            // 当滚动到距离底部 200px 时触发加载
+            if (scrollTop + windowHeight >= documentHeight - 200) {
+                loadMoreItems();
+            }
+        }
+
+        // 添加滚动监听（使用节流优化性能）
+        let scrollTimer = null;
+        window.addEventListener('scroll', function() {
+            if (scrollTimer) {
+                return;
+            }
+            scrollTimer = setTimeout(() => {
+                checkScroll();
+                scrollTimer = null;
+            }, 100);
+        });
+
+        // 页面加载完成后检查是否需要显示"加载更多"按钮
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalItems = 88;
+            if (totalItems <= ITEMS_PER_PAGE) {
+                hasMoreItems = false;
+            } else {
+                // 显示加载更多提示
+                const loadingMore = document.getElementById('loading-more');
+                loadingMore.textContent = '↓ 向下滚动加载更多 ↓';
+                loadingMore.classList.add('active');
+
+                // 3秒后隐藏提示
+                setTimeout(() => {
+                    loadingMore.classList.remove('active');
+                }, 3000);
             }
         });
     </script>
