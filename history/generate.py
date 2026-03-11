@@ -92,10 +92,12 @@ def extract_image_reference(content: str) -> Optional[str]:
     """
     从 Markdown 内容中提取图片引用路径
 
-    匹配格式：![目前持仓](../../../attachments/YYYY/MM/YYYYMMDD/1.png)
+    匹配格式：
+    - ![目前持仓](../../../attachments/YYYY/MM/YYYYMMDD/1.png)
+    - ![持仓股票明细 (港股已换算为人民币)](../../../attachments/YYYY/MM/YYYYMMDD/1.png)
     """
-    # 正则表达式匹配图片引用
-    pattern = r'!\[目前持仓\]\(([^)]+)\)'
+    # 正则表达式匹配图片引用（只匹配两种特定 alt 文本）
+    pattern = r'!\[(?:目前持仓|持仓股票明细 \(港股已换算为人民币\))\]\(([^)]+)\)'
     match = re.search(pattern, content)
 
     if match:
