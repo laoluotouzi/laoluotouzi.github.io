@@ -560,8 +560,21 @@
                     e.preventDefault();
                     const year = this.getAttribute('data-year');
                     const monthNav = document.getElementById('month-nav-' + year);
+                    const isExpanded = this.classList.contains('expanded');
 
-                    // 切换月份导航的显示
+                    // 如果当前是折叠状态，先收起其他所有年份
+                    if (!isExpanded) {
+                        yearLinks.forEach(otherLink => {
+                            if (otherLink !== this) {
+                                const otherYear = otherLink.getAttribute('data-year');
+                                const otherMonthNav = document.getElementById('month-nav-' + otherYear);
+                                otherMonthNav.style.display = 'none';
+                                otherLink.classList.remove('expanded');
+                            }
+                        });
+                    }
+
+                    // 切换当前年份的月份导航显示
                     if (monthNav.style.display === 'none' || !monthNav.style.display) {
                         monthNav.style.display = 'block';
                         this.classList.add('expanded');
