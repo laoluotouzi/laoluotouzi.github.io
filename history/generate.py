@@ -218,13 +218,22 @@ def scan_blog_directory(blog_dir: Path) -> List[Tuple[datetime, str, str, Dict[s
             if parsed_date is None:
                 logger.warning(f"警告: 无法解析日期: {md_file}，使用文件名作为标签")
                 parsed_date = datetime.min
-                date_label = md_file.stem
+                # 尝试从文件名提取日期
+                stem = md_file.stem
+                if len(stem) == 8 and stem.isdigit():
+                    try:
+                        temp_date = datetime.strptime(stem, '%Y%m%d')
+                        date_label = temp_date.strftime('%Y年%m月%d日')
+                    except:
+                        date_label = stem
+                else:
+                    date_label = stem
             else:
                 # 只显示周六的图片（周一=0, 周六=5, 周日=6）
                 if parsed_date != datetime.min and parsed_date.weekday() != 5:
                     stats['skipped'] += 1
                     continue
-                date_label = parsed_date.strftime('%Y%m%d')
+                date_label = parsed_date.strftime('%Y年%m月%d日')
 
             images.append((parsed_date, date_label, image_url, metadata))
             stats['success'] += 1
