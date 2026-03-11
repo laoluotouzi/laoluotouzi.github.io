@@ -3,7 +3,7 @@
 交易历史图片展示页面生成器
 
 扫描 docs/blog/ 目录下的 Markdown 文件，
-从包含"老罗投资周记"的文章中提取图片引用，
+从包含"老罗投资周记"或"老罗实盘周记"的文章中提取图片引用，
 生成瀑布流布局的静态 HTML 页面。
 """
 
@@ -190,8 +190,8 @@ def scan_blog_directory(blog_dir: Path) -> List[Tuple[datetime, str, str, Dict[s
             with open(md_file, 'r', encoding='utf-8') as f:
                 content = f.read()
 
-            # 检查是否包含关键字
-            if "老罗投资周记" not in content:
+            # 检查是否包含关键字（支持"老罗投资周记"和"老罗实盘周记"）
+            if "老罗投资周记" not in content and "老罗实盘周记" not in content:
                 stats['skipped'] += 1
                 continue
 
