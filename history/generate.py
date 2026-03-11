@@ -284,6 +284,7 @@ def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], templat
     # 准备模板数据
     gallery_items = []
     years_set = set()
+    years_seen = set()  # 跟踪已经出现过的年份
 
     for date, date_label, image_url, metadata in images:
         blog_url = generate_blog_url(image_url)
@@ -294,13 +295,19 @@ def render_html(images: List[Tuple[datetime, str, str, Dict[str, str]]], templat
         # 使用 metadata 中的标题，如果没有则使用日期标签
         title = metadata.get('title', date_label)
 
+        # 标记是否是该年份的第一个项目
+        is_first_in_year = year not in years_seen
+        if is_first_in_year:
+            years_seen.add(year)
+
         gallery_items.append({
             'date': date_label,
             'image_url': image_url,
             'full_image_url': image_url,
             'blog_url': blog_url,
             'year': year,
-            'title': title
+            'title': title,
+            'is_first_in_year': is_first_in_year
         })
 
         years_set.add(year)

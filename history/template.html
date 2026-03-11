@@ -374,7 +374,7 @@
 
         <div class="gallery">
             {% for item in items %}
-            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}" data-year="{{ item.year }}">
+            <div class="gallery-item {% if loop.index0 >= 10 %}hidden{% endif %}" data-index="{{ loop.index0 }}" data-year="{{ item.year }}" {% if item.is_first_in_year %}id="year-{{ item.year }}"{% endif %}>
                 <div class="item-info">
                     <div class="item-date">{{ item.date }}</div>
                     <a href="{{ item.blog_url }}" target="_blank" class="blog-link-btn" title="查看详细分析">查看原文</a>
@@ -570,10 +570,11 @@
         // 侧边栏导航功能
         function initSidebarNav() {
             const sidebarNav = document.getElementById('sidebar-nav');
-            const galleryItems = document.querySelectorAll('.gallery-item:not(.hidden)');
+            // 选择所有项目（包括隐藏的），以便为所有年份设置 ID
+            const galleryItems = document.querySelectorAll('.gallery-item');
             const years = new Set();
 
-            // 为每年的第一条记录添加ID
+            // 为每年的第一条记录添加ID（包括隐藏的项目）
             galleryItems.forEach(item => {
                 const year = item.getAttribute('data-year');
                 if (year && !years.has(year)) {
