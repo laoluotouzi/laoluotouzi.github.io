@@ -1,0 +1,448 @@
+/* Base reset and typography */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2c3e50;
+    background: #f4f5f7;
+}
+
+a {
+    color: #c0392b;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #e74c3c;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Layout */
+.container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.4em;
+    font-weight: 800;
+    color: #c0392b;
+    letter-spacing: -0.5px;
+}
+
+.site-title:hover {
+    color: #e74c3c;
+    text-decoration: none;
+}
+
+.site-nav a {
+    margin-left: 20px;
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.site-nav a:hover {
+    color: #c0392b;
+    text-decoration: none;
+}
+
+/* Post detail page */
+.post-header {
+    margin-bottom: 28px;
+    padding-top: 16px;
+}
+
+.post-title {
+    font-size: 1.75em;
+    margin-bottom: 10px;
+    line-height: 1.35;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.post-meta {
+    color: #999;
+    font-size: 0.88em;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.post-tags a,
+.post-card-tags a {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #888;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    transition: all 0.2s;
+}
+
+.post-tags a:hover,
+.post-card-tags a:hover {
+    background: #c0392b;
+    color: #fff;
+    text-decoration: none;
+}
+
+.post-banner {
+    margin-bottom: 28px;
+}
+
+.post-banner img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.post-content {
+    line-height: 1.85;
+    font-size: 1.02em;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    margin-top: 1.6em;
+    margin-bottom: 0.5em;
+    line-height: 1.35;
+    color: #1a1a1a;
+}
+
+.post-content h2 { font-size: 1.45em; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+.post-content h3 { font-size: 1.2em; }
+
+.post-content p {
+    margin-bottom: 1em;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+}
+
+.post-content blockquote {
+    border-left: 3px solid #c0392b;
+    padding: 0.6em 1.2em;
+    margin: 1em 0;
+    background: #fdf8f6;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+}
+
+.post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+    font-size: 0.95em;
+}
+
+.post-content th,
+.post-content td {
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.post-content th {
+    background: #f8f8f8;
+    font-weight: 600;
+}
+
+/* Code highlighting */
+.post-content pre {
+    background: #2d2d2d;
+    color: #ccc;
+    border-radius: 6px;
+    padding: 16px;
+    overflow-x: auto;
+    margin-bottom: 1em;
+    font-size: 0.88em;
+    line-height: 1.5;
+}
+
+.post-content code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.88em;
+}
+
+.post-content pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+.highlight { background: transparent; }
+.highlight .hll { background-color: #49483e }
+.highlight .c { color: #75715e }
+.highlight .k { color: #66d9ef; font-weight: bold }
+.highlight .o { color: #f92672 }
+.highlight .cm { color: #75715e }
+.highlight .cp { color: #75715e }
+.highlight .c1 { color: #75715e }
+.highlight .cs { color: #75715e }
+.highlight .gd { color: #f92672 }
+.highlight .ge { font-style: italic }
+.highlight .gh { color: #a6e22e }
+.highlight .gi { color: #a6e22e }
+.highlight .gp { color: #75715e }
+.highlight .gs { font-weight: bold }
+.highlight .gu { color: #a6e22e }
+.highlight .kc { color: #66d9ef }
+.highlight .kd { color: #66d9ef }
+.highlight .kn { color: #f92672 }
+.highlight .kp { color: #66d9ef }
+.highlight .kr { color: #66d9ef }
+.highlight .kt { color: #66d9ef }
+.highlight .m { color: #ae81ff }
+.highlight .s { color: #e6db74 }
+.highlight .na { color: #a6e22e }
+.highlight .nb { color: #f8f8f2 }
+.highlight .nc { color: #a6e22e; font-weight: bold }
+.highlight .nf { color: #a6e22e }
+.highlight .nn { color: #f8f8f2 }
+.highlight .nt { color: #f92672 }
+.highlight .nv { color: #f8f8f2 }
+.highlight .s1, .highlight .s2, .highlight .se { color: #e6db74 }
+.highlight .si { color: #e6db74 }
+.highlight .mi { color: #ae81ff }
+
+/* Post cards (list view) — horizontal layout with left thumbnail */
+.post-card {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 12px;
+    gap: 18px;
+    transition: box-shadow 0.2s;
+    border: 1px solid #ebebeb;
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.post-card-thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.post-card-thumb a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.post-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.post-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-card-date {
+    color: #aaa;
+    font-size: 0.82em;
+    font-weight: 500;
+}
+
+.post-card-title {
+    font-size: 1.1em;
+    margin: 4px 0 6px;
+    line-height: 1.35;
+}
+
+.post-card-title a {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.post-card-title a:hover {
+    color: #c0392b;
+    text-decoration: none;
+}
+
+.post-card-desc {
+    color: #777;
+    font-size: 0.88em;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-card-tags {
+    margin-top: 8px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 36px 0;
+}
+
+.pagination a {
+    padding: 8px 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #666;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+.pagination a:hover {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+    text-decoration: none;
+}
+
+.pagination-info {
+    color: #aaa;
+    font-size: 0.88em;
+}
+
+/* Tags page */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-item {
+    display: inline-block;
+    padding: 6px 16px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    color: #555;
+    font-size: 0.9em;
+    transition: all 0.2s;
+}
+
+.tag-item:hover {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+    text-decoration: none;
+}
+
+.tag-count {
+    color: #bbb;
+    font-size: 0.82em;
+}
+
+.tag-item:hover .tag-count {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Page title */
+.page-title {
+    font-size: 1.4em;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c0392b;
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+/* Footer */
+.site-footer {
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    padding: 24px 0;
+    margin-top: 48px;
+    text-align: center;
+    color: #bbb;
+    font-size: 0.82em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .site-nav a {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .post-title {
+        font-size: 1.35em;
+    }
+
+    .post-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .post-card-thumb {
+        width: 60px;
+        height: 60px;
+    }
+
+    .post-card-desc {
+        display: none;
+    }
+
+    .container {
+        padding: 0 14px;
+    }
+}

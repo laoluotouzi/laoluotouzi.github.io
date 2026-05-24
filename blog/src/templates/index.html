@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}老罗投资 - 首页{% endblock %}
+
+{% block content %}
+<div class="post-list">
+    {% for post in posts %}
+    <article class="post-card">
+        {% if post.banner %}
+        <div class="post-card-thumb">
+            <a href="{{ post.url }}">
+                <img src="{{ post.banner }}" alt="{{ post.title }}" loading="lazy">
+            </a>
+        </div>
+        {% endif %}
+        <div class="post-card-body">
+            <time class="post-card-date" datetime="{{ post.date.isoformat() }}">
+                {{ post.date.strftime('%Y-%m-%d') }}
+            </time>
+            <h2 class="post-card-title">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            {% if post.description %}
+            <p class="post-card-desc">{{ post.description | truncate(120) }}</p>
+            {% endif %}
+            {% if post.tags %}
+            <div class="post-card-tags">
+                {% for tag in post.tags %}
+                <a href="/tags/{{ tag | tag_slug }}/">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </article>
+    {% endfor %}
+</div>
+
+{% if pagination %}
+<nav class="pagination">
+    {% if pagination.has_prev %}
+    <a href="{{ pagination.prev_url }}" class="pagination-prev">&laquo; 上一页</a>
+    {% endif %}
+    <span class="pagination-info">第 {{ pagination.current }} / {{ pagination.total }} 页</span>
+    {% if pagination.has_next %}
+    <a href="{{ pagination.next_url }}" class="pagination-next">下一页 &raquo;</a>
+    {% endif %}
+</nav>
+{% endif %}
+{% endblock %}

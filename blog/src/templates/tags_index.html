@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}标签 - 老罗投资{% endblock %}
+
+{% block content %}
+<div class="tags-page">
+    <h1 class="page-title">标签</h1>
+    <div class="tag-cloud">
+        {% for tag in tags %}
+        <a href="/tags/{{ tag.slug }}/" class="tag-item">
+            {{ tag.name }} <span class="tag-count">({{ tag.posts | length }})</span>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
