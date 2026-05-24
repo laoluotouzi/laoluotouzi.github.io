@@ -20,8 +20,46 @@
             </nav>
         </div>
     </header>
-    <main class="container">
-        {% block content %}{% endblock %}
+    <main class="site-main">
+        <div class="layout-container{% if not (sidebar is defined and sidebar) %} no-sidebar{% endif %}">
+            <div class="main-content">
+                {% block content %}{% endblock %}
+            </div>
+            {% if sidebar is defined and sidebar %}
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">最近文章</h3>
+                    <ul class="sidebar-recent-posts">
+                        {% for post in sidebar.recent_posts %}
+                        <li>
+                            <a href="{{ post.url }}">{{ post.title }}</a>
+                            <time>{{ post.date.strftime('%Y-%m-%d') }}</time>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">热门标签</h3>
+                    <div class="sidebar-tag-cloud">
+                        {% for tag in sidebar.tags %}
+                        <a href="/tags/{{ tag.slug }}/" class="sidebar-tag">{{ tag.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">归档</h3>
+                    <ul class="sidebar-archive-list">
+                        {% for year_info in sidebar.archive_years %}
+                        <li>
+                            <a href="/archive/{{ year_info.year }}/">{{ year_info.year }}年</a>
+                            <span class="sidebar-archive-count">{{ year_info.count }}篇</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            {% endif %}
+        </div>
     </main>
     <footer class="site-footer">
         <div class="container">

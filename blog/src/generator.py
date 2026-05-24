@@ -11,7 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from asset_manager import clean_output, copy_attachments, copy_static
 from feed import generate_rss
 from parser import parse_all_posts
-from renderer import create_env, render_archives, render_index, render_posts, render_tags
+from renderer import build_sidebar_context, create_env, render_archives, render_index, render_posts, render_tags
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
@@ -42,22 +42,26 @@ def build():
     print("Copying static resources...")
     copy_static(SRC_DIR, DIST_DIR)
 
-    # Step 4: Render pages
+    # Step 4: Build sidebar context
+    print("Building sidebar context...")
+    sidebar_ctx = build_sidebar_context(posts)
+
+    # Step 5: Render pages
     print("Rendering pages...")
     env = create_env(TEMPLATES_DIR)
-    render_posts(env, posts, DIST_DIR)
+    render_posts(env, posts, DIST_DIR, sidebar_ctx)
     print(f"  Rendered {len(posts)} post pages")
 
-    render_index(env, posts, DIST_DIR)
+    render_index(env, posts, DIST_DIR, sidebar_ctx)
     print("  Rendered index pages")
 
-    render_tags(env, posts, DIST_DIR)
+    render_tags(env, posts, DIST_DIR, sidebar_ctx)
     print("  Rendered tag pages")
 
-    render_archives(env, posts, DIST_DIR)
+    render_archives(env, posts, DIST_DIR, sidebar_ctx)
     print("  Rendered archive pages")
 
-    # Step 5: Generate RSS
+    # Step 6: Generate RSS
     print("Generating RSS feed...")
     generate_rss(posts, DIST_DIR)
 

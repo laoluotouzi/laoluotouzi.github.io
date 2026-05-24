@@ -14,12 +14,14 @@
         </div>
         {% endif %}
         <div class="post-card-body">
-            <time class="post-card-date" datetime="{{ post.date.isoformat() }}">
-                {{ post.date.strftime('%Y-%m-%d') }}
-            </time>
-            <h2 class="post-card-title">
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </h2>
+            <div class="post-card-title-row">
+                <h2 class="post-card-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <time class="post-card-date" datetime="{{ post.date.isoformat() }}">
+                    {{ post.date.strftime('%Y-%m-%d') }}
+                </time>
+            </div>
             {% if post.description %}
             <p class="post-card-desc">{{ post.description | truncate(120) }}</p>
             {% endif %}
