@@ -116,6 +116,56 @@ img {
     margin-bottom: 28px;
 }
 
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 45%;
+    padding: 10px 14px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+a.post-nav-item:hover {
+    border-color: #c0392b;
+    background: #fdf8f6;
+    text-decoration: none;
+}
+
+.post-nav-next {
+    text-align: right;
+    margin-left: auto;
+}
+
+.post-nav-label {
+    font-size: 0.78em;
+    color: #aaa;
+    font-weight: 500;
+}
+
+.post-nav-title {
+    font-size: 0.9em;
+    color: #333;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+a.post-nav-item:hover .post-nav-title {
+    color: #c0392b;
+}
+
 .post-title {
     font-size: 1.75em;
     margin-bottom: 10px;

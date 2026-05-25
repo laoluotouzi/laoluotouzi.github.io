@@ -103,10 +103,12 @@ def render_posts(env: Environment, posts: list[Post], dist_dir: Path, sidebar_co
     """Render individual post detail pages."""
     template = env.get_template("post.html")
     ctx = sidebar_context or {}
-    for post in posts:
+    for i, post in enumerate(posts):
+        prev_post = posts[i + 1] if i + 1 < len(posts) else None
+        next_post = posts[i - 1] if i - 1 >= 0 else None
         output_dir = dist_dir / "posts" / str(post.date.year) / f"{post.date.month:02d}" / post.date.strftime("%Y%m%d")
         output_dir.mkdir(parents=True, exist_ok=True)
-        html = template.render(post=post, **ctx)
+        html = template.render(post=post, prev_post=prev_post, next_post=next_post, **ctx)
         (output_dir / "index.html").write_text(html, encoding="utf-8")
 
 
