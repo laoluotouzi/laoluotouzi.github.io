@@ -134,7 +134,7 @@ def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_con
     # Render individual tag pages
     tag_template = env.get_template("tag.html")
     for tag in tags:
-        tag_dir = tags_dir / tag.slug
+        tag_dir = tags_dir / tag.name
         tag_dir.mkdir(parents=True, exist_ok=True)
         html = tag_template.render(tag=tag, posts=tag.posts, **ctx)
         (tag_dir / "index.html").write_text(html, encoding="utf-8")

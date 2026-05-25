@@ -30,7 +30,7 @@ img {
 
 /* ===== Layout ===== */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -40,7 +40,7 @@ img {
 }
 
 .layout-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
@@ -484,6 +484,10 @@ img {
 }
 
 .sidebar-recent-posts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
 }
@@ -498,12 +502,13 @@ img {
 }
 
 .sidebar-recent-posts li a {
-    display: block;
     color: #333;
     font-size: 0.88em;
     font-weight: 500;
     line-height: 1.4;
-    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .sidebar-recent-posts li a:hover {
@@ -513,6 +518,8 @@ img {
 .sidebar-recent-posts li time {
     color: #aaa;
     font-size: 0.78em;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Tag cloud widget */
