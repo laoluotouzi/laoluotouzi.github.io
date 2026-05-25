@@ -110,7 +110,7 @@ def render_index(env: Environment, posts: list[Post], dist_dir: Path, sidebar_co
         output_path.write_text(html, encoding="utf-8")
 
 
-def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None) -> None:
+def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None, per_page: int = 10) -> None:
     """Render tag index and individual tag pages."""
     # Build tag index
     tag_map: dict[str, Tag] = {}
@@ -132,13 +132,35 @@ def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_con
     html = tags_index_template.render(tags=tags, **ctx)
     (tags_dir / "index.html").write_text(html, encoding="utf-8")
 
-    # Render individual tag pages
+    # Render individual tag pages with pagination
     tag_template = env.get_template("tag.html")
     for tag in tags:
-        tag_dir = tags_dir / tag.name
-        tag_dir.mkdir(parents=True, exist_ok=True)
-        html = tag_template.render(tag=tag, posts=tag.posts, **ctx)
-        (tag_dir / "index.html").write_text(html, encoding="utf-8")
+        total_pages = math.ceil(len(tag.posts) / per_page)
+
+        for page_num in range(1, total_pages + 1):
+            start = (page_num - 1) * per_page
+            end = start + per_page
+            page_posts = tag.posts[start:end]
+
+            pagination = {
+                "current": page_num,
+                "total": total_pages,
+                "has_prev": page_num > 1,
+                "has_next": page_num < total_pages,
+                "prev_url": f"/tags/{tag.name}/" if page_num == 2 else f"/tags/{tag.name}/page/{page_num - 1}/",
+                "next_url": f"/tags/{tag.name}/page/{page_num + 1}/",
+            }
+
+            html = tag_template.render(tag=tag, posts=page_posts, pagination=pagination, **ctx)
+
+            if page_num == 1:
+                tag_dir = tags_dir / tag.name
+                tag_dir.mkdir(parents=True, exist_ok=True)
+                (tag_dir / "index.html").write_text(html, encoding="utf-8")
+            else:
+                page_dir = tags_dir / tag.name / "page" / str(page_num)
+                page_dir.mkdir(parents=True, exist_ok=True)
+                (page_dir / "index.html").write_text(html, encoding="utf-8")
 
 
 def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None) -> None:

@@ -5,9 +5,9 @@
 {% block content %}
 <div class="archive-page">
     {% if archive.month %}
-    <h1 class="page-title">{{ archive.year }}年{{ '%02d' | format(archive.month) }}月</h1>
+    <h1 class="page-title">{{ archive.year }}年{{ '%02d' | format(archive.month) }}月 <span class="archive-count">({{ posts | length }}篇)</span></h1>
     {% else %}
-    <h1 class="page-title">{{ archive.year }}年</h1>
+    <h1 class="page-title">{{ archive.year }}年 <span class="archive-count">({{ posts | length }}篇)</span></h1>
     {% endif %}
     <div class="post-list">
         {% for post in posts %}

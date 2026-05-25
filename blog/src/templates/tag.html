@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="tag-page">
-    <h1 class="page-title">标签: {{ tag.name }}</h1>
+    <h1 class="page-title">标签: {{ tag.name }} <span class="archive-count">({{ tag.posts | length }}篇)</span></h1>
     <div class="post-list">
         {% for post in posts %}
         <article class="post-card">
@@ -39,4 +39,16 @@
         {% endfor %}
     </div>
 </div>
+
+{% if pagination and pagination.total > 1 %}
+<nav class="pagination">
+    {% if pagination.has_prev %}
+    <a href="{{ pagination.prev_url }}" class="pagination-prev">&laquo; 上一页</a>
+    {% endif %}
+    <span class="pagination-info">第 {{ pagination.current }} / {{ pagination.total }} 页</span>
+    {% if pagination.has_next %}
+    <a href="{{ pagination.next_url }}" class="pagination-next">下一页 &raquo;</a>
+    {% endif %}
+</nav>
+{% endif %}
 {% endblock %}
