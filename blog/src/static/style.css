@@ -405,17 +405,26 @@ img {
 }
 
 /* ===== Tags Page ===== */
+.tags-page,
+.tag-page {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+}
+
 .tag-cloud {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .tag-item {
     display: inline-block;
-    padding: 6px 16px;
-    background: #fff;
-    border: 1px solid #e0e0e0;
+    padding: 8px 18px;
+    background: #f8f8f8;
+    border: 1px solid #e8e8e8;
     border-radius: 20px;
     color: #555;
     font-size: 0.9em;
@@ -427,6 +436,7 @@ img {
     color: #fff;
     border-color: #c0392b;
     text-decoration: none;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.2);
 }
 
 .tag-count {
@@ -578,14 +588,33 @@ img {
 }
 
 /* ===== Archive Page ===== */
+.archive-page {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 16px;
+}
+
 .archive-year {
     margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.archive-year:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .archive-year-title {
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
 }
 
 .archive-year-title a {
@@ -598,26 +627,14 @@ img {
 
 .archive-count {
     color: #aaa;
-    font-size: 0.82em;
+    font-size: 0.8em;
     font-weight: 400;
 }
 
 .archive-months {
-    list-style: none;
-    padding-left: 16px;
-}
-
-.archive-months li {
-    padding: 4px 0;
-}
-
-.archive-months li a {
-    color: #555;
-    font-size: 0.9em;
-}
-
-.archive-months li a:hover {
-    color: #c0392b;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 /* ===== Footer ===== */

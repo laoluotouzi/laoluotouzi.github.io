@@ -3,6 +3,7 @@
 import argparse
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
 # Add the src directory to path for imports
@@ -48,7 +49,8 @@ def build():
 
     # Step 5: Render pages
     print("Rendering pages...")
-    env = create_env(TEMPLATES_DIR)
+    version = datetime.now().strftime("%Y%m%d%H%M%S")
+    env = create_env(TEMPLATES_DIR, version)
     render_posts(env, posts, DIST_DIR, sidebar_ctx)
     print(f"  Rendered {len(posts)} post pages")
 

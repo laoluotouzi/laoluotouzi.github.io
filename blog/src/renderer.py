@@ -23,7 +23,7 @@ def truncate(text: str, length: int = 200) -> str:
     return text[:length] + "..."
 
 
-def create_env(templates_dir: Path) -> Environment:
+def create_env(templates_dir: Path, version: str = "") -> Environment:
     """Create and configure Jinja2 environment."""
     env = Environment(
         loader=FileSystemLoader(str(templates_dir)),
@@ -31,6 +31,7 @@ def create_env(templates_dir: Path) -> Environment:
     )
     env.filters["tag_slug"] = tag_slug
     env.filters["truncate"] = truncate
+    env.globals["version"] = version
     return env
 
 
@@ -160,7 +161,8 @@ def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar
     archives: dict[int, dict] = {}
     for year, year_posts in sorted(by_year.items(), reverse=True):
         months = sorted(
-            {m for (y, m) in by_year_month if y == year}
+            {m for (y, m) in by_year_month if y == year},
+            reverse=True,
         )
         archives[year] = {
             "total": len(year_posts),

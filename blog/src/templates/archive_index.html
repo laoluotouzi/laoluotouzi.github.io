@@ -12,14 +12,13 @@
                 <a href="/archive/{{ year }}/">{{ year }}年</a>
                 <span class="archive-count">({{ year_data.total }}篇)</span>
             </h2>
-            <ul class="archive-months">
+            <div class="archive-months">
                 {% for month, count in year_data.months %}
-                <li>
-                    <a href="/archive/{{ year }}/{{ '%02d' | format(month) }}/">{{ '%02d' | format(month) }}月</a>
-                    <span class="archive-count">({{ count }}篇)</span>
-                </li>
+                <a href="/archive/{{ year }}/{{ '%02d' | format(month) }}/" class="tag-item">
+                    {{ '%02d' | format(month) }}月 <span class="tag-count">({{ count }}篇)</span>
+                </a>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
         {% endfor %}
     </div>
