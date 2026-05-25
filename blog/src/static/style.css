@@ -406,7 +406,8 @@ img {
 
 /* ===== Tags Page ===== */
 .tags-page,
-.tag-page {
+.tag-page,
+.home-page {
     background: #fff;
     border-radius: 10px;
     padding: 28px;
