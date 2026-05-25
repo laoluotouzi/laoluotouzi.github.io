@@ -223,21 +223,23 @@ img {
 
 /* ===== Code Highlighting ===== */
 .post-content pre {
-    background: #2d2d2d;
-    color: #ccc;
+    background: #fdf0ef;
+    color: #5c3a3a;
     border-radius: 6px;
     padding: 16px;
     overflow-x: auto;
     margin-bottom: 1em;
     font-size: 0.88em;
     line-height: 1.5;
+    border: 1px solid #f0d0d0;
 }
 
 .post-content code {
-    background: #f0f0f0;
+    background: #fdf0ef;
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.88em;
+    color: #b04050;
 }
 
 .post-content pre code {
@@ -247,39 +249,39 @@ img {
 }
 
 .highlight { background: transparent; }
-.highlight .hll { background-color: #49483e }
-.highlight .c { color: #75715e }
-.highlight .k { color: #66d9ef; font-weight: bold }
-.highlight .o { color: #f92672 }
-.highlight .cm { color: #75715e }
-.highlight .cp { color: #75715e }
-.highlight .c1 { color: #75715e }
-.highlight .cs { color: #75715e }
-.highlight .gd { color: #f92672 }
+.highlight .hll { background-color: #f5d5d3 }
+.highlight .c { color: #9a7a7a }
+.highlight .k { color: #b04050; font-weight: bold }
+.highlight .o { color: #c06070 }
+.highlight .cm { color: #9a7a7a }
+.highlight .cp { color: #9a7a7a }
+.highlight .c1 { color: #9a7a7a }
+.highlight .cs { color: #9a7a7a }
+.highlight .gd { color: #c06070 }
 .highlight .ge { font-style: italic }
-.highlight .gh { color: #a6e22e }
-.highlight .gi { color: #a6e22e }
-.highlight .gp { color: #75715e }
+.highlight .gh { color: #8b5e5e }
+.highlight .gi { color: #7a6a5a }
+.highlight .gp { color: #9a7a7a }
 .highlight .gs { font-weight: bold }
-.highlight .gu { color: #a6e22e }
-.highlight .kc { color: #66d9ef }
-.highlight .kd { color: #66d9ef }
-.highlight .kn { color: #f92672 }
-.highlight .kp { color: #66d9ef }
-.highlight .kr { color: #66d9ef }
-.highlight .kt { color: #66d9ef }
-.highlight .m { color: #ae81ff }
-.highlight .s { color: #e6db74 }
-.highlight .na { color: #a6e22e }
-.highlight .nb { color: #f8f8f2 }
-.highlight .nc { color: #a6e22e; font-weight: bold }
-.highlight .nf { color: #a6e22e }
-.highlight .nn { color: #f8f8f2 }
-.highlight .nt { color: #f92672 }
-.highlight .nv { color: #f8f8f2 }
-.highlight .s1, .highlight .s2, .highlight .se { color: #e6db74 }
-.highlight .si { color: #e6db74 }
-.highlight .mi { color: #ae81ff }
+.highlight .gu { color: #8b5e5e }
+.highlight .kc { color: #b04050 }
+.highlight .kd { color: #b04050 }
+.highlight .kn { color: #c06070 }
+.highlight .kp { color: #b04050 }
+.highlight .kr { color: #b04050 }
+.highlight .kt { color: #b04050 }
+.highlight .m { color: #a06070 }
+.highlight .s { color: #8a6050 }
+.highlight .na { color: #8b5e5e }
+.highlight .nb { color: #5c3a3a }
+.highlight .nc { color: #8b5e5e; font-weight: bold }
+.highlight .nf { color: #8b5e5e }
+.highlight .nn { color: #5c3a3a }
+.highlight .nt { color: #c06070 }
+.highlight .nv { color: #5c3a3a }
+.highlight .s1, .highlight .s2, .highlight .se { color: #8a6050 }
+.highlight .si { color: #8a6050 }
+.highlight .mi { color: #a06070 }
 
 /* ===== Post Cards (List View) ===== */
 .post-card {
