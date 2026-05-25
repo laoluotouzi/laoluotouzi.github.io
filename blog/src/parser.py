@@ -7,6 +7,7 @@ from pathlib import Path
 import mistune
 import yaml
 from mistune.plugins.table import table as plugin_table
+from mistune.plugins.formatting import mark as plugin_mark
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name, TextLexer
@@ -16,6 +17,9 @@ from models import Post
 
 class CodeHighlightRenderer(mistune.HTMLRenderer):
     """Custom HTML renderer with Pygments code highlighting."""
+
+    def __init__(self):
+        super().__init__(escape=False)
 
     def block_code(self, code, info=None, **kwargs):
         if not info:
@@ -33,7 +37,7 @@ def create_markdown():
     renderer = CodeHighlightRenderer()
     md = mistune.Markdown(
         renderer=renderer,
-        plugins=[plugin_table],
+        plugins=[plugin_table, plugin_mark],
     )
     return md
 

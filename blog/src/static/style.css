@@ -168,6 +168,10 @@ img {
     font-size: 1.02em;
 }
 
+.post-content .green { color: #22a45d; font-weight: bold; }
+.post-content .red { color: #e74c3c; font-weight: bold; }
+.post-content mark { background: #fff9c4; padding: 2px 4px; border-radius: 3px; }
+
 .post-content h1,
 .post-content h2,
 .post-content h3,
@@ -378,22 +382,23 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 6px;
     margin: 36px 0;
 }
 
-.pagination a {
-    padding: 8px 20px;
+.pagination-arrow {
+    padding: 6px 14px;
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 6px;
     color: #666;
-    font-size: 0.9em;
+    font-size: 0.88em;
     transition: all 0.2s;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    margin: 0 4px;
 }
 
-.pagination a:hover {
+.pagination-arrow:hover {
     background: #c0392b;
     color: #fff;
     border-color: #c0392b;
@@ -401,9 +406,56 @@ img {
     box-shadow: 0 2px 8px rgba(192,57,43,0.2);
 }
 
-.pagination-info {
-    color: #aaa;
+.pagination-arrow.disabled {
+    color: #ccc;
+    border-color: #eee;
+    cursor: default;
+    box-shadow: none;
+}
+
+.pagination-pages {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.pagination-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 6px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    color: #666;
     font-size: 0.88em;
+    transition: all 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+a.pagination-page:hover {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.2);
+}
+
+.pagination-page.active {
+    background: #c0392b;
+    color: #fff;
+    border-color: #c0392b;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(192,57,43,0.2);
+}
+
+.pagination-ellipsis {
+    color: #aaa;
+    padding: 0 4px;
+    font-size: 0.88em;
+    letter-spacing: 2px;
 }
 
 /* ===== Tags Page ===== */

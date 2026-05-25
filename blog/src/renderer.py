@@ -35,6 +35,38 @@ def create_env(templates_dir: Path, version: str = "") -> Environment:
     return env
 
 
+def _build_page_range(current: int, total: int, window: int = 2) -> list:
+    """Build a page range list with ellipsis for large page counts.
+
+    Returns a list like [1, 2, 3, '...', 8, 9, 10] where '...' represents a gap.
+    """
+    if total <= 7:
+        return list(range(1, total + 1))
+
+    pages = []
+    # Always include first page
+    pages.append(1)
+
+    start = max(2, current - window)
+    end = min(total - 1, current + window)
+
+    # Add ellipsis before the window if needed
+    if start > 2:
+        pages.append("...")
+
+    # Add pages in the window
+    pages.extend(range(start, end + 1))
+
+    # Add ellipsis after the window if needed
+    if end < total - 1:
+        pages.append("...")
+
+    # Always include last page
+    pages.append(total)
+
+    return pages
+
+
 def build_sidebar_context(posts: list[Post]) -> dict:
     """Build context data for the right sidebar widgets."""
     # Recent 5 posts
@@ -89,6 +121,20 @@ def render_index(env: Environment, posts: list[Post], dist_dir: Path, sidebar_co
         end = start + per_page
         page_posts = posts[start:end]
 
+        # Build page number list with ellipsis for large page counts
+        page_range = _build_page_range(page_num, total_pages)
+        pages = []
+        for p in page_range:
+            if p == "...":
+                pages.append({"type": "ellipsis"})
+            else:
+                pages.append({
+                    "type": "page",
+                    "number": p,
+                    "url": "/" if p == 1 else f"/page/{p}/",
+                    "is_current": p == page_num,
+                })
+
         pagination = {
             "current": page_num,
             "total": total_pages,
@@ -96,6 +142,7 @@ def render_index(env: Environment, posts: list[Post], dist_dir: Path, sidebar_co
             "has_next": page_num < total_pages,
             "prev_url": "/" if page_num == 2 else f"/page/{page_num - 1}/",
             "next_url": f"/page/{page_num + 1}/",
+            "pages": pages,
         }
 
         html = template.render(posts=page_posts, pagination=pagination, **ctx)
@@ -142,6 +189,20 @@ def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_con
             end = start + per_page
             page_posts = tag.posts[start:end]
 
+            # Build page number list
+            page_range = _build_page_range(page_num, total_pages)
+            pages = []
+            for p in page_range:
+                if p == "...":
+                    pages.append({"type": "ellipsis"})
+                else:
+                    pages.append({
+                        "type": "page",
+                        "number": p,
+                        "url": f"/tags/{tag.name}/" if p == 1 else f"/tags/{tag.name}/page/{p}/",
+                        "is_current": p == page_num,
+                    })
+
             pagination = {
                 "current": page_num,
                 "total": total_pages,
@@ -149,6 +210,7 @@ def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_con
                 "has_next": page_num < total_pages,
                 "prev_url": f"/tags/{tag.name}/" if page_num == 2 else f"/tags/{tag.name}/page/{page_num - 1}/",
                 "next_url": f"/tags/{tag.name}/page/{page_num + 1}/",
+                "pages": pages,
             }
 
             html = tag_template.render(tag=tag, posts=page_posts, pagination=pagination, **ctx)

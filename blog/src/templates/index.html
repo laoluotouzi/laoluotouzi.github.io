@@ -40,14 +40,28 @@
     </div>
 </div>
 
-{% if pagination %}
+{% if pagination and pagination.total > 1 %}
 <nav class="pagination">
     {% if pagination.has_prev %}
-    <a href="{{ pagination.prev_url }}" class="pagination-prev">&laquo; 上一页</a>
+    <a href="{{ pagination.prev_url }}" class="pagination-arrow">&laquo; 上一页</a>
+    {% else %}
+    <span class="pagination-arrow disabled">&laquo; 上一页</span>
     {% endif %}
-    <span class="pagination-info">第 {{ pagination.current }} / {{ pagination.total }} 页</span>
+    <div class="pagination-pages">
+        {% for p in pagination.pages %}
+        {% if p.type == 'ellipsis' %}
+        <span class="pagination-ellipsis">...</span>
+        {% elif p.is_current %}
+        <span class="pagination-page active">{{ p.number }}</span>
+        {% else %}
+        <a href="{{ p.url }}" class="pagination-page">{{ p.number }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
     {% if pagination.has_next %}
-    <a href="{{ pagination.next_url }}" class="pagination-next">下一页 &raquo;</a>
+    <a href="{{ pagination.next_url }}" class="pagination-arrow">下一页 &raquo;</a>
+    {% else %}
+    <span class="pagination-arrow disabled">下一页 &raquo;</span>
     {% endif %}
 </nav>
 {% endif %}
