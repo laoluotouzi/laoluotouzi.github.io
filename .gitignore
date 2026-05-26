@@ -133,3 +133,5 @@ dist
 site/
 encryptcontent.cache
 __pycache__
+
+!blog/dist
