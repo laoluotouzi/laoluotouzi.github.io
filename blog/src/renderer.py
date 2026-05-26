@@ -272,3 +272,13 @@ def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar
         month_dir.mkdir(parents=True, exist_ok=True)
         html = archive_template.render(archive=archive, posts=month_posts, **ctx)
         (month_dir / "index.html").write_text(html, encoding="utf-8")
+
+
+def render_about(env: Environment, page: dict, dist_dir: Path, sidebar_context: dict = None) -> None:
+    """Render the about page."""
+    template = env.get_template("about.html")
+    ctx = sidebar_context or {}
+    about_dir = dist_dir / "about"
+    about_dir.mkdir(parents=True, exist_ok=True)
+    html = template.render(page=page, **ctx)
+    (about_dir / "index.html").write_text(html, encoding="utf-8")

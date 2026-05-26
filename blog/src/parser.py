@@ -194,6 +194,26 @@ def parse_all_posts(docs_dir: Path) -> list[Post]:
     return posts
 
 
+def parse_about_page(docs_dir: Path) -> dict:
+    """Parse the about page from docs/about/index.md."""
+    about_path = docs_dir / "about" / "index.md"
+    if not about_path.exists():
+        return None
+
+    content = about_path.read_text(encoding="utf-8")
+    metadata, body = parse_frontmatter(content, "index")
+
+    md = create_markdown()
+    content_html = md(body)
+    content_html = resolve_relative_paths(content_html, about_path, docs_dir)
+
+    return {
+        "title": metadata.get("title", "关于"),
+        "description": metadata.get("description", ""),
+        "content_html": content_html,
+    }
+
+
 def _date_from_filename(filename: str) -> date:
     """Extract date from filename like '20250104'."""
     try:

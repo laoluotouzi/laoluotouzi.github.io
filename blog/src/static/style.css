@@ -740,18 +740,13 @@ a.pagination-page:hover {
 }
 
 .sidebar-social-links a:hover {
-    background: #c0392b;
-    text-decoration: none;
+    background: #e8e8e8;
 }
 
 .sidebar-social-links img {
     width: 22px;
     height: 22px;
     border-radius: 4px;
-}
-
-.sidebar-social-links a:hover img {
-    filter: brightness(10);
 }
 
 /* ===== Comments ===== */
