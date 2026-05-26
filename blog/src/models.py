@@ -21,7 +21,7 @@ class Post:
 
     def __post_init__(self):
         if not self.url:
-            self.url = f"/posts/{self.date.year}/{self.date.month:02d}/{self.date.strftime('%Y%m%d')}/"
+            self.url = f"/blog/{self.date.year}/{self.date.month:02d}/{self.date.strftime('%Y%m%d')}/"
 
 
 @dataclass
