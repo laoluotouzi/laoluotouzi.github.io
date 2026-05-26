@@ -21,7 +21,6 @@
 <div class="post-content">
         {{ post.content_html | safe }}
     </div>
-    {% if prev_post or next_post %}
     <nav class="post-nav">
         {% if prev_post %}
         <a href="{{ prev_post.url }}" class="post-nav-item post-nav-prev">
@@ -29,7 +28,10 @@
             <span class="post-nav-title">{{ prev_post.title }}</span>
         </a>
         {% else %}
-        <span class="post-nav-item"></span>
+        <span class="post-nav-item post-nav-disabled">
+            <span class="post-nav-label">上一篇</span>
+            <span class="post-nav-title">没有了</span>
+        </span>
         {% endif %}
         {% if next_post %}
         <a href="{{ next_post.url }}" class="post-nav-item post-nav-next">
@@ -37,9 +39,11 @@
             <span class="post-nav-title">{{ next_post.title }}</span>
         </a>
         {% else %}
-        <span class="post-nav-item"></span>
+        <span class="post-nav-item post-nav-disabled post-nav-next">
+            <span class="post-nav-label">下一篇</span>
+            <span class="post-nav-title">没有了</span>
+        </span>
         {% endif %}
     </nav>
-    {% endif %}
 </article>
 {% endblock %}

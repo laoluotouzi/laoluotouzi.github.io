@@ -129,6 +129,7 @@ img {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    flex: 1;
     max-width: 45%;
     padding: 10px 14px;
     border: 1px solid #eee;
@@ -164,6 +165,16 @@ a.post-nav-item:hover {
 
 a.post-nav-item:hover .post-nav-title {
     color: #c0392b;
+}
+
+.post-nav-disabled {
+    cursor: default;
+    background: #fafafa;
+}
+
+.post-nav-disabled .post-nav-title {
+    color: #ccc;
+    font-style: italic;
 }
 
 .post-title {
