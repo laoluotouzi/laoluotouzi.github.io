@@ -23,8 +23,3 @@ tags:
 + 恪守能力圈之内的投资
 
 老罗追求的是自由至上的生活，包括：财务自由，旅行自由，摆脱老板，无需闹钟，不必每天花两小时通勤，不受工作的束缚（朝九晚六，一周5天工作，2天休息，每年只休假2周等），以及将整个世界当作游乐场的自由。
-
-----
-
-+ 主站：[https://invest.zdyi.com](https://invest.zdyi.com)
-+ 海外镜像：[https://laoluotouzi.github.io](https://laoluotouzi.github.io)
