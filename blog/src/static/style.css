@@ -445,7 +445,7 @@ a.post-nav-item:hover .post-nav-title {
     justify-content: center;
     align-items: center;
     gap: 6px;
-    margin: 36px 0;
+    margin: 0 0 4px 0;
 }
 
 .pagination-arrow {
@@ -904,7 +904,7 @@ a.pagination-page:hover {
     background: #fff;
     border-top: 1px solid #e8e8e8;
     padding: 24px 0;
-    margin-top: 48px;
+    margin-top: 14px;
     text-align: center;
     color: #bbb;
     font-size: 0.82em;

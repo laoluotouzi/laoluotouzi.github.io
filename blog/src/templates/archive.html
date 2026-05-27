@@ -5,9 +5,9 @@
 {% block content %}
 <div class="archive-page">
     {% if archive.month %}
-    <h1 class="page-title">{{ archive.year }}年{{ '%02d' | format(archive.month) }}月 <span class="archive-count">({{ posts | length }}篇)</span></h1>
+    <h1 class="page-title">{{ archive.year }}年{{ '%02d' | format(archive.month) }}月 <span class="archive-count">({{ total_posts | default(posts | length) }}篇)</span></h1>
     {% else %}
-    <h1 class="page-title">{{ archive.year }}年 <span class="archive-count">({{ posts | length }}篇)</span></h1>
+    <h1 class="page-title">{{ archive.year }}年 <span class="archive-count">({{ total_posts | default(posts | length) }}篇)</span></h1>
     {% endif %}
     <div class="post-list">
         {% for post in posts %}
@@ -43,4 +43,30 @@
         {% endfor %}
     </div>
 </div>
+
+{% if pagination and pagination.total > 1 %}
+<nav class="pagination">
+    {% if pagination.has_prev %}
+    <a href="{{ pagination.prev_url }}" class="pagination-arrow">&laquo; 上一页</a>
+    {% else %}
+    <span class="pagination-arrow disabled">&laquo; 上一页</span>
+    {% endif %}
+    <div class="pagination-pages">
+        {% for p in pagination.pages %}
+        {% if p.type == 'ellipsis' %}
+        <span class="pagination-ellipsis">...</span>
+        {% elif p.is_current %}
+        <span class="pagination-page active">{{ p.number }}</span>
+        {% else %}
+        <a href="{{ p.url }}" class="pagination-page">{{ p.number }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% if pagination.has_next %}
+    <a href="{{ pagination.next_url }}" class="pagination-arrow">下一页 &raquo;</a>
+    {% else %}
+    <span class="pagination-arrow disabled">下一页 &raquo;</span>
+    {% endif %}
+</nav>
+{% endif %}
 {% endblock %}

@@ -227,8 +227,8 @@ def render_tags(env: Environment, posts: list[Post], dist_dir: Path, sidebar_con
                 (page_dir / "index.html").write_text(html, encoding="utf-8")
 
 
-def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None) -> None:
-    """Render archive index, year, and year-month archive pages."""
+def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None, per_page: int = 10) -> None:
+    """Render archive index, year, and year-month archive pages with pagination."""
     archive_template = env.get_template("archive.html")
 
     # Group by year and month
@@ -258,20 +258,62 @@ def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar
     html = archive_index_template.render(archives=archives, **ctx)
     (archive_dir / "index.html").write_text(html, encoding="utf-8")
 
-    # Render year and month archives
+    def _render_archive_pages(archive: Archive, all_posts: list[Post], base_dir: Path) -> None:
+        """Render archive pages with pagination."""
+        total_pages = math.ceil(len(all_posts) / per_page)
+        total_posts = len(all_posts)
+
+        for page_num in range(1, total_pages + 1):
+            start = (page_num - 1) * per_page
+            end = start + per_page
+            page_posts = all_posts[start:end]
+
+            # Build page number list
+            page_range = _build_page_range(page_num, total_pages)
+            base_url = archive.url
+            pages = []
+            for p in page_range:
+                if p == "...":
+                    pages.append({"type": "ellipsis"})
+                else:
+                    pages.append({
+                        "type": "page",
+                        "number": p,
+                        "url": base_url if p == 1 else f"{base_url}page/{p}/",
+                        "is_current": p == page_num,
+                    })
+
+            pagination = {
+                "current": page_num,
+                "total": total_pages,
+                "has_prev": page_num > 1,
+                "has_next": page_num < total_pages,
+                "prev_url": base_url if page_num == 2 else f"{base_url}page/{page_num - 1}/",
+                "next_url": f"{base_url}page/{page_num + 1}/",
+                "pages": pages,
+            }
+
+            html = archive_template.render(archive=archive, posts=page_posts, total_posts=total_posts, pagination=pagination, **ctx)
+
+            if page_num == 1:
+                base_dir.mkdir(parents=True, exist_ok=True)
+                (base_dir / "index.html").write_text(html, encoding="utf-8")
+            else:
+                page_dir = base_dir / "page" / str(page_num)
+                page_dir.mkdir(parents=True, exist_ok=True)
+                (page_dir / "index.html").write_text(html, encoding="utf-8")
+
+    # Render year archives with pagination
     for year, year_posts in sorted(by_year.items(), reverse=True):
         archive = Archive(year=year)
         year_dir = archive_dir / str(year)
-        year_dir.mkdir(parents=True, exist_ok=True)
-        html = archive_template.render(archive=archive, posts=year_posts, **ctx)
-        (year_dir / "index.html").write_text(html, encoding="utf-8")
+        _render_archive_pages(archive, year_posts, year_dir)
 
+    # Render month archives with pagination
     for (year, month), month_posts in sorted(by_year_month.items(), reverse=True):
         archive = Archive(year=year, month=month)
         month_dir = archive_dir / str(year) / f"{month:02d}"
-        month_dir.mkdir(parents=True, exist_ok=True)
-        html = archive_template.render(archive=archive, posts=month_posts, **ctx)
-        (month_dir / "index.html").write_text(html, encoding="utf-8")
+        _render_archive_pages(archive, month_posts, month_dir)
 
 
 def render_about(env: Environment, page: dict, dist_dir: Path, sidebar_context: dict = None) -> None:
