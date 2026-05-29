@@ -1,9 +1,14 @@
 """Data models for the static blog generator."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
-from typing import Optional
+from typing import TYPE_CHECKING, Optional
+
+if TYPE_CHECKING:
+    pass
 
 
 @dataclass
@@ -50,3 +55,18 @@ class Archive:
         if self.month:
             return f"{self.year}年{self.month:02d}月"
         return f"{self.year}年"
+
+
+@dataclass
+class HistoryItem:
+    """Represents a portfolio snapshot extracted from a weekly journal post."""
+    post: Post
+    image_url: str
+
+    @property
+    def date(self) -> date:
+        return self.post.date
+
+    @property
+    def title(self) -> str:
+        return self.post.title

@@ -12,7 +12,8 @@ sys.path.insert(0, str(Path(__file__).parent))
 from asset_manager import clean_output, copy_attachments, copy_static
 from feed import generate_rss
 from parser import parse_all_posts, parse_about_page
-from renderer import build_sidebar_context, create_env, render_about, render_archives, render_index, render_posts, render_tags
+from renderer import build_sidebar_context, create_env, render_about, render_archives, render_history, render_index, render_posts, render_tags
+from renderer import _extract_history_items
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
@@ -62,6 +63,10 @@ def build():
 
     render_archives(env, posts, DIST_DIR, sidebar_ctx)
     print("  Rendered archive pages")
+
+    history_items = _extract_history_items(posts, DOCS_DIR)
+    render_history(env, history_items, DIST_DIR, sidebar_ctx)
+    print(f"  Rendered history pages ({len(history_items)} items)")
 
     # Step 6: Render about page
     about_page = parse_about_page(DOCS_DIR)

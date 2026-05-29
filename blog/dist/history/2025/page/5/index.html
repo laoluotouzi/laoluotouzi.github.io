@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年历史持仓快照 - 老罗投资</title>
+    <meta name="description" content="2025年老罗投资周记历史持仓快照">
+    <link rel="stylesheet" href="/static/style.css?v=20260529200231">
+    <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
+    <link rel="alternate" type="application/rss+xml" title="老罗投资 RSS Feed" href="/feed.xml">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="/" class="site-title">老罗投资</a>
+            <nav class="site-nav">
+                <a href="/">首页</a>
+                <a href="/tags/">标签</a>
+                <a href="/archive/">归档</a>
+                <a href="/history/">历史</a>
+                <a href="/about/">关于</a>
+                <a href="/feed.xml">RSS</a>
+            </nav>
+        </div>
+    </header>
+    <main class="site-main">
+        <div class="layout-container">
+            <div class="main-content">
+                
+<style>
+.history-page .page-title {
+    margin-bottom: 8px;
+}
+.history-page .history-subtitle {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-left: 8px;
+}
+.history-year-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+.history-year-tab a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.history-year-tab a:hover {
+    color: #374151;
+}
+.history-year-tab.active a {
+    color: #1a1a1a;
+    font-weight: 600;
+    border-bottom-color: #1a1a1a;
+}
+.history-year-tab .tab-count {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-left: 2px;
+}
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.history-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.history-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+.history-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #fafbfc;
+    border-bottom: 1px solid #f0f0f0;
+}
+.history-card-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+.history-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+.history-card-link:hover {
+    background: #ebebeb;
+    color: #333;
+}
+.history-card-image {
+    padding: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+}
+.history-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Lightbox */
+.history-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.history-lightbox.active {
+    display: flex;
+}
+.history-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+.history-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+.history-lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+</style>
+
+<div class="history-page">
+    <h1 class="page-title">历史持仓快照 <small class="history-subtitle">记录每一笔交易的成长历程（共 198 条）</small></h1>
+
+    <div class="history-year-tabs">
+        
+        <div class="history-year-tab">
+            <a href="/history/2026/">2026<span class="tab-count">(20条)</span></a>
+        </div>
+        
+        <div class="history-year-tab active">
+            <a href="/history/2025/">2025<span class="tab-count">(52条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2024/">2024<span class="tab-count">(52条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2023/">2023<span class="tab-count">(51条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2022/">2022<span class="tab-count">(23条)</span></a>
+        </div>
+        
+    </div>
+
+    <div class="history-list">
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年3月29日</div>
+                <a href="/blog/2025/03/20250329/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/03/20250329/1.jpg')">
+                <img src="/attachments/2025/03/20250329/1.jpg" alt="2025-03-29 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年3月22日</div>
+                <a href="/blog/2025/03/20250322/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/03/20250322/1.jpg')">
+                <img src="/attachments/2025/03/20250322/1.jpg" alt="2025-03-22 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年3月15日</div>
+                <a href="/blog/2025/03/20250315/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/03/20250315/1.jpg')">
+                <img src="/attachments/2025/03/20250315/1.jpg" alt="2025-03-15 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年3月8日</div>
+                <a href="/blog/2025/03/20250308/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/03/20250308/1.jpg')">
+                <img src="/attachments/2025/03/20250308/1.jpg" alt="2025-03-08 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年3月1日</div>
+                <a href="/blog/2025/03/20250301/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/03/20250301/1.jpg')">
+                <img src="/attachments/2025/03/20250301/1.jpg" alt="2025-03-01 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年2月22日</div>
+                <a href="/blog/2025/02/20250222/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/02/20250222/1.jpg')">
+                <img src="/attachments/2025/02/20250222/1.jpg" alt="2025-02-22 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年2月15日</div>
+                <a href="/blog/2025/02/20250215/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/02/20250215/1.jpg')">
+                <img src="/attachments/2025/02/20250215/1.jpg" alt="2025-02-15 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年2月8日</div>
+                <a href="/blog/2025/02/20250208/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/02/20250208/1.jpg')">
+                <img src="/attachments/2025/02/20250208/1.jpg" alt="2025-02-08 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年1月25日</div>
+                <a href="/blog/2025/01/20250125/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/01/20250125/1.jpg')">
+                <img src="/attachments/2025/01/20250125/1.jpg" alt="2025-01-25 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2025年1月18日</div>
+                <a href="/blog/2025/01/20250118/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2025/01/20250118/1.jpg')">
+                <img src="/attachments/2025/01/20250118/1.jpg" alt="2025-01-18 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<nav class="pagination">
+    
+    <a href="/history/2025/page/4/" class="pagination-arrow">&laquo; 上一页</a>
+    
+    <div class="pagination-pages">
+        
+        
+        <a href="/history/2025/" class="pagination-page">1</a>
+        
+        
+        
+        <a href="/history/2025/page/2/" class="pagination-page">2</a>
+        
+        
+        
+        <a href="/history/2025/page/3/" class="pagination-page">3</a>
+        
+        
+        
+        <a href="/history/2025/page/4/" class="pagination-page">4</a>
+        
+        
+        
+        <span class="pagination-page active">5</span>
+        
+        
+        
+        <a href="/history/2025/page/6/" class="pagination-page">6</a>
+        
+        
+    </div>
+    
+    <a href="/history/2025/page/6/" class="pagination-arrow">下一页 &raquo;</a>
+    
+</nav>
+
+
+<!-- Lightbox -->
+<div class="history-lightbox" id="history-lightbox" onclick="closeHistoryLightbox()">
+    <span class="history-lightbox-close">&times;</span>
+    <img id="history-lightbox-img" src="" alt="">
+</div>
+
+<script>
+function openHistoryLightbox(imageUrl) {
+    var lightbox = document.getElementById('history-lightbox');
+    var img = document.getElementById('history-lightbox-img');
+    img.src = imageUrl;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeHistoryLightbox() {
+    var lightbox = document.getElementById('history-lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeHistoryLightbox();
+});
+</script>
+
+            </div>
+            
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">最近文章</h3>
+                    <ul class="sidebar-recent-posts">
+                        
+                        <li>
+                            <a href="/blog/2026/05/20260523/">老罗投资周记-20260523</a>
+                            <time>2026-05-23</time>
+                        </li>
+                        
+                        <li>
+                            <a href="/blog/2026/05/20260516/">老罗投资周记-20260516</a>
+                            <time>2026-05-16</time>
+                        </li>
+                        
+                        <li>
+                            <a href="/blog/2026/05/20260509/">老罗投资周记-20260509</a>
+                            <time>2026-05-09</time>
+                        </li>
+                        
+                        <li>
+                            <a href="/blog/2026/05/20260502/">老罗投资周记-20260502</a>
+                            <time>2026-05-02</time>
+                        </li>
+                        
+                        <li>
+                            <a href="/blog/2026/04/20260425/">老罗投资周记-20260425</a>
+                            <time>2026-04-25</time>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">热门标签</h3>
+                    <div class="sidebar-tag-cloud">
+                        
+                        <a href="/tags/%E5%AE%9E%E7%9B%98%E5%91%A8%E8%AE%B0/" class="sidebar-tag">实盘周记</a>
+                        
+                        <a href="/tags/2023%E5%B9%B4/" class="sidebar-tag">2023年</a>
+                        
+                        <a href="/tags/%E6%8A%95%E8%B5%84%E5%91%A8%E8%AE%B0/" class="sidebar-tag">投资周记</a>
+                        
+                        <a href="/tags/2025%E5%B9%B4/" class="sidebar-tag">2025年</a>
+                        
+                        <a href="/tags/2024%E5%B9%B4/" class="sidebar-tag">2024年</a>
+                        
+                        <a href="/tags/%E5%9F%BA%E9%87%91%E4%BC%B0%E5%80%BC/" class="sidebar-tag">基金估值</a>
+                        
+                        <a href="/tags/%E4%B9%B0%E5%85%A5/" class="sidebar-tag">买入</a>
+                        
+                        <a href="/tags/2022%E5%B9%B4/" class="sidebar-tag">2022年</a>
+                        
+                        <a href="/tags/2026%E5%B9%B4/" class="sidebar-tag">2026年</a>
+                        
+                        <a href="/tags/2023%E5%B9%B47%E6%9C%88/" class="sidebar-tag">2023年7月</a>
+                        
+                        <a href="/tags/%E4%B9%B0%E5%85%A5-%E5%88%86%E4%BC%97%E4%BC%A0%E5%AA%92/" class="sidebar-tag">买入-分众传媒</a>
+                        
+                        <a href="/tags/%E4%B9%B0%E5%85%A5-%E6%B4%8B%E6%B2%B3%E8%82%A1%E4%BB%BD/" class="sidebar-tag">买入-洋河股份</a>
+                        
+                        <a href="/tags/2023%E5%B9%B49%E6%9C%88/" class="sidebar-tag">2023年9月</a>
+                        
+                        <a href="/tags/2023%E5%B9%B48%E6%9C%88/" class="sidebar-tag">2023年8月</a>
+                        
+                        <a href="/tags/%E5%8D%96%E5%87%BA/" class="sidebar-tag">卖出</a>
+                        
+                        <a href="/tags/2023%E5%B9%B46%E6%9C%88/" class="sidebar-tag">2023年6月</a>
+                        
+                        <a href="/tags/2023%E5%B9%B45%E6%9C%88/" class="sidebar-tag">2023年5月</a>
+                        
+                        <a href="/tags/2023%E5%B9%B44%E6%9C%88/" class="sidebar-tag">2023年4月</a>
+                        
+                        <a href="/tags/%E8%80%81%E7%BD%97%E8%AF%BB%E4%B9%A6/" class="sidebar-tag">老罗读书</a>
+                        
+                        <a href="/tags/2023%E5%B9%B43%E6%9C%88/" class="sidebar-tag">2023年3月</a>
+                        
+                    </div>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">归档</h3>
+                    <ul class="sidebar-archive-list">
+                        
+                        <li>
+                            <a href="/archive/2026/">2026年</a>
+                            <span class="sidebar-archive-count">20篇</span>
+                        </li>
+                        
+                        <li>
+                            <a href="/archive/2025/">2025年</a>
+                            <span class="sidebar-archive-count">54篇</span>
+                        </li>
+                        
+                        <li>
+                            <a href="/archive/2024/">2024年</a>
+                            <span class="sidebar-archive-count">54篇</span>
+                        </li>
+                        
+                        <li>
+                            <a href="/archive/2023/">2023年</a>
+                            <span class="sidebar-archive-count">110篇</span>
+                        </li>
+                        
+                        <li>
+                            <a href="/archive/2022/">2022年</a>
+                            <span class="sidebar-archive-count">23篇</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3 class="sidebar-widget-title">老罗的社交媒体</h3>
+                    <div class="sidebar-wechat">
+                        <img src="/static/assets/images/wechat.jpeg" alt="微信公众号" />
+                        <p>扫码关注老罗投资微信公众号</p>
+                    </div>
+                    <div class="sidebar-social-links">
+                        <a href="https://space.bilibili.com/13200028" title="B站">
+                            <img src="/static/assets/images/bilibili.png" alt="B站" />
+                        </a>
+                        <a href="https://www.xiaohongshu.com/user/profile/5d45349f0000000011019124" title="小红书">
+                            <img src="/static/assets/images/xiaohongshu.png" alt="小红书" />
+                        </a>
+                        <a href="https://www.douyin.com/user/MS4wLjABAAAAxz85Ktwm3fYOUklKLSeySC-ly9OSqgeCxd4S_7hWxwHAmrUqqK6o614A3ilZxojU" title="抖音">
+                            <img src="/static/assets/images/douying.png" alt="抖音" />
+                        </a>
+                        <a href="https://www.kuaishou.com/profile/3xdxbtprmvggvcq" title="快手">
+                            <img src="/static/assets/images/kuaishou.png" alt="快手" />
+                        </a>
+                        <a href="https://xueqiu.com/u/laoluotouzi" title="雪球">
+                            <img src="/static/assets/images/xueqiu.png" alt="雪球" />
+                        </a>
+                    </div>
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 老罗投资 | 专注于股权投资、阅读、学习与个人成长</p>
+        </div>
+    </footer>
+    <script src="/static/main.js?v=20260529200231"></script>
+</body>
+</html>

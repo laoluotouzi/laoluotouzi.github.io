@@ -8,7 +8,7 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
-from models import Archive, Post, Tag
+from models import Archive, HistoryItem, Post, Tag
 
 
 def tag_slug(name: str) -> str:
@@ -314,6 +314,151 @@ def render_archives(env: Environment, posts: list[Post], dist_dir: Path, sidebar
         archive = Archive(year=year, month=month)
         month_dir = archive_dir / str(year) / f"{month:02d}"
         _render_archive_pages(archive, month_posts, month_dir)
+
+
+def _extract_history_items(posts: list[Post], docs_dir: Path = None) -> list[HistoryItem]:
+    """Extract portfolio snapshot images from markdown source files.
+
+    Scans docs/blog/YYYY/MM/YYYYMMDD.md for images with alt text containing
+    "目前持仓" or "持仓股票明细", then links them to the corresponding Post.
+    """
+    if docs_dir is None:
+        return []
+
+    blog_dir = docs_dir / "blog"
+    if not blog_dir.exists():
+        return []
+
+    # Build a lookup from date string (YYYYMMDD) to Post
+    post_by_datekey: dict[str, Post] = {}
+    for post in posts:
+        key = post.date.strftime("%Y%m%d")
+        post_by_datekey[key] = post
+
+    _MD_IMG_PATTERN = re.compile(
+        r'!\[(?:目前持仓|持仓股票明细[^\]]*)\]\(([^)]+)\)',
+    )
+
+    items: list[HistoryItem] = []
+    for md_file in blog_dir.rglob("*.md"):
+        if not md_file.stem.isdigit() or len(md_file.stem) != 8:
+            continue
+        content = md_file.read_text(encoding="utf-8")
+        match = _MD_IMG_PATTERN.search(content)
+        if not match:
+            continue
+
+        datekey = md_file.stem
+        # Convert relative path like ../../../attachments/YYYY/MM/YYYYMMDD/1.png
+        # to site-absolute path like /attachments/YYYY/MM/YYYYMMDD/1.png
+        raw_path = match.group(1)
+        clean_path = raw_path.replace("../", "")
+        if not clean_path.startswith("attachments/"):
+            clean_path = "attachments/" + clean_path
+        image_url = "/" + clean_path
+
+        post = post_by_datekey.get(datekey)
+        if post is None:
+            from datetime import date as date_type
+            try:
+                d = date_type(int(datekey[:4]), int(datekey[4:6]), int(datekey[6:8]))
+            except ValueError:
+                continue
+            post = Post(
+                title=f"老罗投资周记-{datekey}",
+                date=d,
+                source_path=md_file,
+                url=f"/blog/{d.year}/{d.month:02d}/{datekey}/",
+            )
+
+        items.append(HistoryItem(post=post, image_url=image_url))
+
+    items.sort(key=lambda x: x.date, reverse=True)
+    return items
+
+
+def render_history(env: Environment, items: list[HistoryItem], dist_dir: Path, sidebar_context: dict = None, per_page: int = 10) -> None:
+    """Render history pages with year tabs, each year with its own pagination."""
+    if not items:
+        return
+
+    ctx = sidebar_context or {}
+    history_dir = dist_dir / "history"
+    history_dir.mkdir(parents=True, exist_ok=True)
+    template = env.get_template("history.html")
+
+    # Group items by year
+    by_year: dict[int, list[HistoryItem]] = defaultdict(list)
+    for item in items:
+        by_year[item.date.year].append(item)
+
+    years = sorted(by_year.keys(), reverse=True)
+    current_year = years[0] if years else None
+    year_counts = {y: len(by_year[y]) for y in years}
+
+    def _render_year_pages(year: int, year_items: list[HistoryItem], is_default: bool = False) -> None:
+        total_pages = math.ceil(len(year_items) / per_page)
+        base_url = "/history/" if is_default else f"/history/{year}/"
+
+        for page_num in range(1, total_pages + 1):
+            start = (page_num - 1) * per_page
+            end = start + per_page
+            page_items = year_items[start:end]
+
+            page_range = _build_page_range(page_num, total_pages)
+            pages = []
+            for p in page_range:
+                if p == "...":
+                    pages.append({"type": "ellipsis"})
+                else:
+                    p_url = base_url if p == 1 else f"{base_url}page/{p}/"
+                    pages.append({
+                        "type": "page",
+                        "number": p,
+                        "url": p_url,
+                        "is_current": p == page_num,
+                    })
+
+            pagination = {
+                "current": page_num,
+                "total": total_pages,
+                "has_prev": page_num > 1,
+                "has_next": page_num < total_pages,
+                "prev_url": base_url if page_num == 2 else f"{base_url}page/{page_num - 1}/",
+                "next_url": f"{base_url}page/{page_num + 1}/",
+                "pages": pages,
+            }
+
+            html = template.render(
+                items=page_items, year=year, years=years, year_counts=year_counts,
+                year_total=len(year_items), total_items=len(items),
+                pagination=pagination, **ctx,
+            )
+
+            if is_default:
+                if page_num == 1:
+                    (history_dir / "index.html").write_text(html, encoding="utf-8")
+                else:
+                    page_dir = history_dir / "page" / str(page_num)
+                    page_dir.mkdir(parents=True, exist_ok=True)
+                    (page_dir / "index.html").write_text(html, encoding="utf-8")
+            else:
+                if page_num == 1:
+                    year_dir = history_dir / str(year)
+                    year_dir.mkdir(parents=True, exist_ok=True)
+                    (year_dir / "index.html").write_text(html, encoding="utf-8")
+                else:
+                    page_dir = history_dir / str(year) / "page" / str(page_num)
+                    page_dir.mkdir(parents=True, exist_ok=True)
+                    (page_dir / "index.html").write_text(html, encoding="utf-8")
+
+    # Render all years, each at /history/{year}/
+    for year in years:
+        _render_year_pages(year, by_year[year])
+
+    # Also render current year as the default /history/ page
+    if current_year:
+        _render_year_pages(current_year, by_year[current_year], is_default=True)
 
 
 def render_about(env: Environment, page: dict, dist_dir: Path, sidebar_context: dict = None) -> None:
