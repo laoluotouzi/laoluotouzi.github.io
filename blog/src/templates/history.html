@@ -176,12 +176,12 @@
 </style>
 
 <div class="history-page">
-    <h1 class="page-title">历史持仓快照 <small class="history-subtitle">记录每一笔交易的成长历程（共 {{ total_items }} 条）</small></h1>
+    <h1 class="page-title">历史持仓快照 <small class="history-subtitle">记录每一笔交易的成长历程（共 {{ total_items }} 篇）</small></h1>
 
     <div class="history-year-tabs">
         {% for y in years %}
         <div class="history-year-tab{% if y == year %} active{% endif %}">
-            <a href="/history/{{ y }}/">{{ y }}<span class="tab-count">({{ year_counts[y] }}条)</span></a>
+            <a href="/history/{{ y }}/">{{ y }}<span class="tab-count">({{ year_counts[y] }}篇)</span></a>
         </div>
         {% endfor %}
     </div>
@@ -191,7 +191,7 @@
         <div class="history-card">
             <div class="history-card-header">
                 <div class="history-card-date">{{ item.date.year }}年{{ item.date.month }}月{{ item.date.day }}日</div>
-                <a href="{{ item.post.url }}" class="history-card-link" target="_blank">查看原文 ↗</a>
+                <a href="{{ item.post.url }}" class="history-card-link">查看原文 ↗</a>
             </div>
             <div class="history-card-image" onclick="openHistoryLightbox('{{ item.image_url }}')">
                 <img src="{{ item.image_url }}" alt="{{ item.date.strftime('%Y-%m-%d') }} 持仓快照" loading="lazy">
