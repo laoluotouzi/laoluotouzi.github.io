@@ -143,6 +143,36 @@
 .history-lightbox-close:hover {
     background: rgba(255,255,255,0.2);
 }
+
+@media (max-width: 640px) {
+    .history-year-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .history-year-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .history-year-tab a {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-card-header {
+        padding: 8px 12px;
+    }
+    .history-card-image {
+        padding: 8px;
+    }
+    .history-card-date {
+        font-size: 0.9rem;
+    }
+    .history-card-link {
+        font-size: 0.8rem;
+    }
+}
 </style>
 
 <div class="history-page">

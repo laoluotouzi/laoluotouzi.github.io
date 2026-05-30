@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2023年历史持仓快照 - 老罗投资</title>
     <meta name="description" content="2023年老罗投资周记历史持仓快照">
-    <link rel="stylesheet" href="/static/style.css?v=20260529200543">
+    <link rel="stylesheet" href="/static/style.css?v=20260530115709">
     <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="老罗投资 RSS Feed" href="/feed.xml">
 </head>
@@ -165,6 +165,36 @@
 }
 .history-lightbox-close:hover {
     background: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 640px) {
+    .history-year-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .history-year-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .history-year-tab a {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-card-header {
+        padding: 8px 12px;
+    }
+    .history-card-image {
+        padding: 8px;
+    }
+    .history-card-date {
+        font-size: 0.9rem;
+    }
+    .history-card-link {
+        font-size: 0.8rem;
+    }
 }
 </style>
 
@@ -416,6 +446,6 @@ document.addEventListener('keydown', function(e) {
             <p>&copy; 老罗投资 | 专注于股权投资、阅读、学习与个人成长</p>
         </div>
     </footer>
-    <script src="/static/main.js?v=20260529200543"></script>
+    <script src="/static/main.js?v=20260530115709"></script>
 </body>
 </html>

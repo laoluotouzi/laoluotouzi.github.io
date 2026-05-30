@@ -1,39 +1,78 @@
-## ADDED Requirements
+## Requirements
 
-### Requirement: Scan attachment directories
-The generator SHALL recursively scan the `docs/attachments/` directory to identify all subdirectories containing image files.
+### Requirement: Scan blog markdown files
+The generator SHALL recursively scan the `docs/blog/` directory to identify all Markdown files (`.md`) for processing.
 
-#### Scenario: Discover date directories
-- **WHEN** the generator scans `docs/attachments/`
-- **THEN** it SHALL identify all subdirectories (e.g., `2022/`, `2023/`, `2024/`, `2025/`, `2026/`)
-- **AND** it SHALL process each subdirectory for image files
+#### Scenario: Discover markdown files
+- **WHEN** the generator scans `docs/blog/`
+- **THEN** it SHALL identify all `.md` files recursively
+- **AND** it SHALL filter files containing "老罗投资周记" keyword
+- **AND** it SHALL process only the filtered files for image extraction
 
-### Requirement: Extract image files
-The generator SHALL extract all `1.png` files from each discovered directory.
+### Requirement: Extract image references from markdown
+The generator SHALL extract image references from Markdown files by parsing Markdown image syntax.
 
-#### Scenario: Extract PNG from date directory
-- **WHEN** a directory contains a file named `1.png`
-- **THEN** the generator SHALL include this image in the gallery
-- **AND** it SHALL use the directory name as the date label
+#### Scenario: Extract image reference from markdown content
+- **WHEN** a Markdown file contains an image reference with the pattern `![目前持仓](../../../attachments/YYYY/MM/DDDDDD/1.png)`
+- **THEN** the generator SHALL extract the image path from the reference
+- **AND** it SHALL use the extracted path for the gallery
+- **AND** it SHALL parse the date from the image path
 
-#### Scenario: Skip directories without images
-- **WHEN** a directory does not contain `1.png`
-- **THEN** the generator SHALL skip that directory
-- **AND** no entry SHALL be created for that directory
+#### Scenario: Skip files without image references
+- **WHEN** a Markdown file does not contain the expected image reference pattern
+- **THEN** the generator SHALL skip that file
+- **AND** no entry SHALL be created for that file
 
-### Requirement: Parse date from directory name
-The generator SHALL parse date information from directory names to create chronological labels.
+### Requirement: Convert relative path to public URL
+The generator SHALL convert relative image paths to publicly accessible URLs.
 
-#### Scenario: Parse directory name as date
-- **WHEN** a directory name represents a date (e.g., "2022-01-15" or similar format)
-- **THEN** the generator SHALL parse the directory name as the date label
-- **AND** the parsed date SHALL be displayed with the image
+#### Scenario: Generate public URL
+- **WHEN** an image path is extracted (e.g., `../../../attachments/2026/03/20260307/1.png`)
+- **THEN** the generator SHALL convert it to `https://invest.zdyi.com/attachments/2026/03/20260307/1.png`
+- **AND** the URL SHALL be used in the generated HTML gallery
+
+### Requirement: Parse date from file path
+The generator SHALL parse date information from the extracted image file path.
+
+#### Scenario: Parse date from image path
+- **WHEN** an image path contains a date pattern (e.g., `20260307` from `../../../attachments/2026/03/20260307/1.png`)
+- **THEN** the generator SHALL extract and parse the date
+- **AND** the parsed date SHALL be used for sorting and display
+- **AND** the date SHALL be displayed in the gallery
+
+### Requirement: Extract metadata from markdown
+The generator SHALL extract additional metadata from Markdown files to enhance the gallery display.
+
+#### Scenario: Extract blog post title
+- **WHEN** processing a Markdown file
+- **THEN** the generator SHALL extract the title from the file
+- **AND** the title SHALL be available for gallery display
+
+#### Scenario: Extract blog post date
+- **WHEN** processing a Markdown file
+- **THEN** the generator SHALL extract the date from the file path or frontmatter
+- **AND** the date SHALL be used for chronological sorting
+
+### Requirement: Handle missing or invalid markdown files
+The generator SHALL gracefully handle errors when Markdown files are missing, inaccessible, or malformed.
+
+#### Scenario: Continue on missing file
+- **WHEN** a specified Markdown file does not exist
+- **THEN** the generator SHALL log a warning
+- **AND** it SHALL continue processing other files
+- **AND** it SHALL NOT fail the entire generation process
+
+#### Scenario: Handle malformed image references
+- **WHEN** a Markdown file contains an invalid image reference pattern
+- **THEN** the generator SHALL log a warning
+- **AND** it SHALL skip that file
+- **AND** it SHALL continue processing other files
 
 ### Requirement: Sort images by date in descending order
 The generator SHALL sort all extracted images by their parsed dates in descending chronological order (newest first).
 
 #### Scenario: Display newest images first
-- **WHEN** multiple images are extracted from different date directories
+- **WHEN** multiple images are extracted from different Markdown files
 - **THEN** the generated gallery SHALL display images sorted by date
 - **AND** the most recent date SHALL appear first
 - **AND** the oldest date SHALL appear last
@@ -61,18 +100,3 @@ The generator SHALL write the generated HTML page to a specified output path.
 - **THEN** it SHALL write the HTML output to `history/static/index.html`
 - **AND** the file SHALL be a complete, standalone HTML page
 - **AND** all necessary CSS SHALL be embedded in the HTML
-
-### Requirement: Handle missing or invalid directories
-The generator SHALL gracefully handle errors when directories or files are missing or inaccessible.
-
-#### Scenario: Continue on missing directory
-- **WHEN** a specified directory does not exist
-- **THEN** the generator SHALL log a warning
-- **AND** it SHALL continue processing other directories
-- **AND** it SHALL NOT fail the entire generation process
-
-#### Scenario: Handle invalid date formats
-- **WHEN** a directory name cannot be parsed as a date
-- **THEN** the generator SHALL use the directory name as-is for the label
-- **AND** it SHALL include the image in the gallery
-- **AND** it SHALL place it at the end of the sorted list

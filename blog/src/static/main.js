@@ -11,5 +11,18 @@
                 links[i].setAttribute("rel", "noopener noreferrer");
             }
         }
+
+        // Wrap tables in post content for mobile scroll
+        var tables = document.querySelectorAll('.post-content table');
+        for (var j = 0; j < tables.length; j++) {
+            var table = tables[j];
+            if (table.parentNode.classList.contains('table-wrap')) {
+                continue;
+            }
+            var wrapper = document.createElement('div');
+            wrapper.className = 'table-wrap';
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        }
     });
 })();

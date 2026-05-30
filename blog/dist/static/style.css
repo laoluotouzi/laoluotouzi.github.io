@@ -910,6 +910,13 @@ a.pagination-page:hover {
     font-size: 0.82em;
 }
 
+/* ===== Table Wrap ===== */
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1em;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .layout-container {
@@ -926,14 +933,21 @@ a.pagination-page:hover {
         order: 0;
     }
 
-    .site-header .container {
-        flex-direction: column;
-        gap: 8px;
+    .site-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .site-nav::-webkit-scrollbar {
+        display: none;
     }
 
     .site-nav a {
         margin-left: 12px;
         margin-right: 12px;
+        flex-shrink: 0;
     }
 
     .post {
@@ -962,6 +976,19 @@ a.pagination-page:hover {
     .layout-container {
         padding: 0 16px;
     }
+
+    .post-nav {
+        flex-direction: column;
+    }
+
+    .post-nav-item {
+        max-width: 100%;
+    }
+
+    .post-nav-next {
+        text-align: left;
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -971,5 +998,37 @@ a.pagination-page:hover {
 
     .site-main {
         padding: 16px 0 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .post-card-thumb {
+        display: none;
+    }
+
+    .post-card-title {
+        font-size: 1.05em;
+    }
+
+    .pagination-page {
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.82em;
+    }
+
+    .pagination-pages {
+        gap: 2px;
+    }
+
+    .post {
+        padding: 16px;
+    }
+
+    .post-title {
+        font-size: 1.15em;
+    }
+
+    .page-title {
+        font-size: 1.15em;
     }
 }
