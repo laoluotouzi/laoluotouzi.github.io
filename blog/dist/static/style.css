@@ -11,6 +11,7 @@ body {
     line-height: 1.7;
     color: #2c3e50;
     background: #f4f5f7;
+    overflow-x: hidden;
 }
 
 a {
@@ -293,10 +294,13 @@ a.post-nav-item:hover .post-nav-title {
     border-radius: 6px;
     padding: 16px;
     overflow-x: auto;
+    max-width: 100%;
     margin-bottom: 1em;
     font-size: 0.88em;
     line-height: 1.5;
     border: 1px solid #f0d0d0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .post-content code {
@@ -921,6 +925,8 @@ a.pagination-page:hover {
 @media (max-width: 768px) {
     .layout-container {
         flex-direction: column;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .sidebar {
@@ -931,6 +937,13 @@ a.pagination-page:hover {
 
     .main-content {
         order: 0;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .site-header .container {
+        flex-direction: column;
+        gap: 6px;
     }
 
     .site-nav {
@@ -938,6 +951,8 @@ a.pagination-page:hover {
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        width: 100%;
+        text-align: center;
     }
 
     .site-nav::-webkit-scrollbar {
@@ -945,13 +960,20 @@ a.pagination-page:hover {
     }
 
     .site-nav a {
-        margin-left: 12px;
-        margin-right: 12px;
+        margin-left: 8px;
+        margin-right: 8px;
         flex-shrink: 0;
+    }
+
+    .site-title {
+        text-align: center;
+        width: 100%;
     }
 
     .post {
         padding: 20px;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
     .post-title {
@@ -975,6 +997,10 @@ a.pagination-page:hover {
     .container,
     .layout-container {
         padding: 0 16px;
+    }
+
+    .layout-container.no-sidebar .main-content {
+        max-width: 100%;
     }
 
     .post-nav {
