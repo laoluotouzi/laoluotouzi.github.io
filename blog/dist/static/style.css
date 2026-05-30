@@ -1004,16 +1004,23 @@ a.pagination-page:hover {
     }
 
     .post-nav {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .post-nav-item {
-        max-width: 100%;
+        max-width: 48%;
+        padding: 6px 8px;
+    }
+
+    .post-nav-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .post-nav-next {
-        text-align: left;
-        margin-left: 0;
+        text-align: right;
+        margin-left: auto;
     }
 }
 
