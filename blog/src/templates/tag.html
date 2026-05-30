@@ -43,9 +43,9 @@
 {% if pagination and pagination.total > 1 %}
 <nav class="pagination">
     {% if pagination.has_prev %}
-    <a href="{{ pagination.prev_url }}" class="pagination-arrow">&laquo; 上一页</a>
+    <a href="{{ pagination.prev_url }}" class="pagination-arrow">&laquo;</a>
     {% else %}
-    <span class="pagination-arrow disabled">&laquo; 上一页</span>
+    <span class="pagination-arrow disabled">&laquo;</span>
     {% endif %}
     <div class="pagination-pages">
         {% for p in pagination.pages %}
@@ -59,9 +59,9 @@
         {% endfor %}
     </div>
     {% if pagination.has_next %}
-    <a href="{{ pagination.next_url }}" class="pagination-arrow">下一页 &raquo;</a>
+    <a href="{{ pagination.next_url }}" class="pagination-arrow">&raquo;</a>
     {% else %}
-    <span class="pagination-arrow disabled">下一页 &raquo;</span>
+    <span class="pagination-arrow disabled">&raquo;</span>
     {% endif %}
 </nav>
 {% endif %}

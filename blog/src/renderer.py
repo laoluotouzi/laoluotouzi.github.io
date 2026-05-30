@@ -38,30 +38,26 @@ def create_env(templates_dir: Path, version: str = "") -> Environment:
 def _build_page_range(current: int, total: int, window: int = 2) -> list:
     """Build a page range list with ellipsis for large page counts.
 
-    Returns a list like [1, 2, 3, '...', 8, 9, 10] where '...' represents a gap.
+    Returns a list like [1, '...', 4, 5, 6, '...', 10] where '...' represents a gap.
+    Shows at most 5 page numbers.
     """
-    if total <= 7:
+    if total <= 5:
         return list(range(1, total + 1))
 
-    pages = []
-    # Always include first page
-    pages.append(1)
+    pages = [1]
 
-    start = max(2, current - window)
-    end = min(total - 1, current + window)
+    if current <= 3:
+        mid_start, mid_end = 2, min(4, total - 1)
+    elif current >= total - 2:
+        mid_start, mid_end = max(2, total - 3), total - 1
+    else:
+        mid_start, mid_end = current - 1, current + 1
 
-    # Add ellipsis before the window if needed
-    if start > 2:
+    if mid_start > 2:
         pages.append("...")
-
-    # Add pages in the window
-    pages.extend(range(start, end + 1))
-
-    # Add ellipsis after the window if needed
-    if end < total - 1:
+    pages.extend(range(mid_start, mid_end + 1))
+    if mid_end < total - 1:
         pages.append("...")
-
-    # Always include last page
     pages.append(total)
 
     return pages

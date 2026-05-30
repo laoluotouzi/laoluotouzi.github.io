@@ -983,6 +983,7 @@ a.pagination-page:hover {
     .post-card {
         padding: 14px;
         gap: 12px;
+        align-items: flex-start;
     }
 
     .post-card-thumb {
@@ -1001,6 +1002,11 @@ a.pagination-page:hover {
 
     .layout-container.no-sidebar .main-content {
         max-width: 100%;
+    }
+
+    .pagination-arrow {
+        white-space: nowrap;
+        flex-shrink: 0;
     }
 
     .post-nav {
