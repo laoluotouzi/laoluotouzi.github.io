@@ -17,6 +17,7 @@ class Post:
     title: str
     date: date
     source_path: Path
+    slug: str = ""
     description: str = ""
     banner: str = ""
     tags: list[str] = field(default_factory=list)
@@ -25,8 +26,10 @@ class Post:
     url: str = ""
 
     def __post_init__(self):
+        if not self.slug:
+            self.slug = self.date.strftime("%Y%m%d")
         if not self.url:
-            self.url = f"/blog/{self.date.year}/{self.date.month:02d}/{self.date.strftime('%Y%m%d')}/"
+            self.url = f"/blog/{self.date.year}/{self.date.month:02d}/{self.slug}/"
 
 
 @dataclass

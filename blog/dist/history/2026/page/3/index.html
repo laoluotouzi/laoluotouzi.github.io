@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>老罗基金估值-20230615(补) - 老罗投资</title>
-    <meta name="description" content="周四有点事耽误了基金估值的更新，所以在周五补上，尽量不断更。本周二定投2000元，具体操作如下：(002656) 南方创业板ETF联接A，固定金额定投500元。(007464) 交银施罗德创业板50指数A，固定金额定投500元。(006327) 易方达中证海外中国互联网50ETF联接(QDII)A，固定金额定投500元。(007593) 鹏扬中证500质量成长ETF联接A，固定金额定投500元。">
-    <link rel="stylesheet" href="/static/style.css?v=20260530183954">
+    <title>2026年历史持仓快照 - 老罗投资</title>
+    <meta name="description" content="2026年老罗投资周记历史持仓快照">
+    <link rel="stylesheet" href="/static/style.css?v=20260530194252">
     <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="老罗投资 RSS Feed" href="/feed.xml">
 </head>
@@ -27,84 +27,267 @@
         <div class="layout-container">
             <div class="main-content">
                 
-<article class="post">
-    <header class="post-header">
-        <h1 class="post-title">老罗基金估值-20230615(补)</h1>
-        <div class="post-meta">
-            <time datetime="2023-06-16">2023-06-16</time>
-            
-            <div class="post-tags">
-                
-                <a href="/tags/%E5%9F%BA%E9%87%91%E4%BC%B0%E5%80%BC/">基金估值</a>
-                
-            </div>
-            
+<style>
+.history-page .page-title {
+    margin-bottom: 8px;
+}
+.history-page .history-subtitle {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-left: 8px;
+}
+.history-year-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+}
+.history-year-tab a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.history-year-tab a:hover {
+    color: #374151;
+}
+.history-year-tab.active a {
+    color: #1a1a1a;
+    font-weight: 600;
+    border-bottom-color: #1a1a1a;
+}
+.history-year-tab .tab-count {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-left: 2px;
+}
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+.history-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.history-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+.history-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #fafbfc;
+    border-bottom: 1px solid #f0f0f0;
+}
+.history-card-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+.history-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+.history-card-link:hover {
+    background: #ebebeb;
+    color: #333;
+}
+.history-card-image {
+    padding: 12px;
+    background: #f9fafb;
+    cursor: pointer;
+}
+.history-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Lightbox */
+.history-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.history-lightbox.active {
+    display: flex;
+}
+.history-lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 4px;
+}
+.history-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 32px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+.history-lightbox-close:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 640px) {
+    .history-year-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .history-year-tabs::-webkit-scrollbar {
+        display: none;
+    }
+    .history-year-tab a {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-card-header {
+        padding: 8px 12px;
+    }
+    .history-card-image {
+        padding: 8px;
+    }
+    .history-card-date {
+        font-size: 0.9rem;
+    }
+    .history-card-link {
+        font-size: 0.8rem;
+    }
+}
+</style>
+
+<div class="history-page">
+    <h1 class="page-title">历史持仓快照 <small class="history-subtitle">记录每一笔交易的成长历程（共 199 条）</small></h1>
+
+    <div class="history-year-tabs">
+        
+        <div class="history-year-tab active">
+            <a href="/history/2026/">2026<span class="tab-count">(21条)</span></a>
         </div>
-    </header>
-<div class="post-content">
-        <p><strong>微信公众号文章地址：<a href="https://mp.weixin.qq.com/s/7_ID4vdCDyapRFJVoF5-Ng">老罗基金估值-20230615(补)</a></strong></p>
-<pre><code>老罗基金估值，每周一、四更新。专注于股权投资、阅读、学习与个人成长，知行合一、日拱一卒、投资人生。微信公众号【老罗投资】，文章均首发于公众号。
-</code></pre>
-<h3>1. 近期操作</h3>
-<p>周四有点事耽误了基金估值的更新，所以在周五补上，尽量不断更。</p>
-<p><strong>本周二定投2000元，具体操作如下：</strong></p>
-<ul>
-<li>(002656) 南方创业板ETF联接A，固定金额定投500元。</li>
-<li>(007464) 交银施罗德创业板50指数A，固定金额定投500元。</li>
-<li>(006327) 易方达中证海外中国互联网50ETF联接(QDII)A，固定金额定投500元。</li>
-<li>(007593) 鹏扬中证500质量成长ETF联接A，固定金额定投500元。</li>
-</ul>
-<p><strong>下周将会调整定投基金：</strong></p>
-<ul>
-<li>不再便宜的汇添富中证生物科技主题指数(LOF)A(501009)、鹏扬中证500质量成长ETF联接A(007593)，这两只基金暂停定投。</li>
-<li>周一增加工银深证红利ETF联接A(481012)的自动定投。</li>
-</ul>
-<h3>2. 基金估值</h3>
-<p>本周一是基金公司半年度调仓日，指数公司会根据指数的倾向、类型、波动性和成分股变化等因素来确定不同的调仓周期，以满足指数需求。因此，低估的指数基金在这一天有较大的变化。</p>
-<p><img src="/attachments/2023/06/20230615/1.png" alt="低估值指数基金(当前估值便宜适合定投)" /></p>
-<p class="smile_curve_notice">
-    提醒：指数基金定投，一定是3-5年不会使用的闲钱，长期坚持定投，才有可能获得较好收益。
-</p>
-
-<p><img src="/assets/images/smile_curve.jpeg" alt="基金定投微笑曲线" /></p>
-<h3>3. 名词说明</h3>
-<ul>
-<li>PE：市盈率（Price Earnings Ratio），市盈率=股价/每股收益=市值/利润（意思是投资需要多少年才能够收回成本）。市盈率大于0的情况，理论上是越小越好，越小代表投资收回成本的时间越短，那么说明该公司的利润就越高。市盈率主要跟公司的利润挂钩，所以市盈率只适合盈利稳定的公司。而盈利稳定的公司一般是各行各业的龙头、白马蓝筹股和弱周期行业公司等。</li>
-<li>PB：市净率（Price Book Ratio），市净率=每股价格÷每股净资产=总市值÷净资产，通过这个公式可以得出，市净率是通过净资产来估算该公司价值的。意思就是买到一个单位的净资产需要付出多少价格成本。市净率在大于0的情况下，市净率越低，表示可以花更少的钱买一个单净资产，所以在大于0的情况下，市净率越小越好。</li>
-<li>PS：市销率（Price to Sales），市销率=每股价格/每股销售额=总市值/销售额。从公式中可以得出，市销率是基于公司销售额而出现的估值法。它建立的理论是：即使亏损公司的净利润是负的，但是公司到底是因为不赚钱而变负，还是因为快速扩张发展而变负，可以通过它的销售额来判断。销售额越大，营业收入就越高，在股票总市值一定的情况下，市销率PS的倍数就越小。</li>
-<li>历史百分位：所谓历史百分位，就是把指数历史上最低估值和最高估值从0到100排序，看现在的估值在什么位置，位置低说明未来上升空间大，目前指数被低估。</li>
-<li>场内基金：场内基金就是指在交易所内进行买卖的基金。</li>
-<li>场外基金：而场外基金的申购赎回渠道就较多了，可以在银行、券商、也可以在第三方理财平台购买，比如：支付宝、微信。</li>
-</ul>
-<pre><code>老罗基金估值，每周一、四更新。专注于股权投资、阅读、学习与个人成长，知行合一、日拱一卒、投资人生。微信公众号【老罗投资】，文章均首发于公众号。
-免责声明：本文中提及的基金都有较大波动风险，投资需谨慎。
-</code></pre>
-<p><strong>微信公众号文章地址：<a href="https://mp.weixin.qq.com/s/7_ID4vdCDyapRFJVoF5-Ng">老罗基金估值-20230615(补)</a></strong></p>
-
+        
+        <div class="history-year-tab">
+            <a href="/history/2025/">2025<span class="tab-count">(52条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2024/">2024<span class="tab-count">(52条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2023/">2023<span class="tab-count">(51条)</span></a>
+        </div>
+        
+        <div class="history-year-tab">
+            <a href="/history/2022/">2022<span class="tab-count">(23条)</span></a>
+        </div>
+        
     </div>
-    <nav class="post-nav">
+
+    <div class="history-list">
         
-        <a href="/blog/2023/06/20230612/" class="post-nav-item post-nav-prev">
-            <span class="post-nav-label">上一篇</span>
-            <span class="post-nav-title">老罗基金估值-20230612</span>
-        </a>
+        <div class="history-card">
+            <div class="history-card-header">
+                <div class="history-card-date">2026年1月3日</div>
+                <a href="/blog/2026/01/20260103/" class="history-card-link" target="_blank">查看原文 ↗</a>
+            </div>
+            <div class="history-card-image" onclick="openHistoryLightbox('/attachments/2026/01/20260103/1.png')">
+                <img src="/attachments/2026/01/20260103/1.png" alt="2026-01-03 持仓快照" loading="lazy">
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<nav class="pagination">
+    
+    <a href="/history/2026/page/2/" class="pagination-arrow">&laquo;</a>
+    
+    <div class="pagination-pages">
         
         
-        <a href="/blog/2023/06/20230617/" class="post-nav-item post-nav-next">
-            <span class="post-nav-label">下一篇</span>
-            <span class="post-nav-title">老罗实盘周记-20230617</span>
-        </a>
+        <a href="/history/2026/" class="pagination-page">1</a>
         
-    </nav>
-</article>
-<div id="comments"></div>
-<script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>
+        
+        
+        <a href="/history/2026/page/2/" class="pagination-page">2</a>
+        
+        
+        
+        <span class="pagination-page active">3</span>
+        
+        
+    </div>
+    
+    <span class="pagination-arrow disabled">&raquo;</span>
+    
+</nav>
+
+
+<!-- Lightbox -->
+<div class="history-lightbox" id="history-lightbox" onclick="closeHistoryLightbox()">
+    <span class="history-lightbox-close">&times;</span>
+    <img id="history-lightbox-img" src="" alt="">
+</div>
+
 <script>
-    const comments = new CWDComments({
-        el: '#comments',
-        apiBaseUrl: 'https://cwd-api.zdyi.com',
-    });
-    comments.mount();
+function openHistoryLightbox(imageUrl) {
+    var lightbox = document.getElementById('history-lightbox');
+    var img = document.getElementById('history-lightbox-img');
+    img.src = imageUrl;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeHistoryLightbox() {
+    var lightbox = document.getElementById('history-lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeHistoryLightbox();
+});
 </script>
 
             </div>
@@ -113,6 +296,11 @@
                 <div class="sidebar-widget">
                     <h3 class="sidebar-widget-title">最近文章</h3>
                     <ul class="sidebar-recent-posts">
+                        
+                        <li>
+                            <a href="/blog/2026/05/20260530/">老罗投资周记-20260530</a>
+                            <time>2026-05-30</time>
+                        </li>
                         
                         <li>
                             <a href="/blog/2026/05/20260523/">老罗投资周记-20260523</a>
@@ -132,11 +320,6 @@
                         <li>
                             <a href="/blog/2026/05/20260502/">老罗投资周记-20260502</a>
                             <time>2026-05-02</time>
-                        </li>
-                        
-                        <li>
-                            <a href="/blog/2026/04/20260425/">老罗投资周记-20260425</a>
-                            <time>2026-04-25</time>
                         </li>
                         
                     </ul>
@@ -161,11 +344,11 @@
                         
                         <a href="/tags/%E8%80%81%E7%BD%97%E8%AF%BB%E4%B9%A6/" class="sidebar-tag">老罗读书</a>
                         
+                        <a href="/tags/%E4%B9%B0%E5%85%A5-%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0/" class="sidebar-tag">买入-贵州茅台</a>
+                        
                         <a href="/tags/%E4%B9%B0%E5%85%A5-%E4%BA%94%E7%B2%AE%E6%B6%B2/" class="sidebar-tag">买入-五粮液</a>
                         
                         <a href="/tags/%E4%B9%B0%E5%85%A5-%E8%85%BE%E8%AE%AF%E6%8E%A7%E8%82%A1/" class="sidebar-tag">买入-腾讯控股</a>
-                        
-                        <a href="/tags/%E4%B9%B0%E5%85%A5-%E8%B4%B5%E5%B7%9E%E8%8C%85%E5%8F%B0/" class="sidebar-tag">买入-贵州茅台</a>
                         
                         <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="sidebar-tag">年终总结</a>
                         
@@ -193,7 +376,7 @@
                         
                         <li>
                             <a href="/archive/2026/">2026年</a>
-                            <span class="sidebar-archive-count">20篇</span>
+                            <span class="sidebar-archive-count">21篇</span>
                         </li>
                         
                         <li>
@@ -251,6 +434,6 @@
             <p>&copy; 老罗投资 | 专注于股权投资、阅读、学习与个人成长</p>
         </div>
     </footer>
-    <script src="/static/main.js?v=20260530183954"></script>
+    <script src="/static/main.js?v=20260530194252"></script>
 </body>
 </html>

@@ -177,6 +177,7 @@ def parse_post(source_path: Path, docs_dir: Path, md: mistune.Markdown) -> Post:
         title=title,
         date=post_date,
         source_path=source_path,
+        slug=filename,
         description=metadata.get("description", ""),
         banner=banner,
         tags=tags,
@@ -215,8 +216,10 @@ def parse_about_page(docs_dir: Path) -> dict:
 
 
 def _date_from_filename(filename: str) -> date:
-    """Extract date from filename like '20250104'."""
+    """Extract date from filename like '20250104' or '20250104_1'."""
+    # Strip optional _N suffix for same-day multiple posts
+    base = re.sub(r"_\d+$", "", filename)
     try:
-        return datetime.strptime(filename, "%Y%m%d").date()
+        return datetime.strptime(base, "%Y%m%d").date()
     except ValueError:
         return date.today()
