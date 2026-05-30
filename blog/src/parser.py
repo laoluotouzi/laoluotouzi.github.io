@@ -147,7 +147,7 @@ def parse_post(source_path: Path, docs_dir: Path, md: mistune.Markdown) -> Post:
         title = heading_match.group(1).strip() if heading_match else filename
 
     # Extract tags
-    tags = metadata.get("tags", [])
+    tags = metadata.get("tags") or []
     if isinstance(tags, str):
         tags = [tags]
 
