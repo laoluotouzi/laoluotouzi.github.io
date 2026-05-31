@@ -7,7 +7,7 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree, indent
 from models import Post
 
 
-def generate_rss(posts: list[Post], dist_dir: Path, site_url: str = "https://laoluotouzi.github.io", max_items: int = 20) -> None:
+def generate_rss(posts: list[Post], dist_dir: Path, site_url: str = "https://invest.zdyi.com", max_items: int = 20) -> None:
     """Generate RSS 2.0 feed XML from the latest posts."""
     rss = Element("rss", version="2.0")
     rss.set("xmlns:atom", "http://www.w3.org/2005/Atom")

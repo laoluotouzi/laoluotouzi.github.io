@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 from asset_manager import clean_output, copy_attachments, copy_robots_txt, copy_static
 from feed import generate_rss
+from sitemap import generate_sitemap
 from parser import parse_all_posts, parse_about_page
 from renderer import build_sidebar_context, create_env, render_about, render_archives, render_history, render_index, render_posts, render_tags
 from renderer import _extract_history_items
@@ -79,6 +80,10 @@ def build():
     # Step 7: Generate RSS
     print("Generating RSS feed...")
     generate_rss(posts, DIST_DIR)
+
+    # Step 8: Generate sitemap
+    print("Generating sitemap...")
+    generate_sitemap(posts, DIST_DIR)
 
     elapsed = time.time() - start_time
     print()
