@@ -947,6 +947,10 @@ a.pagination-page:hover {
         overflow-x: hidden;
     }
 
+    .archive-months .tag-item {
+        flex: 0 0 100%;
+    }
+
     .site-header .container {
         flex-direction: column;
         gap: 6px;
