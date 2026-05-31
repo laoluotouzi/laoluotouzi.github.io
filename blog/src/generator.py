@@ -9,7 +9,7 @@ from pathlib import Path
 # Add the src directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from asset_manager import clean_output, copy_attachments, copy_static
+from asset_manager import clean_output, copy_attachments, copy_robots_txt, copy_static
 from feed import generate_rss
 from parser import parse_all_posts, parse_about_page
 from renderer import build_sidebar_context, create_env, render_about, render_archives, render_history, render_index, render_posts, render_tags
@@ -43,6 +43,8 @@ def build():
     copy_attachments(DOCS_DIR, DIST_DIR)
     print("Copying static resources...")
     copy_static(SRC_DIR, DIST_DIR)
+    print("Copying robots.txt...")
+    copy_robots_txt(DOCS_DIR, DIST_DIR)
 
     # Step 4: Build sidebar context
     print("Building sidebar context...")

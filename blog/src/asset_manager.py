@@ -34,6 +34,13 @@ def copy_static(src_dir: Path, dist_dir: Path) -> None:
     shutil.copytree(src, dst)
 
 
+def copy_robots_txt(docs_dir: Path, dist_dir: Path) -> None:
+    """Copy docs/robots.txt to dist/robots.txt."""
+    src = docs_dir / "robots.txt"
+    if src.exists():
+        shutil.copy2(src, dist_dir / "robots.txt")
+
+
 def url_encode_path(path: str) -> str:
     """Encode a URL path with percent-encoding for special/CJK characters.
 
