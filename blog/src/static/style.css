@@ -948,7 +948,7 @@ a.pagination-page:hover {
     }
 
     .archive-months .tag-item {
-        flex: 0 0 100%;
+        flex: 0 0 calc((100% - 10px) / 2);
     }
 
     .site-header .container {
