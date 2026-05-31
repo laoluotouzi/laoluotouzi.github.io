@@ -903,6 +903,12 @@ a.pagination-page:hover {
     gap: 10px;
 }
 
+.archive-months .tag-item {
+    flex: 0 0 calc((100% - 50px) / 6);
+    text-align: center;
+    box-sizing: border-box;
+}
+
 /* ===== Footer ===== */
 .site-footer {
     background: #fff;
