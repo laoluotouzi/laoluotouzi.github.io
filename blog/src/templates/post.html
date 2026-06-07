@@ -45,6 +45,16 @@
         </span>
         {% endif %}
     </nav>
+    {% if related_posts %}
+    <section class="post-related">
+        <h3 class="post-related-title">相关文章</h3>
+        <ul class="post-related-list">
+            {% for rp in related_posts %}
+            <li><a href="{{ rp.url }}">{{ rp.title }}</a><time>{{ rp.date.strftime('%Y-%m-%d') }}</time></li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
 </article>
 <div id="comments"></div>
 <script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>

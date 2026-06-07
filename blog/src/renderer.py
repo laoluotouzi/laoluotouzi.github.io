@@ -95,6 +95,19 @@ def build_sidebar_context(posts: list[Post]) -> dict:
     }
 
 
+def _find_related_posts(post: Post, all_posts: list[Post], count: int = 5) -> list[Post]:
+    post_tags = set(post.tags)
+    scored = []
+    for p in all_posts:
+        if p.url == post.url:
+            continue
+        shared = len(post_tags & set(p.tags))
+        if shared > 0:
+            scored.append((shared, p))
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [p for _, p in scored[:count]]
+
+
 def render_posts(env: Environment, posts: list[Post], dist_dir: Path, sidebar_context: dict = None) -> None:
     """Render individual post detail pages."""
     template = env.get_template("post.html")
@@ -102,9 +115,10 @@ def render_posts(env: Environment, posts: list[Post], dist_dir: Path, sidebar_co
     for i, post in enumerate(posts):
         prev_post = posts[i + 1] if i + 1 < len(posts) else None
         next_post = posts[i - 1] if i - 1 >= 0 else None
+        related_posts = _find_related_posts(post, posts)
         output_dir = dist_dir / "blog" / str(post.date.year) / f"{post.date.month:02d}" / post.slug
         output_dir.mkdir(parents=True, exist_ok=True)
-        html = template.render(post=post, prev_post=prev_post, next_post=next_post, **ctx)
+        html = template.render(post=post, prev_post=prev_post, next_post=next_post, related_posts=related_posts, **ctx)
         (output_dir / "index.html").write_text(html, encoding="utf-8")
 
 
