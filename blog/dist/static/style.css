@@ -257,57 +257,90 @@ a.post-nav-item:hover .post-nav-title {
     margin-bottom: 1em;
 }
 
-/* ===== Post TOC (fixed left sidebar) ===== */
+/* ===== Post TOC (floating button) ===== */
 .post-toc {
     position: fixed;
-    width: 200px;
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
-    font-size: 0.84em;
-    z-index: 50;
-    transition: opacity 0.2s;
+    left: 24px;
+    bottom: 32px;
+    z-index: 200;
 }
 
-.post-toc.toc-hide {
-    opacity: 0;
-    pointer-events: none;
+.post-toc-btn {
+    width: 44px;
+    height: 44px;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.82em;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(192,57,43,0.3);
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.post-toc-btn:hover {
+    background: #e74c3c;
+    box-shadow: 0 4px 20px rgba(192,57,43,0.4);
+    transform: scale(1.05);
+}
+
+.post-toc.open .post-toc-btn {
+    background: #e74c3c;
+}
+
+.post-toc-panel {
+    position: absolute;
+    bottom: 56px;
+    left: 0;
+    width: 220px;
+    max-height: 60vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    border: 1px solid #e8e8e8;
+    padding: 16px;
+    display: none;
+    font-size: 0.88em;
+}
+
+.post-toc.open .post-toc-panel {
+    display: block;
 }
 
 .post-toc-title {
-    font-weight: 600;
-    color: #aaa;
-    font-size: 0.88em;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #e8e8e8;
+    font-weight: 700;
+    color: #1a1a1a;
+    font-size: 0.92em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #c0392b;
 }
 
 .post-toc-list {
     list-style: none;
-    padding: 6px 0 0;
+    padding: 0;
     margin: 0;
-}
-
-.post-toc-list li {
-    padding: 0;
-}
-
-.post-toc-list li {
-    padding: 0;
 }
 
 .post-toc-list li a {
     display: block;
     padding: 6px 8px 6px 16px;
-    color: #999;
+    color: #666;
     line-height: 1.5;
-    transition: color 0.15s;
+    transition: all 0.15s;
+    border-radius: 4px;
     position: relative;
 }
 
 .post-toc-list .toc-l2 a {
     padding-left: 28px;
+    color: #888;
+    font-size: 0.95em;
 }
 
 .post-toc-list li a::before {
@@ -326,6 +359,7 @@ a.post-nav-item:hover .post-nav-title {
 .post-toc-list li a:hover,
 .post-toc-list li a.active {
     color: #c0392b;
+    background: #fdf8f6;
     text-decoration: none;
 }
 

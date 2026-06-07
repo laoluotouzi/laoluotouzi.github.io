@@ -25,10 +25,9 @@
             wrapper.appendChild(table);
         }
 
-        // Build left-side TOC for post pages
+        // Build TOC for post pages
         var postContent = document.querySelector('.post-content');
-        var mainContent = document.querySelector('.main-content');
-        if (postContent && mainContent) {
+        if (postContent) {
             var headings = postContent.querySelectorAll('h2, h3');
             if (headings.length > 0) {
                 for (var k = 0; k < headings.length; k++) {
@@ -42,32 +41,28 @@
                     tocItems += '<li class="' + cls + '"><a href="#toc-' + h + '">' + headings[h].textContent + '</a></li>';
                 }
 
-                var tocAside = document.createElement('aside');
-                tocAside.className = 'post-toc';
-                tocAside.innerHTML = '<div class="post-toc-title">段落导航</div><ul class="post-toc-list">' + tocItems + '</ul>';
+                var tocWrap = document.createElement('div');
+                tocWrap.className = 'post-toc';
+                tocWrap.innerHTML = '<div class="post-toc-btn" title="目录">目录</div><div class="post-toc-panel"><div class="post-toc-title">段落导航</div><ul class="post-toc-list">' + tocItems + '</ul></div>';
 
-                document.body.appendChild(tocAside);
+                document.body.appendChild(tocWrap);
 
-                var post = document.querySelector('.post');
+                var btn = tocWrap.querySelector('.post-toc-btn');
+                var panel = tocWrap.querySelector('.post-toc-panel');
 
-                function positionToc() {
-                    var rect = mainContent.getBoundingClientRect();
-                    var postRect = post.getBoundingClientRect();
-                    var tocLeft = rect.left - 210;
-                    tocAside.style.left = tocLeft + 'px';
-                    tocAside.style.top = (postRect.top + 40) + 'px';
-                    if (tocLeft >= 10) {
-                        tocAside.classList.remove('toc-hide');
-                    } else {
-                        tocAside.classList.add('toc-hide');
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    tocWrap.classList.toggle('open');
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (!tocWrap.contains(e.target)) {
+                        tocWrap.classList.remove('open');
                     }
-                }
-
-                positionToc();
-                window.addEventListener('resize', positionToc);
+                });
 
                 // Highlight active TOC item on scroll
-                var tocLinks = tocAside.querySelectorAll('.post-toc-list a');
+                var tocLinks = panel.querySelectorAll('a');
 
                 function highlightToc() {
                     var scrollTop = window.scrollY;
