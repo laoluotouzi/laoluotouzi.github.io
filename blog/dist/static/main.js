@@ -28,16 +28,23 @@
         // Build TOC for post pages
         var postContent = document.querySelector('.post-content');
         if (postContent) {
-            var headings = postContent.querySelectorAll('h2, h3');
+            var headings = postContent.querySelectorAll('h2, h3, h4');
             if (headings.length > 0) {
                 for (var k = 0; k < headings.length; k++) {
                     headings[k].id = 'toc-' + k;
                 }
 
+                // Determine heading levels present
+                var minLevel = 6;
+                for (var t = 0; t < headings.length; t++) {
+                    var lvl = parseInt(headings[t].tagName.charAt(1));
+                    if (lvl < minLevel) minLevel = lvl;
+                }
+
                 var tocItems = '';
                 for (var h = 0; h < headings.length; h++) {
-                    var tag = headings[h].tagName.toLowerCase();
-                    var cls = tag === 'h2' ? 'toc-l1' : 'toc-l2';
+                    var level = parseInt(headings[h].tagName.charAt(1)) - minLevel;
+                    var cls = 'toc-l' + level;
                     tocItems += '<li class="' + cls + '"><a href="#toc-' + h + '">' + headings[h].textContent + '</a></li>';
                 }
 
