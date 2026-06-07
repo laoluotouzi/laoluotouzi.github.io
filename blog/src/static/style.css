@@ -1045,8 +1045,7 @@ a.pagination-page:hover {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
     .post-toc {
-        left: 16px;
-        bottom: 16px;
+        display: none;
     }
 
     .layout-container {
