@@ -1044,6 +1044,11 @@ a.pagination-page:hover {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+    .post-toc {
+        left: 16px;
+        bottom: 16px;
+    }
+
     .layout-container {
         flex-direction: column;
         max-width: 100%;
