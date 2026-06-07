@@ -89,20 +89,23 @@ bash blog/preview.sh
 
 ### `parser.py` — Markdown 解析
 
+- `CodeHighlightRenderer`：自定义 mistune 渲染器，用 Pygments 做代码语法高亮
+- `create_markdown()`：创建配置好的 mistune Markdown 实例（启用 table、mark 插件）
 - `scan_posts()`：递归扫描 `docs/blog/YYYY/MM/` 下的 `.md` 文件
 - `parse_frontmatter()`：提取 YAML frontmatter（`---` 分隔）
+- `resolve_relative_paths()`：将相对路径（如 `../../../attachments/`）转为站点绝对路径（`/attachments/`）
 - `parse_post()`：将 Markdown 文件转为 Post 对象
-  - 用 mistune 渲染 Markdown（启用 table、mark 插件）
-  - 用 Pygments 做代码语法高亮
-  - `resolve_relative_paths()`：将相对路径（如 `../../../attachments/`）转为站点绝对路径（`/attachments/`）
   - frontmatter 可缺省：日期从文件名推断，标题从正文第一个 `#` 标题推断
   - 支持 banner 图片路径解析
+- `parse_all_posts()`：扫描并解析所有文章，按日期降序返回
 - `parse_about_page()`：解析关于页
+- `_date_from_filename()`：从文件名提取日期
 
 ### `renderer.py` — 页面渲染
 
 - `create_env()`：创建 Jinja2 环境，注册自定义过滤器（`tag_slug`、`truncate`）
 - `_build_page_range()`：智能分页算法，显示最多 5 个页码 + 省略号
+- `build_sidebar_context()`：构建侧边栏数据（最近 5 篇、热门标签 Top 20、归档年份）
 - `render_posts()`：渲染文章详情页，带上下篇导航
 - `render_index()`：渲染首页（分页）
 - `render_tags()`：渲染标签索引页 + 各标签详情页（分页）
