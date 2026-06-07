@@ -43,7 +43,7 @@
 
                 var tocWrap = document.createElement('div');
                 tocWrap.className = 'post-toc';
-                tocWrap.innerHTML = '<div class="post-toc-btn" title="目录">目录</div><div class="post-toc-panel"><div class="post-toc-title">段落导航</div><ul class="post-toc-list">' + tocItems + '</ul></div>';
+                tocWrap.innerHTML = '<div class="post-toc-btn" title="目录">目录</div><div class="post-toc-panel"><div class="post-toc-title">目录</div><ul class="post-toc-list">' + tocItems + '</ul></div>';
 
                 document.body.appendChild(tocWrap);
 
