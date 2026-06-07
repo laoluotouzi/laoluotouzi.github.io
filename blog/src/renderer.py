@@ -104,7 +104,7 @@ def _find_related_posts(post: Post, all_posts: list[Post], count: int = 5) -> li
         shared = len(post_tags & set(p.tags))
         if shared > 0:
             scored.append((shared, p))
-    scored.sort(key=lambda x: x[0], reverse=True)
+    scored.sort(key=lambda x: (x[0], x[1].date), reverse=True)
     return [p for _, p in scored[:count]]
 
 
