@@ -24,6 +24,10 @@ a:hover {
     color: #e74c3c;
 }
 
+html {
+    scroll-padding-top: 70px;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -251,6 +255,83 @@ a.post-nav-item:hover .post-nav-title {
 
 .post-content p {
     margin-bottom: 1em;
+}
+
+/* ===== Post TOC (fixed left sidebar) ===== */
+.post-toc {
+    position: fixed;
+    width: 200px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+    font-size: 0.84em;
+    z-index: 50;
+    transition: opacity 0.2s;
+}
+
+.post-toc.toc-hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.post-toc-title {
+    font-weight: 600;
+    color: #aaa;
+    font-size: 0.88em;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.post-toc-list {
+    list-style: none;
+    padding: 6px 0 0;
+    margin: 0;
+}
+
+.post-toc-list li {
+    padding: 0;
+}
+
+.post-toc-list li {
+    padding: 0;
+}
+
+.post-toc-list li a {
+    display: block;
+    padding: 6px 8px 6px 16px;
+    color: #999;
+    line-height: 1.5;
+    transition: color 0.15s;
+    position: relative;
+}
+
+.post-toc-list .toc-l2 a {
+    padding-left: 28px;
+}
+
+.post-toc-list li a::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.15s;
+}
+
+.post-toc-list li a:hover,
+.post-toc-list li a.active {
+    color: #c0392b;
+    text-decoration: none;
+}
+
+.post-toc-list li a:hover::before,
+.post-toc-list li a.active::before {
+    background: #c0392b;
 }
 
 .post-content ul,
