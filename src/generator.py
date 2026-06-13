@@ -16,10 +16,10 @@ from parser import parse_all_posts, parse_about_page
 from renderer import build_sidebar_context, create_env, render_about, render_archives, render_history, render_index, render_posts, render_tags
 from renderer import _extract_history_items
 
-PROJECT_ROOT = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent
 DOCS_DIR = PROJECT_ROOT / "docs"
 SRC_DIR = Path(__file__).parent
-DIST_DIR = PROJECT_ROOT / "blog" / "dist"
+DIST_DIR = PROJECT_ROOT / "dist"
 TEMPLATES_DIR = SRC_DIR / "templates"
 
 

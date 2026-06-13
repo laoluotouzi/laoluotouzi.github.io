@@ -24,7 +24,7 @@ def copy_attachments(docs_dir: Path, dist_dir: Path) -> None:
 
 
 def copy_static(src_dir: Path, dist_dir: Path) -> None:
-    """Copy blog/src/static/ to dist/static/, preserving directory structure."""
+    """Copy src/static/ to dist/static/, preserving directory structure."""
     src = src_dir / "static"
     dst = dist_dir / "static"
     if not src.exists():
