@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>老罗实盘周记-20230304 - 老罗投资</title>
     <meta name="description" content="本周操作：使用上周格力的分红和部分新到位的资金，买入了大约3%仓位的银华日利ETF(511880)，买入价格100.368元。货币基金当作现金等价物进行统计，不再单列新项目。年度收益：9.48%，上周数据：5.05%。本周：上证指数 +1.87%，深证成指 +0.55%，沪深300 +1.71%，恒生指数 +2.79%，恒生科技 +5.00%，老罗的持仓 +4.43%。截止到2023年3月4日，实盘收益率为：9.48%，沪深300收益率为：6.69%，小幅跑赢沪深300。">
-    <link rel="stylesheet" href="/static/style.css?v=20260607130406">
+    <link rel="stylesheet" href="/static/style.css?v=20260613123445">
     <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="老罗投资 RSS Feed" href="/feed.xml">
 </head>
@@ -130,13 +130,18 @@
     
 </article>
 <div id="comments"></div>
-<script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>
 <script>
-    const comments = new CWDComments({
-        el: '#comments',
-        apiBaseUrl: 'https://cwd-api.zdyi.com',
-    });
-    comments.mount();
+    (function() {
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js';
+        s.onload = function() {
+            new CWDComments({
+                el: '#comments',
+                apiBaseUrl: 'https://cwd-api.zdyi.com',
+            }).mount();
+        };
+        document.head.appendChild(s);
+    })();
 </script>
 
             </div>
@@ -283,6 +288,6 @@
             <p>&copy; 老罗投资 | 专注于股权投资、阅读、学习与个人成长</p>
         </div>
     </footer>
-    <script src="/static/main.js?v=20260607130406"></script>
+    <script src="/static/main.js?v=20260613123445"></script>
 </body>
 </html>

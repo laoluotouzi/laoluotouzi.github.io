@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>老罗基金估值-20230807-绿色的指数只剩两只了 - 老罗投资</title>
     <meta name="description" content="今日定投1000元：(162412) 华宝中证医疗ETF联接(LOF)A，固定金额定投500元。(481012) 工银深证红利ETF联接A，固定金额定投500元。上周各指数普涨，便宜的指数基金不多了，周二的定投也会减少。">
-    <link rel="stylesheet" href="/static/style.css?v=20260607130406">
+    <link rel="stylesheet" href="/static/style.css?v=20260613123445">
     <link rel="icon" type="image/x-icon" href="/static/assets/images/favicon.ico">
     <link rel="alternate" type="application/rss+xml" title="老罗投资 RSS Feed" href="/feed.xml">
 </head>
@@ -113,13 +113,18 @@
     
 </article>
 <div id="comments"></div>
-<script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>
 <script>
-    const comments = new CWDComments({
-        el: '#comments',
-        apiBaseUrl: 'https://cwd-api.zdyi.com',
-    });
-    comments.mount();
+    (function() {
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js';
+        s.onload = function() {
+            new CWDComments({
+                el: '#comments',
+                apiBaseUrl: 'https://cwd-api.zdyi.com',
+            }).mount();
+        };
+        document.head.appendChild(s);
+    })();
 </script>
 
             </div>
@@ -266,6 +271,6 @@
             <p>&copy; 老罗投资 | 专注于股权投资、阅读、学习与个人成长</p>
         </div>
     </footer>
-    <script src="/static/main.js?v=20260607130406"></script>
+    <script src="/static/main.js?v=20260613123445"></script>
 </body>
 </html>

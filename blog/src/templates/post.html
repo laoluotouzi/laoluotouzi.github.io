@@ -57,12 +57,17 @@
     {% endif %}
 </article>
 <div id="comments"></div>
-<script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>
 <script>
-    const comments = new CWDComments({
-        el: '#comments',
-        apiBaseUrl: 'https://cwd-api.zdyi.com',
-    });
-    comments.mount();
+    (function() {
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js';
+        s.onload = function() {
+            new CWDComments({
+                el: '#comments',
+                apiBaseUrl: 'https://cwd-api.zdyi.com',
+            }).mount();
+        };
+        document.head.appendChild(s);
+    })();
 </script>
 {% endblock %}
