@@ -18,7 +18,7 @@ python3.11 src/generator.py build
 python3.11 src/generator.py clean
 
 # 构建并启动本地预览（端口 8080）
-bash preview.sh
+bash build.sh
 ```
 
 依赖安装：`pip install -r src/requirements.txt`（mistune>=3.0, Jinja2>=3.0, Pygments>=2.0, PyYAML>=6.0）
@@ -49,7 +49,7 @@ bash preview.sh
 │       ├── style.css           # 主样式表（1083 行）
 │       ├── main.js             # JS 工具（外链新窗口、表格滚动，28 行）
 │       └── assets/images/      # 静态图片（10 个文件：logo、favicon、社交图标、about.gif、smile_curve.jpeg）
-├── preview.sh                      # 本地预览脚本
+├── build.sh                        # 项目生成脚本
 ├── dist/                           # 构建输出（被 git 跟踪）
 ├── docs/
 │   ├── blog/YYYY/MM/YYYYMMDD.md   # 文章源文件（2022-2026）
