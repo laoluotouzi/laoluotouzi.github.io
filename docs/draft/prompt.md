@@ -61,7 +61,7 @@
 
 ## 输入内容
 
-主题：微信上线绿泡泡短剧小程序
+主题：分众季度业绩预告
 内容：
 
-2025年1月,“火星短剧社”在微信上线,后改名“火星观剧”,是腾讯首款独立短剧产品。2025年6月,微信上线名为“短剧”的官方小程序。到2026年10月,这个小程序已找不到入口,位置让给了绿泡泡。
+https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=nesSN2026101219294198829ccb&s=g&zxtype=1&fchannel_id_fm=4003000011&appVersion=11.43.1&invite_code=&share_code=&share_type=&articleStyle=&wxurl=qqstock%3A%2F%2FstocknewsV2%2F1%23%2Findex%3F_tentrees_trans%2F%2F%2F8%2F%2F%2F&pagetype=share&__fse__=5HGATTX991MahAr34f&__fsp__=1792158966802
