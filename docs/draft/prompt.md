@@ -61,7 +61,7 @@
 
 ## 输入内容
 
-主题：分众季度业绩预告
+主题：贵州茅台重阳祭酒仪式
 内容：
 
-https://gu.qq.com/resources/shy/news/detail-v2/index.html?t=1#/index?_tentrees_trans=0&id=nesSN2026101219294198829ccb&s=g&zxtype=1&fchannel_id_fm=4003000011&appVersion=11.43.1&invite_code=&share_code=&share_type=&articleStyle=&wxurl=qqstock%3A%2F%2FstocknewsV2%2F1%23%2Findex%3F_tentrees_trans%2F%2F%2F8%2F%2F%2F&pagetype=share&__fse__=5HGATTX991MahAr34f&__fsp__=1792158966802
+10月18日，丙午年重阳祭酒仪式在茅台举行，董事长陈华、总经理王莉出席，这一延续多年的传统标志着新一轮酿造周期的开启。次日，陈华与王莉随即深入制酒车间调研下沙轮次生产并检查安全生产，从仪式现场转入生产一线。品牌端，10月24日i茅台APP开启四季文化酒套装礼盒领取活动。三季报预约披露日为10月31日，本周处于业绩静默前的信息空窗期。
