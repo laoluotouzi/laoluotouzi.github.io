@@ -61,9 +61,7 @@
 
 ## 输入内容
 
-主题：分众传媒三季报
+主题：泡泡玛特三季报
 内容：
 
-参考 https://mp.weixin.qq.com/s/_tZq5gGqeMXUIc5nio8d6Q
-
-分众传媒属于周期型企业，使用席勒估值法，等年报发布后再重新估值。
+https://mp.weixin.qq.com/s/WncE1-aBK0qw6obzhqrFXA  参考这个文章
