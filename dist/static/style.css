@@ -575,11 +575,16 @@ a.post-nav-item:hover .post-nav-title {
     min-width: 0;
 }
 
-.post-card-title-row {
+.post-card-meta {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: 12px;
+    margin-top: 8px;
+}
+
+.post-card-meta .post-card-tags {
+    margin-top: 0;
+    min-width: 0;
 }
 
 .post-card-date {
@@ -588,6 +593,7 @@ a.post-nav-item:hover .post-nav-title {
     font-weight: 500;
     white-space: nowrap;
     flex-shrink: 0;
+    margin-left: auto;
 }
 
 .post-card-title {
@@ -1180,6 +1186,10 @@ a.pagination-page:hover {
     .post-card-thumb {
         width: 60px;
         height: 60px;
+    }
+
+    .post-card-date {
+        display: none;
     }
 
     .post-card-desc {
