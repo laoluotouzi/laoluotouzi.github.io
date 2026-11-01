@@ -613,6 +613,7 @@ a.post-nav-item:hover .post-nav-title {
 }
 
 .post-card-desc {
+    margin-top: 5px;
     color: #777;
     font-size: 0.88em;
     line-height: 1.5;
