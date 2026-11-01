@@ -36,7 +36,7 @@
                     <ul class="sidebar-recent-posts">
                         {% for post in sidebar.recent_posts %}
                         <li>
-                            <a href="{{ post.url }}">{{ post.title }}</a>
+                            <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                             <time>{{ post.date.strftime('%Y-%m-%d') }}</time>
                         </li>
                         {% endfor %}
